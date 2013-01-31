@@ -1,31 +1,35 @@
 package food;
 
-import encrypt.BCrypt;
-
 /**
  * This class will hold all fruit specific data. Extends from the Food super
  * class.
  *
- * @author Paul Trott (ptrott) Date: January 23, 2013
+ * @author Paul Trott (ptrott) Date: January 23, 2013 Date Modified: January 30,
+ * 2012 (Changed to implement Interface)
  */
-public class Fruit extends Food {
+public class Fruit implements IFood {
 
     //instance variables
-    private String name;
+    private boolean sweet;
+    private boolean sour;
+    private String description;
+    private Food food;
 
     /**
      * Default no-arg constructor for Fruit class.
      */
     public Fruit() {
         //call super class no-arg constructor.
-        super();
-        this.name = "noname";
+        food = new Food();
+        this.sweet = false;
+        this.sour = false;
     }
 
     /**
      * Overloaded constructor for Fruit class.
      *
      * @param name
+     * @param description
      * @param calories
      * @param caloriesFromFat
      * @param servingSize
@@ -34,11 +38,19 @@ public class Fruit extends Food {
      * @param carbs
      * @param sweet
      */
-    public Fruit(String name, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
-            double carbs) {
-        //call super class overloaded constructor.
-        super(calories, caloriesFromFat, servingSize, protein, fat, carbs);
-        this.name = name;
+    public Fruit(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
+            double carbs, boolean sweet) {
+        //call Food overloaded constructor.
+        food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
+
+        if (sweet == true) {
+            this.sweet = sweet;
+            this.sour = false;
+        } else {
+            this.sour = true;
+            this.sweet = false;
+        }
+
     }
 
     /**
@@ -48,7 +60,7 @@ public class Fruit extends Food {
      */
     @Override
     public String getName() {
-        return name;
+        return food.getName();
     }
 
     /**
@@ -58,33 +70,222 @@ public class Fruit extends Food {
      */
     @Override
     public void setName(String name) {
-        this.name = name;
+        food.setName(name);
+    }
+
+    /**
+     * Getter for calories
+     *
+     * @return calories
+     */
+    @Override
+    public int getCalories() {
+        return food.getCalories();
+    }
+
+    /**
+     * Setter for calories.
+     *
+     * @param calories
+     */
+    @Override
+    public void setCalories(int calories) {
+        food.setCalories(calories);
+    }
+
+    /**
+     * Getter for caloriesFromFat
+     *
+     * @return caloriesFromFat
+     */
+    @Override
+    public int getCaloriesFromFat() {
+        return food.getCaloriesFromFat();
+    }
+
+    /**
+     * Setter for caloriesFromFat
+     *
+     * @param caloriesFromFat
+     */
+    @Override
+    public void setCaloriesFromFat(int caloriesFromFat) {
+        food.setCaloriesFromFat(caloriesFromFat);
+    }
+
+    /**
+     * Getter for servingSize
+     *
+     * @return servingSize
+     */
+    @Override
+    public double getServingSize() {
+        return food.getServingSize();
+    }
+
+    /**
+     * Setter for servingSize
+     *
+     * @param servingSize
+     */
+    @Override
+    public void setServingSize(double servingSize) {
+        food.setServingSize(servingSize);
+    }
+
+    /**
+     * Getter for protein
+     *
+     * @return protein
+     */
+    @Override
+    public double getProtein() {
+        return food.getServingSize();
+    }
+
+    /**
+     * Setter for protein
+     *
+     * @param protein
+     */
+    @Override
+    public void setProtein(double protein) {
+        food.setServingSize(protein);
+    }
+
+    /**
+     * Getter for fat
+     *
+     * @return fat
+     */
+    @Override
+    public double getFat() {
+        return food.getFat();
+    }
+
+    /**
+     * Setter for fat
+     *
+     * @param fat
+     */
+    @Override
+    public void setFat(double fat) {
+        food.setFat(fat);
+    }
+
+    /**
+     * Getter for carbs
+     *
+     * @return carbs
+     */
+    @Override
+    public double getCarbs() {
+        return food.getCarbs();
+    }
+
+    /**
+     * Setter for carbs
+     *
+     * @param carbs
+     */
+    @Override
+    public void setCarbs(double carbs) {
+        food.setCarbs(carbs);
+    }
+
+    /**
+     * Getter for sweet
+     *
+     * @return
+     */
+    public boolean isSweet() {
+        return this.sweet;
+    }
+
+    /**
+     * Setter for sweet
+     *
+     * @param bool
+     */
+    public void setSweet(boolean bool) {
+        if (bool) {
+            this.sweet = true;
+            this.sour = false;
+        } else {
+            this.sweet = false;
+            this.sour = true;
+        }
+    }
+
+    /**
+     * Getter for sour.
+     *
+     * @return sour
+     */
+    public boolean isSour() {
+            return sour;
+    }
+
+    /**
+     * Setter for sour.
+     *
+     * @param sour
+     */
+    public void setSour(boolean sour) {
+        if (sour) {
+            this.sour = sour;
+            this.sweet = true;
+        } else {
+            this.sour = false;
+            this.sweet = true;
+        }
     }
     
-    /*
-    public static void main(String[] args) {
-        //Test for fruit class.
-        Food apple = new Fruit("Apple", 235, 112, 1.5, 13.4, 12.54, 23.22);
+    /**
+     * Getter for description
+     * @return description
+     */
+    @Override
+    public String getDescription(){
+        return description;
+    }
+    
+    /**
+     * 
+     * @param description 
+     */
+    @Override
+    public void setDescription(String description){
+            this.description = description;
+    }
+    
+    
+     public static void main(String[] args) {
+     //Test for fruit class.
+     IFood apple = new Fruit("Apple", "Happy Birthday everyone this is great", 235, 112, 1.5, 13.4, 12.54, 23.22, true);
 
-        System.out.println("Name: " + apple.getName() + "\nCalories: "
-                + apple.getCalories() + "\nCalorie from Fat: " + apple.getCaloriesFromFat()
-                + "\nServing Size: " + apple.getServingSize()
-                + "\nProtein: " + apple.getProtein()
-                + "\nFat: " + apple.getFat()
-                + "\nCarbs: " + apple.getCarbs() + "\n");
+     Fruit apple2 = (Fruit) apple;
+     
+     System.out.println("Name: " + apple2.getName() + "\nDescription: " + apple2.getDescription()
+             + "\nCalories: "
+     + apple2.getCalories() + "\nCalorie from Fat: " + apple2.getCaloriesFromFat()
+     + "\nServing Size: " + apple2.getServingSize()
+     + "\nProtein: " + apple2.getProtein()
+     + "\nFat: " + apple2.getFat()
+     + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nSour: " + apple2.isSour() );
 
-* //ECRYPTION TEST
-        String pw = "paul";
-        String pw_hash = BCrypt.hashpw(pw, BCrypt.gensalt(15));
+     /*/ECRYPTION TEST..................
+     String pw = "paul";
+     String pw_hash = BCrypt.hashpw(pw, BCrypt.gensalt(15));
 
-        System.out.println(pw_hash);
+     System.out.println(pw_hash);
 
-        if (BCrypt.checkpw("paul", pw_hash)) {
-            System.out.println("It matches!");
-        } else {
-            System.out.println("It does not match!");
-        }
+     if (BCrypt.checkpw("paul", pw_hash)) {
+     System.out.println("It matches!");
+     } else {
+     System.out.println("It does not match!");
+     }*/
 
 
-    }*/
+     }
 }
