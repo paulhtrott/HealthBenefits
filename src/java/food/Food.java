@@ -1,6 +1,6 @@
 package food;
 
-import java.text.NumberFormat;
+
 
 /**
  * This class will hold data for a super class of Food.
@@ -11,7 +11,7 @@ import java.text.NumberFormat;
  * Date Modified: January 25, 2013
  */
 
-public class Food {
+public class Food implements IFood{
     
     //Instance variables.
     private String name;
@@ -45,9 +45,9 @@ public class Food {
      * @param fat
      * @param carbs 
      */
-    public Food(int calories, int caloriesFromFat, double servingSize, 
+    public Food(String name, int calories, int caloriesFromFat, double servingSize, 
             double protein, double fat, double carbs){
-        name = "noname";
+        this.name = name;
         this.setCalories(calories);
         this.setCaloriesFromFat(caloriesFromFat);
         this.setServingSize(servingSize);
@@ -61,6 +61,7 @@ public class Food {
      * Getter for calories.
      * @return calories
      */
+    @Override
     public int getCalories() {
         return calories;
     }
@@ -69,6 +70,7 @@ public class Food {
      * Setter for calories.
      * @param calories 
      */
+    @Override
     public final void setCalories(int calories) {
         String str = "" + calories ;// form string for compare..
         //if calories is less than zero.
@@ -89,6 +91,7 @@ public class Food {
      * Getter for caloriesFromFat.
      * @return caloriesFromFat
      */
+    @Override
     public int getCaloriesFromFat() {
         return caloriesFromFat;
     }
@@ -97,6 +100,7 @@ public class Food {
      * Setter for caloriesFromFat.
      * @param caloriesFromFat 
      */
+    @Override
     public final void setCaloriesFromFat(int caloriesFromFat) {
         String str = "" + caloriesFromFat;// form string for compare..
         //if caloriesFromFat is less than zero.
@@ -117,6 +121,7 @@ public class Food {
      * Getter for servingSize.
      * @return servingSize
      */
+    @Override
     public double getServingSize() {
         return servingSize;
     }
@@ -125,6 +130,7 @@ public class Food {
      * Setter for servingSize.
      * @param servingSize 
      */
+    @Override
     public final void setServingSize(double servingSize) {
         //if serving size is less than zero.
         if (servingSize < 0) {
@@ -148,6 +154,7 @@ public class Food {
      * Getter for protein.
      * @return protein
      */
+    @Override
     public double getProtein() {
         return protein;
     }
@@ -156,6 +163,7 @@ public class Food {
      * Setter for protein.
      * @param protein 
      */
+    @Override
     public final void setProtein(double protein) {
         //if protein is less than zero.
         if (protein < 0) {
@@ -179,6 +187,7 @@ public class Food {
      * Getter for fat.
      * @return fat
      */
+    @Override
     public double getFat() {
         return fat;
     }
@@ -187,6 +196,7 @@ public class Food {
      * Setter for fat.
      * @param fat 
      */
+    @Override
     public final void setFat(double fat) {
         //if fat is less than zero.
         if (fat < 0) {
@@ -210,6 +220,7 @@ public class Food {
      * Getter for carbs
      * @return carbs
      */
+    @Override
     public double getCarbs() {
         return carbs;
     }
@@ -218,6 +229,7 @@ public class Food {
      * Setter for carbs
      * @param carbs 
      */
+    @Override
     public final void setCarbs(double carbs) {
         //if carbs is less than zero.
         if (carbs < 0) {
@@ -243,6 +255,7 @@ public class Food {
      * @param food
      * @return food name
      */
+    @Override
     public String getName(){
         return name;
     }
@@ -251,6 +264,7 @@ public class Food {
      * Setter for food name
      * @param name 
      */
+    @Override
     public void setName(String name){
         this.name = name;
     }
