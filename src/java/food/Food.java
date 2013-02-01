@@ -5,6 +5,8 @@ package food;
 /**
  * This class will hold data for a super class of Food.
  * Class holds all common information for all food types.
+ * Individual food categories will use an instance of a Food object
+ * to fill individual food information.
  *  
  * @author Paul Trott (ptrott)
  * Date: January 23, 2013
@@ -15,6 +17,7 @@ public class Food implements IFood{
     
     //Instance variables.
     private String name;
+    private String description;
     private int calories;
     private int caloriesFromFat;
     private double servingSize;
@@ -26,7 +29,8 @@ public class Food implements IFood{
      * Default no-arg constructor for Food Super Class.
      */
     public Food(){
-        name = "noname";
+        name = "no name";
+        description = "no description";
         calories = 0;
         caloriesFromFat = 0;
         servingSize = 0.0d;
@@ -45,9 +49,10 @@ public class Food implements IFood{
      * @param fat
      * @param carbs 
      */
-    public Food(String name, int calories, int caloriesFromFat, double servingSize, 
+    public Food(String name, String description, int calories, int caloriesFromFat, double servingSize, 
             double protein, double fat, double carbs){
-        this.name = name;
+        this.setName(name);
+        this.setDescription(description);
         this.setCalories(calories);
         this.setCaloriesFromFat(caloriesFromFat);
         this.setServingSize(servingSize);
@@ -265,8 +270,36 @@ public class Food implements IFood{
      * @param name 
      */
     @Override
-    public void setName(String name){
-        this.name = name;
+    public final void setName(String name){
+        //Check the length of the name
+        if(name.length() < 2){
+            this.name = "no name";
+        } else {
+            this.name = name;
+        }
+        
+    }
+
+    /**
+     * Getter for description
+     * @return description
+     */
+    @Override
+    public String getDescription(){
+        return description;
+    }
+    
+    /**
+     * Setter for description
+     * @param description 
+     */
+    @Override
+    public final void setDescription(String description){
+        if(description.length() < 20){
+            this.description = "no description";
+        } else {
+            this.description = description;
+        }
     }
     
     
