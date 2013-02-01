@@ -8,10 +8,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * junit tests of class Food.
+ * junit Tests of class Food.
  * @author Paul Trott (ptrott)
  * Date: January 24, 2013
- * Date Modified: January 25, 2012
+ * Date Modified: January 31, 2012
  */
 public class FoodTest {
     
@@ -21,26 +21,18 @@ public class FoodTest {
     
     @BeforeClass
     public static void setUpClass() {
-        // run before each set of tests.
-        System.out.println("running setup");
     }
     
     @AfterClass
     public static void tearDownClass() {
-        // run after all of the tests have run.
-        System.out.println("running teardown");
     }
     
     @Before
     public void setUp() {
-        //instance method run before each test.
-        System.out.println("running setup before each test");
     }
     
     @After
     public void tearDown() {
-        //run after each test.
-        System.out.println("running teardown after each test");
     }
 
     /**
@@ -52,7 +44,7 @@ public class FoodTest {
         Food instance = new Food();
         
         //Test name value
-        String expResult = "noname";
+        String expResult = "no name";
         String result = instance.getName();
         assertEquals(expResult, result);
         
@@ -89,6 +81,67 @@ public class FoodTest {
     }
     
     /**
+     * Test of the Overloaded constructor, of class Food.
+     */
+    @Test
+    public void testOverloadedFood(){
+        System.out.println("Overloaded constructor");
+        Food instance = new Food("Herring", "According to the American Heart Association, "
+                + "herring is rich in two fatty acids called eicosapentaenoic acid "
+                + "and decosahexaenoic acid. Eicosapentaenoic acid, or EPA is "
+                + "clinically shown to reduce triglycerides, inflammation and "
+                + "may reduce risk of heart disease. EPA may also help to reduce "
+                + "blood pressure for people who have hypertension.", 245, 126, 4, 
+            27.8, 14, 0);
+        
+        //Test name value
+        String expResult = "Herring";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+        
+        //Test description value
+        String expResultDesc = "According to the American Heart Association, "
+                + "herring is rich in two fatty acids called eicosapentaenoic "
+                + "acid and decosahexaenoic acid. Eicosapentaenoic acid, or EPA "
+                + "is clinically shown to reduce triglycerides, inflammation and"
+                + " may reduce risk of heart disease. EPA may also help to "
+                + "reduce blood pressure for people who have hypertension.";
+        String resultDesc = instance.getDescription();
+        assertEquals(expResultDesc, resultDesc);
+        
+        //Test calories value
+        int expResultCal = 245;
+        int resultCal = instance.getCalories();
+        assertEquals(expResultCal, resultCal);
+        
+        //Test caloriesFromFat value
+        int expResultCalsFromFat = 126;
+        int resultCalsFromFat = instance.getCaloriesFromFat();
+        assertEquals(expResultCalsFromFat, resultCalsFromFat);
+        
+        //Test servingSize value
+        double expResultServingSize = 4;
+        double resultServingSize = instance.getServingSize();
+        assertEquals(expResultServingSize, resultServingSize, 0.0);
+        
+        //Test protein value
+        double expResultProtein = 27.8;
+        double resultProtein = instance.getProtein();
+        assertEquals(expResultProtein, resultProtein, 0.0);
+        
+        //Test fat value
+        double expResultFat = 14;
+        double resultFat = instance.getFat();
+        assertEquals(expResultFat, resultFat, 0.0);
+        
+        //Test carbs value
+        double expResultCarbs = 0;
+        double resultCarbs = instance.getCarbs();
+        assertEquals(expResultCarbs, resultCarbs, 0.0);
+        
+    }
+    
+    /**
      * Test of getCalories method, of class Food.
      */
     @Test
@@ -116,7 +169,7 @@ public class FoodTest {
     @Test
     public void testSetCalories() {
         System.out.println("setCalories");
-        Food instance = new Food();
+        Food instance = new Food();        
         //To test a negative entered number.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -498,26 +551,27 @@ public class FoodTest {
             int randNum = (int) ( (Math.random() * (5 - 1) ) + 1);
             //set name to a different value depending on the random number.
             switch(randNum){
-                case 1 :
-                        instance.setName("Travis");
-                        expResult = "Travis";
-                break;
-                case 2 : 
-                        instance.setName("Kiley");
-                        expResult = "Kiley";
-                break;
-                case 3 : 
-                        instance.setName("Justyn");
-                        expResult = "Justyn";
-                break;
-                case 4 : 
-                        instance.setName("Alton");
-                        expResult = "Alton";
-                break;
-                default :
-                        instance.setName("Patrick");
-                        expResult = "Patrick";
-                break;
+                case 1:
+                    //Test if name is less then 2 characters.
+                    instance.setName("H");
+                    expResult = "no name";
+                    break;
+                case 2:
+                    instance.setName("Apple");
+                    expResult = "Apple";
+                    break;
+                case 3:
+                    instance.setName("Pineapple Fruit");
+                    expResult = "Pineapple Fruit";
+                    break;
+                case 4:
+                    instance.setName("Carrot");
+                    expResult = "Carrot";
+                    break;
+                default:
+                    instance.setName("Beans");
+                    expResult = "Beans";
+                    break;
             }
         }
         
@@ -540,31 +594,83 @@ public class FoodTest {
             int randNum = (int) ( (Math.random() * (5 - 1) ) + 1);
             //set name to a different value depending on the random number.
             switch(randNum){
-                case 1 :
-                        instance.setName("Travis");
-                        expResult = "Travis";
-                break;
-                case 2 : 
-                        instance.setName("Kiley");
-                        expResult = "Kiley";
-                break;
-                case 3 : 
-                        instance.setName("Justyn");
-                        expResult = "Justyn";
-                break;
-                case 4 : 
-                        instance.setName("Alton");
-                        expResult = "Alton";
-                break;
-                default :
-                        instance.setName("Patrick");
-                        expResult = "Patrick";
-                break;
+                case 1:
+                    //Test if name is less then 2 characters.
+                    instance.setName("H");
+                    expResult = "no name";
+                    break;
+                case 2:
+                    instance.setName("Apple");
+                    expResult = "Apple";
+                    break;
+                case 3:
+                    instance.setName("Pineapple Fruit");
+                    expResult = "Pineapple Fruit";
+                    break;
+                case 4:
+                    instance.setName("Carrot");
+                    expResult = "Carrot";
+                    break;
+                default:
+                    instance.setName("Beans");
+                    expResult = "Beans";
+                    break;
             }
         }
         
         String result = instance.getName();
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getDescription method, of class Food.
+     */
+    @Test
+    public void testGetDescription() {
+        System.out.println("getDescription");
+        Food instance = new Food();
+        
+        //Test the result of a description of less than 20 characters.
+        //Should return "no description.
+        {
+        instance.setDescription("Less then 20 chars");
+        String expResult = "no description";
+        String result = instance.getDescription();
+        assertEquals(expResult, result);
+        }
+        
+        //Test the result of a description of 20 or more characters.
+        {
+        instance.setDescription("This is more then 20 characters");
+        String expResult = "This is more then 20 characters";
+        String result = instance.getDescription();
+        assertEquals(expResult, result);
+        }
+    }
+
+    /**
+     * Test of setDescription method, of class Food.
+     */
+    @Test
+    public void testSetDescription() {
+        System.out.println("setDescription");
+        Food instance = new Food();
+        //Test the result of a description of less than 20 characters.
+        //Should return "no description.
+        {
+        instance.setDescription("Less then 20 chars");
+        String expResult = "no description";
+        String result = instance.getDescription();
+        assertEquals(expResult, result);
+        }
+        
+        //Test the result of a description of 20 or more characters.
+        {
+        instance.setDescription("This is more then 20 characters");
+        String expResult = "This is more then 20 characters";
+        String result = instance.getDescription();
+        assertEquals(expResult, result);
+        }
     }
     
 }

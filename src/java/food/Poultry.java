@@ -7,16 +7,15 @@ package food;
  * @author Paul Trott (ptrott)
  * Date: January 26, 2013
  */
-public class Poultry extends Meat{
+public class Poultry extends Meat implements IFood{
     //Instance variable
-    private String name;
+    private Food food;
     
     /**
      * no-arg Default Constructor
      */
     public Poultry(){
-        super();
-        this.name = "noname";
+        food = new Food();
     }
     
     /**

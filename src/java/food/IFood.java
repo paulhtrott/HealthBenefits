@@ -94,4 +94,16 @@ public interface IFood {
      * @param name 
      */
     public void setName(String name);
+    
+    /**
+     * Getter for food description
+     * @return description
+     */
+    public String getDescription();
+    
+    /**
+     * Setter for food description
+     * @param description 
+     */
+    public void setDescription(String description);
 }

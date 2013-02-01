@@ -1,8 +1,8 @@
 package food;
 
 /**
- * This class will hold all fruit specific data. Extends from the Food super
- * class.
+ * This class will hold all fruit specific data.
+ * Implements the Food Interface class.
  *
  * @author Paul Trott (ptrott) Date: January 23, 2013 Date Modified: January 30,
  * 2012 (Changed to implement Interface)
@@ -12,7 +12,6 @@ public class Fruit implements IFood {
     //instance variables
     private boolean sweet;
     private boolean sour;
-    private String description;
     private Food food;
 
     /**
@@ -192,6 +191,24 @@ public class Fruit implements IFood {
     public void setCarbs(double carbs) {
         food.setCarbs(carbs);
     }
+    
+    /**
+     * Getter for description
+     * @return description
+     */
+    @Override
+    public String getDescription(){
+        return food.getDescription();
+    }
+    
+    /**
+     * Setter for description
+     * @param description 
+     */
+    @Override
+    public void setDescription(String description){
+           food.setDescription(description);
+    }
 
     /**
      * Getter for sweet
@@ -234,37 +251,23 @@ public class Fruit implements IFood {
     public void setSour(boolean sour) {
         if (sour) {
             this.sour = sour;
-            this.sweet = true;
+            this.sweet = false;
         } else {
             this.sour = false;
             this.sweet = true;
         }
     }
     
-    /**
-     * Getter for description
-     * @return description
-     */
-    @Override
-    public String getDescription(){
-        return description;
-    }
     
-    /**
-     * 
-     * @param description 
-     */
-    @Override
-    public void setDescription(String description){
-            this.description = description;
-    }
-    
-    
+    /*
      public static void main(String[] args) {
      //Test for fruit class.
-     IFood apple = new Fruit("Apple", "Happy Birthday everyone this is great", 235, 112, 1.5, 13.4, 12.54, 23.22, true);
+     IFood apple = new Fruit("Apple", "Happy Birthday to me! Apple works.", 235, 112, 1.5, 13.4, 12.54, 23.22, false);
 
      Fruit apple2 = (Fruit) apple;
+     
+//     String happy = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4("\"Happy Birthday\" \"&\" \"Merry Christma's\"");
+//     System.out.println(happy);
      
      System.out.println("Name: " + apple2.getName() + "\nDescription: " + apple2.getDescription()
              + "\nCalories: "
@@ -274,18 +277,18 @@ public class Fruit implements IFood {
      + "\nFat: " + apple2.getFat()
      + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nSour: " + apple2.isSour() );
 
-     /*/ECRYPTION TEST..................
-     String pw = "paul";
-     String pw_hash = BCrypt.hashpw(pw, BCrypt.gensalt(15));
+//     //ECRYPTION TEST..................
+//     String pw = "paul";
+//     String pw_hash = BCrypt.hashpw(pw, BCrypt.gensalt(15));
+//
+//     System.out.println(pw_hash);
+//
+//     if (BCrypt.checkpw("paul", pw_hash)) {
+//     System.out.println("It matches!");
+//     } else {
+//     System.out.println("It does not match!");
+//     }
 
-     System.out.println(pw_hash);
 
-     if (BCrypt.checkpw("paul", pw_hash)) {
-     System.out.println("It matches!");
-     } else {
-     System.out.println("It does not match!");
      }*/
-
-
-     }
 }
