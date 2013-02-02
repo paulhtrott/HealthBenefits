@@ -1,13 +1,14 @@
 package food;
 
 /**
- * This class will hold all WildGame specific data.
+ * This class will hold all RedMeat specific data.
  * Extends from the Meat abstract class.
  * 
  * @author Paul Trott (ptrott)
- * Date: January 28, 2012
+ * Date: January 28, 2013
  */
-public class WildGame extends Meat {
+
+public class RedMeat extends Meat {
     
     //Instance variable
     private Food food;
@@ -15,8 +16,8 @@ public class WildGame extends Meat {
     /**
      * no-arg Default constructor.
      */
-    public WildGame(){
-        //call food no-arg default constructor
+    public RedMeat(){
+        //call the food no-arg default constructor
         food = new Food();
     }
     
@@ -31,9 +32,9 @@ public class WildGame extends Meat {
      * @param fat
      * @param carbs 
      */
-    public WildGame(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
+    public RedMeat(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
             double carbs){
-        //call super class overloaded constructor.
+        //call Food overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
     }
     
@@ -101,7 +102,7 @@ public class WildGame extends Meat {
     }
 
     /**
-     * Setter for the servingSize
+     * Setter for servingSize
      * @param servingSize 
      */
     @Override
@@ -128,8 +129,8 @@ public class WildGame extends Meat {
     }
 
     /**
-     * Getter for Fat
-     * @return 
+     * Getter for fat
+     * @return fat
      */
     @Override
     public double getFat() {
@@ -147,7 +148,7 @@ public class WildGame extends Meat {
 
     /**
      * Getter for carbs
-     * @return 
+     * @return carbs
      */
     @Override
     public double getCarbs() {
