@@ -8,12 +8,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * jUnit test of WildGame class
+ * jUnit test for RedMeat class.
  * @author Paul Trott (ptrott)
  */
-public class WildGameTest {
+public class RedMeatTest {
     
-    public WildGameTest() {
+    public RedMeatTest() {
     }
     
     @BeforeClass
@@ -32,13 +32,13 @@ public class WildGameTest {
     public void tearDown() {
     }
 
-     /**
-     * Test of the no-arg Default constructor, of class WildGame.
+    /**
+     * Test of the no-arg Default constructor, of class RedMeat.
      */
     @Test
-    public void testWildGame() {
+    public void testRedMeat() {
         System.out.println("Default no-arg constructor");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         //Test name value
         String expResult = "no name";
@@ -78,12 +78,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getCalories method, of class WildGame.
+     * Test of getCalories method, of class RedMeat.
      */
     @Test
     public void testGetCalories() {
         System.out.println("getCalories");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
 
         // To test a number with 4 or less digits.
@@ -100,12 +100,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setCalories method, of class WildGame.
+     * Test of setCalories method, of class RedMeat.
      */
     @Test
     public void testSetCalories() {
         System.out.println("setCalories");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test a negative entered number.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -141,12 +141,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getCaloriesFromFat method, of class WildGame.
+     * Test of getCaloriesFromFat method, of class RedMeat.
      */
     @Test
     public void testGetCaloriesFromFat() {
         System.out.println("getCaloriesFromFat");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         // To test a number with 4 or less digits.
         //for loop to run test with a random number 1000 times
@@ -162,12 +162,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setCaloriesFromFat method, of class WildGame.
+     * Test of setCaloriesFromFat method, of class RedMeat.
      */
     @Test
     public void testSetCaloriesFromFat() {
         System.out.println("setCaloriesFromFat");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test a negative entered number.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -203,12 +203,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getServingSize method, of class WildGame.
+     * Test of getServingSize method, of class RedMeat.
      */
     @Test
     public void testGetServingSize() {
         System.out.println("getServingSize");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         //To test numbers with 4 or less digits.
         //for loop to run test with a random number 1000 times
@@ -225,12 +225,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setServingSize method, of class WildGame.
+     * Test of setServingSize method, of class RedMeat.
      */
     @Test
     public void testSetServingSize() {
         System.out.println("setServingSize");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -271,12 +271,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getProtein method, of class WildGame.
+     * Test of getProtein method, of class RedMeat.
      */
     @Test
     public void testGetProtein() {
         System.out.println("getProtein");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         //To test numbers with 4 or less digits.
         //for loop to run test with a random number 1000 times
@@ -293,12 +293,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setProtein method, of class WildGame.
+     * Test of setProtein method, of class RedMeat.
      */
     @Test
     public void testSetProtein() {
         System.out.println("setProtein");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -339,12 +339,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getFat method, of class WildGame.
+     * Test of getFat method, of class RedMeat.
      */
     @Test
     public void testGetFat() {
         System.out.println("getFat");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test numbers with 4 or less digits.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -360,12 +360,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setFat method, of class WildGame.
+     * Test of setFat method, of class RedMeat.
      */
     @Test
     public void testSetFat() {
         System.out.println("setFat");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -407,12 +407,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getCarbs method, of class WildGame.
+     * Test of getCarbs method, of class RedMeat.
      */
     @Test
     public void testGetCarbs() {
         System.out.println("getCarbs");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         //To test numbers with 4 or less digits.
         //for loop to run test with a random number 1000 times
@@ -428,12 +428,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setCarbs method, of class WildGame.
+     * Test of setCarbs method, of class RedMeat.
      */
     @Test
     public void testSetCarbs() {
         System.out.println("setCarbs");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
         //giving an opportunity for the test to fail.
@@ -474,12 +474,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getName method, of class WildGame.
+     * Test of getName method, of class RedMeat.
      */
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         String expResult = "";
 
         //Run test 3 times.
@@ -516,12 +516,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setName method, of class WildGame.
+     * Test of setName method, of class RedMeat.
      */
     @Test
     public void testSetName() {
         System.out.println("setName");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         String expResult = "";
 
@@ -559,12 +559,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of getDescription method, of class WildGame.
+     * Test of getDescription method, of class RedMeat.
      */
     @Test
     public void testGetDescription() {
         System.out.println("getDescription");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
 
         //Test the result of a description of less than 20 characters.
         //Should return "no description.
@@ -585,12 +585,12 @@ public class WildGameTest {
     }
 
     /**
-     * Test of setDescription method, of class WildGame.
+     * Test of setDescription method, of class RedMeat.
      */
     @Test
     public void testSetDescription() {
         System.out.println("setDescription");
-        Meat instance = new WildGame();
+        Meat instance = new RedMeat();
         //Test the result of a description of less than 20 characters.
         //Should return "no description.
         {
