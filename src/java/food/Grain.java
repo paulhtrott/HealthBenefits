@@ -1,58 +1,128 @@
 package food;
 
 /**
- * This class will hold all Grain specific data.
- * Extends from the Food class.
+ * This abstract class for all meat specific data.
+ * Implements from the Food interface class (IFood).
+ * All methods are abstract having to be implemented by inheriting classes.
  * 
  * @author Paul Trott (ptrott)
  * Date: January 28, 2013
  */
-public class Grain extends Food{
+public abstract class Grain implements IFood{
     
-    //Instance variable
-    private String name;
-    
-    /**
-     * no-arg Default constructor.
-     */
-    public Grain(){
-        super();
-        this.name = "noname";
-    }
-    
-    /**
-     * Overloaded constructor.
-     * @param name
-     * @param calories
-     * @param caloriesFromFat
-     * @param servingSize
-     * @param protein
-     * @param fat
-     * @param carbs 
-     */
-    public Grain(String name, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
-            double carbs){
-        //call super class overloaded constructor.
-        super(calories, caloriesFromFat, servingSize, protein, fat, carbs);
-        this.name = name;
-    }
     
     /**
      * Setter for name.
      * @param name 
      */
     @Override
-    public void setName(String name){
-        this.name = name;
-    }
+    public abstract void setName(String name);
     
     /**
      * Getter for name.
      * @return name
      */
     @Override
-    public String getName(){
-        return this.name;
-    }
+    public abstract String getName();
+
+    /**
+     * Getter for calories
+     * @return calories
+     */
+    @Override
+    public abstract int getCalories();
+
+    /**
+     * Setter for calories
+     * @param calories 
+     */
+    @Override
+    public abstract void setCalories(int calories);
+
+    /**
+     * Getter for caloriesFromFat
+     * @return caloriesFromFat
+     */
+    @Override
+    public abstract int getCaloriesFromFat();
+
+    /**
+     * Setter for caloriesFromFat
+     * @param caloriesFromFat 
+     */
+    @Override
+    public abstract void setCaloriesFromFat(int caloriesFromFat);
+
+    /**
+     * Getter for servingSize
+     * @return servingSize
+     */
+    @Override
+    public abstract double getServingSize();
+
+    /**
+     * Setter for servingSize
+     * @param servingSize 
+     */
+    @Override
+    public abstract void setServingSize(double servingSize);
+
+    /**
+     * Getter for protein
+     * @return protein
+     */
+    @Override
+    public abstract double getProtein();
+
+    /**
+     * Setter for protein
+     * @param protein 
+     */
+    @Override
+    public abstract void setProtein(double protein);
+
+    /**
+     * Getter for fat
+     * @return fat
+     */
+    @Override
+    public abstract double getFat();
+
+    /**
+     * Setter for fat
+     * @param fat 
+     */
+    @Override
+    public abstract void setFat(double fat);
+
+    /**
+     * Getter for carbs
+     * @return carbs
+     */
+    @Override
+    public abstract double getCarbs();
+
+    /**
+     * Setter for carbs
+     * @param carbs 
+     */
+    @Override
+    public abstract void setCarbs(double carbs);
+
+    /**
+     * Getter for description
+     * @return 
+     */
+    @Override
+    public abstract String getDescription();
+
+    /**
+     * Setter for description
+     * @param description 
+     */
+    @Override
+    public abstract void setDescription(String description);
+    
+    
     
 }
