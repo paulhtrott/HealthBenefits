@@ -15,5 +15,6 @@
         <h1>This will hopefully be the new page for Health Benefits of foods.</h1>
         <p>We shall see how it goes.</p>
         <p>Not sure what the outcome will be.</p>
+        <p>Due date for this project: March 5, 2013</p>
     </body>
 </html>
