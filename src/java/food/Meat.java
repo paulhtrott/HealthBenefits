@@ -13,6 +13,13 @@ package food;
 public abstract class Meat implements IFood {
     
     /**
+     * Getter for FOOD_CODE
+     * return FOOD_CODE
+     */
+    @Override
+    public abstract String getFOOD_CODE();
+    
+    /**
      * Setter for name.
      * @param name 
      */

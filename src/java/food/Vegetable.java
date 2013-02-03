@@ -8,13 +8,17 @@ package food;
  */
 public class Vegetable implements IFood {
 
+    //Final variable to hold Vegetable code.
+    private final String FOOD_CODE = "0002";
+    
     //Instance variables
     private boolean greens;
     private boolean stalk;
     private boolean tuber;
     private boolean root;
     private boolean mushroom;
-    private Food food;
+    //Instantiate a food object.
+    private final Food food;
 
     /**
      * Default no-arg constructor.
@@ -53,6 +57,15 @@ public class Vegetable implements IFood {
         this.root = false;
         this.mushroom = false;
 
+    }
+    
+    /**
+     * Getter for FOOD_CODE
+     * @return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
 
     /**

@@ -8,11 +8,15 @@ package food;
  * 2012 (Changed to implement Interface)
  */
 public class Fruit implements IFood {
+    
+    //FINAL instance variable for Fruit code.
+    private final String FOOD_CODE = "0001";
 
     //instance variables
     private boolean sweet;
     private boolean sour;
-    private Food food;
+    //Instantiate a food object.
+    private final Food food;
 
     /**
      * Default no-arg constructor for Fruit class.
@@ -52,6 +56,15 @@ public class Fruit implements IFood {
 
     }
 
+    /**
+     * Getter for FOOD_CODE
+     * @return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
+    }
+    
     /**
      * Getter for name.
      *

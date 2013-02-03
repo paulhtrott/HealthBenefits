@@ -8,9 +8,10 @@ package food;
  * Date: January 28, 2012
  */
 public class WildGame extends Meat {
-    
-    //Instance variable
-    private Food food;
+    //Final variable to hold WildGame FOOD CODE
+    private final String FOOD_CODE = "0006";
+    //Instantiate a food object.
+    private final Food food;
     
     /**
      * no-arg Default constructor.
@@ -35,6 +36,15 @@ public class WildGame extends Meat {
             double carbs){
         //call super class overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
+    }
+    
+    /**
+     * Getter for FOOD_CODE
+     * return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
     
     /**

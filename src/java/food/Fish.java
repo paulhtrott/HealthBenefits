@@ -10,8 +10,11 @@ package food;
  */
 public class Fish extends Meat {
 
+    //Final variable to hold Fish FOOD CODE
+    private final String FOOD_CODE = "0005";
+    //Instantiate a food object.
+    private final Food food;
     //Instance variable
-    private Food food;
     private boolean saltwater;
     private boolean freshwater;
     private boolean freshAndSaltwater;
@@ -46,6 +49,16 @@ public class Fish extends Meat {
         saltwater = false;
         freshwater = false;
         freshAndSaltwater = false;
+    }
+
+    /**
+     * Getter for FOOD_CODE
+     *
+     * @return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE() {
+        return FOOD_CODE;
     }
 
     /**

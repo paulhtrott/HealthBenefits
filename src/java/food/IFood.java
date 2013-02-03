@@ -10,6 +10,13 @@ package food;
 public interface IFood {
     
     //Methods for all food objects to be required to use.
+    
+    /**
+     * Getter for code.
+     * @return 
+     */
+    public String getFOOD_CODE();
+    
     /**
      * Getter for calories.
      * @return calories 

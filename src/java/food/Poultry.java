@@ -7,9 +7,10 @@ package food;
  * @author Paul Trott (ptrott) Date: January 26, 2013
  */
 public class Poultry extends Meat {
-    
-    //Instance variable
-    private Food food;
+    //Final variabel to hold Poultry FOOD CODE.
+    private final String FOOD_CODE = "0004";
+    //Instantiate a food object.
+    private final Food food;
 
     /**
      * no-arg Default Constructor
@@ -34,6 +35,15 @@ public class Poultry extends Meat {
             double servingSize, double protein, double fat, double carbs) {
         //call super class overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
+    }
+    
+    /**
+     * Getter for FOOD_CODE
+     * return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
 
     /**

@@ -9,7 +9,13 @@ package food;
  * Date: January 28, 2013
  */
 public abstract class Grain implements IFood{
-    
+
+    /**
+     * Getter for FOOD_CODE
+     * @return 
+     */
+    @Override
+    public abstract String getFOOD_CODE();
     
     /**
      * Setter for name.

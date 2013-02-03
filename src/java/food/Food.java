@@ -16,6 +16,7 @@ package food;
 public class Food implements IFood{
     
     //Instance variables.
+    private final String FOOD_CODE = "0000"; //Final variable for FOOD_CODE.
     private String name;
     private String description;
     private int calories;
@@ -60,6 +61,15 @@ public class Food implements IFood{
         this.setFat(fat);
         this.setCarbs(carbs);
         
+    }
+    
+    /**
+     * Getter for CODE.
+     * @return CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
 
     /**

@@ -12,9 +12,10 @@ package food;
  */
 
 public class FruitVeg implements IFood{
-    
-    //Instance variables
-    private Food food;
+    //Final variable to hold FruitVeg Food code.
+    private final String FOOD_CODE = "0003";
+    //Instantiate a food object.
+    private final Food food;
     
     /**
      * no-arg Default constructor for FruitVeg class.
@@ -41,6 +42,15 @@ public class FruitVeg implements IFood{
         food = new Food(name, description, calories, caloriesFromFat, 
                 servingSize, protein, fat, carbs);
         
+    }
+    
+    /**
+     * Getter for FOOD_CODE
+     * @return FOOD_CODE
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
     
     /**

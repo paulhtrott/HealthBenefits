@@ -9,9 +9,10 @@ package food;
  */
 
 public class RedMeat extends Meat {
-    
-    //Instance variable
-    private Food food;
+    //Final variabel to hold RedMeat FOOD CODE
+    private final String FOOD_CODE = "0007";
+    //Instantiate a food object.
+    private final Food food;
     
     /**
      * no-arg Default constructor.
@@ -36,6 +37,15 @@ public class RedMeat extends Meat {
             double carbs){
         //call Food overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
+    }
+    
+    /**
+     * Getter for FOOD CODE
+     * @return FOOD_CODE;
+     */
+    @Override
+    public String getFOOD_CODE(){
+        return FOOD_CODE;
     }
     
     /**
