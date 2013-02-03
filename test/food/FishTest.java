@@ -959,4 +959,16 @@ public class FishTest {
             }
         }
     }
+
+    /**
+     * Test of getFOOD_CODE method, of class Fish.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        Fish instance = new Fish();
+        String expResult = "0005";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
 }

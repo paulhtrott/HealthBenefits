@@ -608,4 +608,16 @@ public class RedMeatTest {
             assertEquals(expResult, result);
         }
     }
+
+    /**
+     * Test of getFOOD_CODE method, of class RedMeat.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        RedMeat instance = new RedMeat();
+        String expResult = "0007";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
 }

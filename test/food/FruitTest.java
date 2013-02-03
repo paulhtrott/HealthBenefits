@@ -20,15 +20,15 @@ public class FruitTest {
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -39,6 +39,7 @@ public class FruitTest {
     @Test
     public void testFruit() {
         System.out.println("Default no-arg constructor");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         //Test name value
@@ -79,11 +80,26 @@ public class FruitTest {
     }
 
     /**
+     * Test of getFOOD_CODE method, of class Fruit.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        //Instantiate a Fruit object
+        Fruit instance = new Fruit();
+
+        String expResult = "0001";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Test of getCalories method, of class Fruit.
      */
     @Test
     public void testGetCalories() {
         System.out.println("getCalories");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
 
@@ -106,6 +122,7 @@ public class FruitTest {
     @Test
     public void testSetCalories() {
         System.out.println("setCalories");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test a negative entered number.
         //for loop to run test with a random number 1000 times
@@ -147,6 +164,7 @@ public class FruitTest {
     @Test
     public void testGetCaloriesFromFat() {
         System.out.println("getCaloriesFromFat");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         // To test a number with 4 or less digits.
@@ -168,6 +186,7 @@ public class FruitTest {
     @Test
     public void testSetCaloriesFromFat() {
         System.out.println("setCaloriesFromFat");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test a negative entered number.
         //for loop to run test with a random number 1000 times
@@ -209,6 +228,7 @@ public class FruitTest {
     @Test
     public void testGetServingSize() {
         System.out.println("getServingSize");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         //To test numbers with 4 or less digits.
@@ -231,6 +251,7 @@ public class FruitTest {
     @Test
     public void testSetServingSize() {
         System.out.println("setServingSize");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
@@ -277,6 +298,7 @@ public class FruitTest {
     @Test
     public void testGetProtein() {
         System.out.println("getProtein");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         //To test numbers with 4 or less digits.
@@ -299,6 +321,7 @@ public class FruitTest {
     @Test
     public void testSetProtein() {
         System.out.println("setProtein");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
@@ -345,6 +368,7 @@ public class FruitTest {
     @Test
     public void testGetFat() {
         System.out.println("getFat");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test numbers with 4 or less digits.
         //for loop to run test with a random number 1000 times
@@ -366,6 +390,7 @@ public class FruitTest {
     @Test
     public void testSetFat() {
         System.out.println("setFat");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
@@ -413,6 +438,7 @@ public class FruitTest {
     @Test
     public void testGetCarbs() {
         System.out.println("getCarbs");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         //To test numbers with 4 or less digits.
@@ -434,6 +460,7 @@ public class FruitTest {
     @Test
     public void testSetCarbs() {
         System.out.println("setCarbs");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //To test negative numbers.
         //for loop to run test with a random number 1000 times
@@ -480,6 +507,7 @@ public class FruitTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         String expResult = "";
 
@@ -522,6 +550,7 @@ public class FruitTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         String expResult = "";
@@ -565,6 +594,7 @@ public class FruitTest {
     @Test
     public void testGetDescription() {
         System.out.println("getDescription");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
 
         //Test the result of a description of less than 20 characters.
@@ -591,6 +621,7 @@ public class FruitTest {
     @Test
     public void testSetDescription() {
         System.out.println("setDescription");
+        //Instantiate a Fruit object
         Fruit instance = new Fruit();
         //Test the result of a description of less than 20 characters.
         //Should return "no description.
@@ -627,6 +658,7 @@ public class FruitTest {
                     bool = false;
                 }
 
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSweet(bool);
                 boolean expResult = bool;
@@ -634,7 +666,7 @@ public class FruitTest {
                 assertEquals(expResult, result);
             }
         }
-        
+
         //Test to be sure sour is opposite of sweet (20 times).
         {
             boolean bool;
@@ -645,18 +677,18 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSweet(bool);
-                
+
                 boolean expResult;
-                
-                if(instance.isSweet()){
+
+                if (instance.isSweet()) {
                     expResult = false;
                 } else {
                     expResult = true;
                 }
-                
+
                 boolean result = instance.isSour();
                 assertEquals(expResult, result);
             }
@@ -678,7 +710,7 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSweet(bool);
                 boolean expResult = bool;
@@ -686,7 +718,7 @@ public class FruitTest {
                 assertEquals(expResult, result);
             }
         }
-        
+
         //Test to be sure sour is opposite of sweet (20 times).
         {
             boolean bool;
@@ -697,18 +729,18 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSweet(bool);
-                
+
                 boolean expResult;
-                
-                if(instance.isSweet()){
+
+                if (instance.isSweet()) {
                     expResult = false;
                 } else {
                     expResult = true;
                 }
-                
+
                 boolean result = instance.isSour();
                 assertEquals(expResult, result);
             }
@@ -731,7 +763,7 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSour(bool);
                 boolean expResult = bool;
@@ -739,7 +771,7 @@ public class FruitTest {
                 assertEquals(expResult, result);
             }
         }
-        
+
         //Test to be sure sweet is opposite of sour (20 times).
         {
             boolean bool;
@@ -750,18 +782,18 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSour(bool);
-                
+
                 boolean expResult;
-                
-                if(instance.isSour()){
+
+                if (instance.isSour()) {
                     expResult = false;
                 } else {
                     expResult = true;
                 }
-                
+
                 boolean result = instance.isSweet();
                 assertEquals(expResult, result);
             }
@@ -784,7 +816,7 @@ public class FruitTest {
                 } else {
                     bool = false;
                 }
-
+                //Instantiate a Fruit object
                 Fruit instance = new Fruit();
                 instance.setSour(bool);
                 boolean expResult = bool;
@@ -792,7 +824,7 @@ public class FruitTest {
                 assertEquals(expResult, result);
             }
         }
-        
+
         //Test to be sure sweet is opposite of sour (20 times).
         {
             boolean bool;
@@ -805,17 +837,18 @@ public class FruitTest {
                     bool = false;
                 }
 
+                //Instantiate a fruit object
                 Fruit instance = new Fruit();
                 instance.setSour(bool);
-                
+
                 boolean expResult;
-                
-                if(instance.isSour()){
+
+                if (instance.isSour()) {
                     expResult = false;
                 } else {
                     expResult = true;
                 }
-                
+
                 boolean result = instance.isSweet();
                 assertEquals(expResult, result);
             }

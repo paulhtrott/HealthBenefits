@@ -670,4 +670,16 @@ public class FruitVegTest {
         assertEquals(expResult, result);
         }
     }
+
+    /**
+     * Test of getFOOD_CODE method, of class FruitVeg.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        FruitVeg instance = new FruitVeg();
+        String expResult = "0003";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
 }

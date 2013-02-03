@@ -142,6 +142,19 @@ public class FoodTest {
     }
     
     /**
+     * Test of getCODE method, of class Food.
+     */
+    @Test
+    public void testGetFOOD_CODE(){
+        System.out.println("getFOOD_CODE");
+        Food instance = new Food();
+        
+        String expResult = "0000";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
+    
+    /**
      * Test of getCalories method, of class Food.
      */
     @Test

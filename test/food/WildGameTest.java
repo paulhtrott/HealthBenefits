@@ -608,4 +608,16 @@ public class WildGameTest {
             assertEquals(expResult, result);
         }
     }
+
+    /**
+     * Test of getFOOD_CODE method, of class WildGame.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        WildGame instance = new WildGame();
+        String expResult = "0006";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
 }

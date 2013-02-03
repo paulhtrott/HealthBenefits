@@ -608,5 +608,17 @@ public class PoultryTest {
             assertEquals(expResult, result);
         }
     }
+
+    /**
+     * Test of getFOOD_CODE method, of class Poultry.
+     */
+    @Test
+    public void testGetFOOD_CODE() {
+        System.out.println("getFOOD_CODE");
+        Poultry instance = new Poultry();
+        String expResult = "0004";
+        String result = instance.getFOOD_CODE();
+        assertEquals(expResult, result);
+    }
     
 }
