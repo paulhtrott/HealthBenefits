@@ -290,18 +290,6 @@ public class Fruit implements IFood {
      + "\nFat: " + apple2.getFat()
      + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nSour: " + apple2.isSour() );
 
-//     //ECRYPTION TEST..................
-//     String pw = "paul";
-//     String pw_hash = BCrypt.hashpw(pw, BCrypt.gensalt(15));
-//
-//     System.out.println(pw_hash);
-//
-//     if (BCrypt.checkpw("paul", pw_hash)) {
-//     System.out.println("It matches!");
-//     } else {
-//     System.out.println("It does not match!");
-//     }
-
 
      }*/
 }
