@@ -667,7 +667,7 @@ public class FruitTest {
             }
         }
 
-        //Test to be sure sour is opposite of sweet (20 times).
+        //Test to be sure acidic is opposite of sweet (20 times).
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
@@ -689,7 +689,7 @@ public class FruitTest {
                     expResult = true;
                 }
 
-                boolean result = instance.isSour();
+                boolean result = instance.isAcidic();
                 assertEquals(expResult, result);
             }
         }
@@ -719,7 +719,7 @@ public class FruitTest {
             }
         }
 
-        //Test to be sure sour is opposite of sweet (20 times).
+        //Test to be sure acidic is opposite of sweet (20 times).
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
@@ -741,19 +741,19 @@ public class FruitTest {
                     expResult = true;
                 }
 
-                boolean result = instance.isSour();
+                boolean result = instance.isAcidic();
                 assertEquals(expResult, result);
             }
         }
     }
 
     /**
-     * Test of isSour method, of class Fruit.
+     * Test of isAcidic method, of class Fruit.
      */
     @Test
-    public void testIsSour() {
-        System.out.println("isSour");
-        //Test the isSour method 20 times.
+    public void testIsAcidic() {
+        System.out.println("isAcidic");
+        //Test the isAcidic method 20 times.
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
@@ -765,14 +765,14 @@ public class FruitTest {
                 }
                 //Instantiate a Fruit object
                 Fruit instance = new Fruit();
-                instance.setSour(bool);
+                instance.setAcidic(bool);
                 boolean expResult = bool;
-                boolean result = instance.isSour();
+                boolean result = instance.isAcidic();
                 assertEquals(expResult, result);
             }
         }
 
-        //Test to be sure sweet is opposite of sour (20 times).
+        //Test to be sure sweet is opposite of acidic (20 times).
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
@@ -784,11 +784,11 @@ public class FruitTest {
                 }
                 //Instantiate a Fruit object
                 Fruit instance = new Fruit();
-                instance.setSour(bool);
+                instance.setAcidic(bool);
 
                 boolean expResult;
 
-                if (instance.isSour()) {
+                if (instance.isAcidic()) {
                     expResult = false;
                 } else {
                     expResult = true;
@@ -801,12 +801,12 @@ public class FruitTest {
     }
 
     /**
-     * Test of setSour method, of class Fruit.
+     * Test of setAcidic method, of class Fruit.
      */
     @Test
-    public void testSetSour() {
-        System.out.println("setSour");
-        //Test the isSour method 20 times.
+    public void testSetAcidic() {
+        System.out.println("setAcidic");
+        //Test the isAcidic method 20 times.
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
@@ -818,19 +818,18 @@ public class FruitTest {
                 }
                 //Instantiate a Fruit object
                 Fruit instance = new Fruit();
-                instance.setSour(bool);
+                instance.setAcidic(bool);
                 boolean expResult = bool;
-                boolean result = instance.isSour();
+                boolean result = instance.isAcidic();
                 assertEquals(expResult, result);
             }
         }
 
-        //Test to be sure sweet is opposite of sour (20 times).
+        //Test to be sure sweet is opposite of acidic (20 times).
         {
             boolean bool;
             for (int i = 0; i < 20; i++) {
                 int randNum = (int) ((Math.random() * (2)) + 1);
-                System.out.println(randNum);
                 if (randNum == 1) {
                     bool = true;
                 } else {
@@ -839,11 +838,11 @@ public class FruitTest {
 
                 //Instantiate a fruit object
                 Fruit instance = new Fruit();
-                instance.setSour(bool);
+                instance.setAcidic(bool);
 
                 boolean expResult;
 
-                if (instance.isSour()) {
+                if (instance.isAcidic()) {
                     expResult = false;
                 } else {
                     expResult = true;
