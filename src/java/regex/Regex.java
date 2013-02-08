@@ -5,7 +5,7 @@ import java.util.regex.*;
 
 
 /**
- * Regex patterns to test inputted String and other primitive types in classes,
+ * Regex patterns to test inputted Strings and primitive types in classes,
  * patterns must be passed before input items are written to classes/databases.
  *
  * @author Paul Trott (ptrott)
@@ -54,7 +54,8 @@ public class Regex {
      * This Regex match tests an email address entered and determines if the
      * email matches the pattern before it is passed into the object.
      * @param emailAddress
-     * @return 
+     * @return true if email address matches pattern
+     * @return false if email address does not match pattern 
      */
     public static boolean isEmailRegexMatch(String emailAddress) {
         //If emailToCheck matches Regex then return true.
