@@ -1,13 +1,13 @@
 package database;
 
 import java.sql.*;
-import javax.sql.DataSource;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 /**
  * The Connection Pool class for the derby database connection. A connection
  * pool is needed to control database connections. Settings for the Class are
- * set in the config xml file. Two static instance variables are assigned to the
+ * set in the config file. Two static instance variables are assigned to the
  * Class: ConnectionPool pool and DataSource dataSource. The class also contains
  * a private constructor.
  *
