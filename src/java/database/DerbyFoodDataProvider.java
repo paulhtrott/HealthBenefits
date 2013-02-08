@@ -15,8 +15,8 @@ public class DerbyFoodDataProvider implements IFoodDataProvider{
     
     public static Connection DerbyFoodDataProvider(){
         String dbaseurl;
-        String user = "ptrott";
-        String pass = "!@#$%^&*()";
+        String user = "";
+        String pass = "";
         Connection con = null;
         try {
             // Create the new HashMap Object Here, assigning the
@@ -25,7 +25,7 @@ public class DerbyFoodDataProvider implements IFoodDataProvider{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             
             // Step 2 Define the connection URL
-            dbaseurl = "jdbc:derby://localhost:1527/HealthFoods";
+            dbaseurl = "";
             
             // Step 3. Establish the connection.
            return con = DriverManager.getConnection(dbaseurl, user, pass);
