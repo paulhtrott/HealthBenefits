@@ -2,7 +2,7 @@ package food;
 
 /**
  * An interface for Food objects.
- * All required methods for all food classes that are created.
+ * All required methods for all food and food related classes that are created.
  * 
  * @author Paul Trott (ptrott)
  * Date: January 30, 2013

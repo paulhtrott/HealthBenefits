@@ -1,9 +1,13 @@
 package food;
 
 /**
- *
- * This class will hold all Fish specific data. Extends from the Meat abstract
- * class.
+ * A class definition for a Fish Object. This Fish Class is in the food
+ * package. It contains reference variables for FOOD_CODE, three booleans 
+ * (saltwater, freshwater, freshAndSaltwater) and instantiates a Food object to hold/process 
+ * all common food data. The class includes a default no-arg constructor and 
+ * an overloaded constructor.
+ * Abstract methods are Overridden.
+ * Extends from the Meat abstract class.
  *
  * @author Paul Trott (ptrott) Date: January 26, 2013
  *

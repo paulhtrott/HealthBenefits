@@ -1,10 +1,13 @@
 package food;
 
 /**
- * 
- * This class will hold all FruitVeg specific data.
+ * A class definition for a FruitVeg Object. This FruitVeg Class is in the food
+ * package. It contains reference variables for FOOD_CODE and instantiates a 
+ * Food object to hold/process all common food data. The class includes a 
+ * default no-arg constructor and an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements from the IFood interface class.
  * Foods that are classified as Fruits and Vegetables.
- * Implements the IFood interface class.
  * 
  * @author Paul Trott (ptrott)
  * Date: January 26, 2013

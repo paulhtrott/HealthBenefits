@@ -1,7 +1,11 @@
 package food;
 
 /**
- * This class will hold all RedMeat specific data.
+ * A class definition for a RedMeat Object. This RedMeat Class is in the food
+ * package. It contains reference variables for FOOD_CODE and instantiates a 
+ * Food object to hold/process all common food data. The class includes a 
+ * default no-arg constructor and an overloaded constructor.
+ * Extended methods are Overridden.
  * Extends from the Meat abstract class.
  * 
  * @author Paul Trott (ptrott)

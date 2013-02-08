@@ -1,9 +1,13 @@
 package food;
 
 /**
- *
- * This class will hold all Fat specific data. Implements the IFood Interface
- * class.
+ * A class definition for a Fat Object. This Fat Class is in the food
+ * package. It contains reference variables for FOOD_CODE, three booleans 
+ * (liquid, solid, nut) and instantiates a Food object to hold/process 
+ * all common food data. The class includes a default no-arg constructor and 
+ * an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements the IFood interface class.
  *
  * @author Paul Trott (ptrott) Date: January 28, 2013
  */

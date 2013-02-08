@@ -3,10 +3,15 @@ package food;
 
 
 /**
- * This class will hold data for a super class of Food.
+ * A class definition for a Food Object. This Book Class is in the food
+ * package. It contains reference variables for FOOD_CODE, name, description,
+ * calories, caloriesFromFat, servingSize, protein, fat and carbs.
+ * The class includes a default no-arg constructor and an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements the IFood interface class.
  * Class holds all common information for all food types.
  * Individual food categories will use an instance of a Food object
- * to fill individual food information.
+ * to create individual food information.
  *  
  * @author Paul Trott (ptrott)
  * Date: January 23, 2013

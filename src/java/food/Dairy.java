@@ -1,11 +1,16 @@
 package food;
 
 /**
+ * A class definition for a Dairy Object. This Dairy Class is in the food
+ * package. It contains reference variables for FOOD_CODE, three booleans 
+ * (milk, cheese, curdledDairy) and instantiates a Food object to hold/process 
+ * all common food data. The class includes a default no-arg constructor and 
+ * an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements the IFood interface class.
  *
- * This class will hold all Dairy specific data. Implement the IFood interface
- * class.
- *
- * @author Paul Trott (ptrott) Date: January 28, 2013
+ * @author Paul Trott (ptrott)
+ * Date: January 28, 2013
  */
 public class Dairy implements IFood {
     //Final variable to hold the Diary Food Code

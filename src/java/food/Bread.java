@@ -1,9 +1,14 @@
 package food;
 
 /**
- * This class will hold all Bread specific data. Extends from the Grain abstract
- * class.
- *
+ * A class definition for a Bread Object.
+ * This Bread Class is in the food package,
+ * It contains reference variables for FOOD_CODE and instantiates a 
+ * Food object to hold/process all common food data. 
+ * The class includes a default no-arg constructor and an overloaded constructor.
+ * Extends from the Grain abstract class.
+ * Extended methods are Overridden.
+ * 
  * @author Paul Trott (ptrott) Date: January 28, 2013
  */
 public class Bread extends Grain {

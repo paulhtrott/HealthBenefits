@@ -1,8 +1,13 @@
 package food;
 
 /**
- * This class will hold all fruit specific data.
- * Implements the Food Interface class.
+ * A class definition for a Fruit Object. This Fruit Class is in the food
+ * package. It contains reference variables for FOOD_CODE, two booleans 
+ * (sweet, acidic) and instantiates a Food object to hold/process 
+ * all common food data. The class includes a default no-arg constructor and 
+ * an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements from the IFood interface class.
  *
  * @author Paul Trott (ptrott) Date: January 23, 2013 Date Modified: January 30,
  * 2012 (Changed to implement Interface)
@@ -14,7 +19,7 @@ public class Fruit implements IFood {
 
     //instance variables
     private boolean sweet;
-    private boolean sour;
+    private boolean acidic;
     //Instantiate a food object.
     private final Food food;
 
@@ -25,7 +30,7 @@ public class Fruit implements IFood {
         //call super class no-arg constructor.
         food = new Food();
         this.sweet = false;
-        this.sour = false;
+        this.acidic = false;
     }
 
     /**
@@ -48,9 +53,9 @@ public class Fruit implements IFood {
 
         if (sweet == true) {
             this.sweet = sweet;
-            this.sour = false;
+            this.acidic = false;
         } else {
-            this.sour = true;
+            this.acidic = true;
             this.sweet = false;
         }
 
@@ -240,33 +245,33 @@ public class Fruit implements IFood {
     public void setSweet(boolean bool) {
         if (bool) {
             this.sweet = true;
-            this.sour = false;
+            this.acidic = false;
         } else {
             this.sweet = false;
-            this.sour = true;
+            this.acidic = true;
         }
     }
 
     /**
-     * Getter for sour.
+     * Getter for acidic.
      *
-     * @return sour
+     * @return acidic
      */
-    public boolean isSour() {
-            return sour;
+    public boolean isAcidic() {
+            return acidic;
     }
 
     /**
-     * Setter for sour.
+     * Setter for acidic.
      *
-     * @param sour
+     * @param acidic
      */
-    public void setSour(boolean sour) {
-        if (sour) {
-            this.sour = sour;
+    public void setAcidic(boolean acidic) {
+        if (acidic) {
+            this.acidic = acidic;
             this.sweet = false;
         } else {
-            this.sour = false;
+            this.acidic = false;
             this.sweet = true;
         }
     }
@@ -288,7 +293,7 @@ public class Fruit implements IFood {
      + "\nServing Size: " + apple2.getServingSize()
      + "\nProtein: " + apple2.getProtein()
      + "\nFat: " + apple2.getFat()
-     + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nSour: " + apple2.isSour() );
+     + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nAcidic: " + apple2.isAcidic() );
 
 
      }*/

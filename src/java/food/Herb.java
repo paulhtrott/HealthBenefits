@@ -1,34 +1,31 @@
 package food;
 
 /**
- * A class definition for a Cereal Object. This Cereal Class is in the food
- * package. It contains reference variables for FOOD_CODE and instantiates a
- * Food object to hold/process all common food data. The class includes a default
- * no-arg constructor and an overloaded constructor. Extends from the Grain
- * abstract class. Extended methods are Overridden.
- *
+ * A class definition for a Herb Object. This Herb Class is in the food
+ * package. It contains reference variables for FOOD_CODE and instantiates a 
+ * Food object to hold/process all common food data. The class includes a 
+ * default no-arg constructor and an overloaded constructor.
+ * Implemented methods are Overridden.
+ * Implements from the IFood interface class.
  * @author Paul Trott (ptrott)
- * Date: January 28, 2013
- * Date Modified: February 2, 2012 (to inherit from Grain abstract class)
+ * Date: Feb. 5, 2012
  */
-public class Cereal extends Grain {
-    //Final variable to hold cereal FOOD CODE
-
-    private final String FOOD_CODE = "0009";
-    //Instantiate a food object.
+public class Herb implements IFood{
+    //Final variable to hold Food Code.
+    private final String FOOD_CODE = "0015";
+    //Instance variables.
     private final Food food;
-
+    
     /**
-     * no-arg Default constructor.
+     * Default no-arg constructor.
      */
-    public Cereal() {
-        //Call Food class default constructor
+    public Herb(){
+        //Call food no-arg default constructor.
         food = new Food();
     }
-
+    
     /**
      * Overloaded constructor.
-     *
      * @param name
      * @param description
      * @param calories
@@ -36,58 +33,37 @@ public class Cereal extends Grain {
      * @param servingSize
      * @param protein
      * @param fat
-     * @param carbs
+     * @param carbs 
      */
-    public Cereal(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
-            double carbs) {
-        //call Food class overloaded constructor.
-        food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
+    public Herb(String name, String description, int calories, 
+            int caloriesFromFat, double servingSize, double protein, double fat,
+            double carbs){
+        //Call Food overloaded constructor.
+        food = new Food(name, description, calories, caloriesFromFat, 
+                servingSize, protein, fat, carbs);
     }
-
+    
     /**
-     * Getter for FOOD_CODE
-     *
-     * @return FOOD_CODE
+     * Getter for FOOD_CODE.
+     * @return 
      */
     @Override
     public String getFOOD_CODE() {
-        return FOOD_CODE;
+        return this.FOOD_CODE;
     }
 
     /**
-     * Setter for name
-     *
-     * @param name
-     */
-    @Override
-    public void setName(String name) {
-        food.setName(name);
-    }
-
-    /**
-     * Getter for name
-     *
-     * @return name
-     */
-    @Override
-    public String getName() {
-        return food.getName();
-    }
-
-    /**
-     * Getter for calories
-     *
-     * @return calories
+     * Getter for calories.
+     * @return 
      */
     @Override
     public int getCalories() {
-        return food.getCalories();
+       return food.getCalories();
     }
 
     /**
      * Setter for calories
-     *
-     * @param calories
+     * @param calories 
      */
     @Override
     public void setCalories(int calories) {
@@ -96,8 +72,7 @@ public class Cereal extends Grain {
 
     /**
      * Getter for caloriesFromFat
-     *
-     * @return caloriesFromFat
+     * @return 
      */
     @Override
     public int getCaloriesFromFat() {
@@ -106,8 +81,7 @@ public class Cereal extends Grain {
 
     /**
      * Setter for caloriesFromFat
-     *
-     * @param caloriesFromFat
+     * @param caloriesFromFat 
      */
     @Override
     public void setCaloriesFromFat(int caloriesFromFat) {
@@ -116,8 +90,7 @@ public class Cereal extends Grain {
 
     /**
      * Getter for servingSize
-     *
-     * @return servingSize
+     * @return 
      */
     @Override
     public double getServingSize() {
@@ -126,8 +99,7 @@ public class Cereal extends Grain {
 
     /**
      * Setter for servingSize
-     *
-     * @param servingSize
+     * @param servingSize 
      */
     @Override
     public void setServingSize(double servingSize) {
@@ -136,8 +108,7 @@ public class Cereal extends Grain {
 
     /**
      * Getter for protein
-     *
-     * @return protein
+     * @return 
      */
     @Override
     public double getProtein() {
@@ -146,8 +117,7 @@ public class Cereal extends Grain {
 
     /**
      * Setter for protein
-     *
-     * @param protein
+     * @param protein 
      */
     @Override
     public void setProtein(double protein) {
@@ -155,9 +125,8 @@ public class Cereal extends Grain {
     }
 
     /**
-     * Getter for fat.
-     *
-     * @return fat
+     * Getter for fat
+     * @return 
      */
     @Override
     public double getFat() {
@@ -166,8 +135,7 @@ public class Cereal extends Grain {
 
     /**
      * Setter for fat
-     *
-     * @param fat
+     * @param fat 
      */
     @Override
     public void setFat(double fat) {
@@ -175,9 +143,8 @@ public class Cereal extends Grain {
     }
 
     /**
-     * Getter for carbs
-     *
-     * @return carbs
+     * Getter for carbs.
+     * @return 
      */
     @Override
     public double getCarbs() {
@@ -185,9 +152,8 @@ public class Cereal extends Grain {
     }
 
     /**
-     * Setter for carbs
-     *
-     * @param carbs
+     * Setter for carbs.
+     * @param carbs 
      */
     @Override
     public void setCarbs(double carbs) {
@@ -195,9 +161,26 @@ public class Cereal extends Grain {
     }
 
     /**
+     * Getter for name
+     * @return 
+     */
+    @Override
+    public String getName() {
+        return food.getName();
+    }
+
+    /**
+     * Setter for name
+     * @param name 
+     */
+    @Override
+    public void setName(String name) {
+        food.setName(name);
+    }
+
+    /**
      * Getter for description
-     *
-     * @return
+     * @return 
      */
     @Override
     public String getDescription() {
@@ -206,11 +189,13 @@ public class Cereal extends Grain {
 
     /**
      * Setter for description
-     *
-     * @param description
+     * @param description 
      */
     @Override
     public void setDescription(String description) {
         food.setDescription(description);
     }
+    
+    
+    
 }

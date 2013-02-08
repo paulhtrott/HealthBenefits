@@ -1,8 +1,12 @@
 package food;
 
 /**
- * This class will hold all Pasta specific data. Extends from the Grain abstract
- * class.
+ * A class definition for a Pasta Object. This Pasta Class is in the food
+ * package. It contains reference variables for FOOD_CODE and instantiates a 
+ * Food object to hold/process all common food data. The class includes a 
+ * default no-arg constructor and an overloaded constructor.
+ * Extended methods are Overridden.
+ * Extends from the Grain abstract class.
  *
  * @author Paul Trott (ptrott) Date: January 28, 2013
  */
