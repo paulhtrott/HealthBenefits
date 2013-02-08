@@ -1,11 +1,15 @@
 package user;
 
-import encrypt.BCrypt;
-import regex.Regex;
+//Required class imports.
+import encrypt.BCrypt; //for hashing password.
+import regex.Regex; //for Regex testing.
+
 
 /**
- * User class to hold user data. Such as first name, username, password
- * (encrypted), email address, and user code (3 for regular users).
+ * A class definition for a User Object. This User Class is in the user
+ * package. It contains reference variables for USER_CODE(3 for regular WebUsers),
+ * firstName, username, password (hashed/salted), and emailAddress.
+ * The class includes a default no-arg constructor and an overloaded constructor.
  *
  * @author Paul Trott (ptrott) Date: February 3, 2013
  */
