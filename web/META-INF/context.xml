@@ -34,8 +34,13 @@
         maxActive="100" maxIdle="30" maxWait="10000" 
         username="ptrott" password="Sup3rM4n" 
         driverClassName="org.apache.derby.jdbc.ClientDriver" 
-        url="jdbc:derby://localhost:1527/HealthFoodsDB?autoReconnect=true" 
+        url="jdbc:derby://localhost:1527/HealthFoodsDB" 
         logAbandoned="true" removeAbandoned="true" 
         removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+    
+    <Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
+        dataSourceName="jdbc/healthbenefits" localDataSource="true"
+        userTable="USERS" userNameCol="USERNAME" userCredCol="PASSWORD"
+        userRoleTable="USERCODE" roleNameCol="USER_TYPE" />
         
 </Context>
