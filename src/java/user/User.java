@@ -16,7 +16,7 @@ import regex.Regex; //for Regex testing.
 public class User {
     //Final variable to hold user code.
 
-    private final String USER_CODE = "3";
+    private final String USER_CODE = "WebUser";
     //Instance variables
     private String firstName;
     private String username;
@@ -162,6 +162,6 @@ public class User {
     public String getUSER_CODE() {
         return USER_CODE;
     }
-
+    
     
 }
