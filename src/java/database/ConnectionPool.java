@@ -1,8 +1,9 @@
 package database;
 
 import java.sql.*;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
+import javax.naming.InitialContext;
+
 
 /**
  * The Connection Pool class for the derby database connection. A connection
@@ -26,7 +27,7 @@ public class ConnectionPool {
     private ConnectionPool() {
         try {
             InitialContext ic = new InitialContext();
-            dataSource = (DataSource)ic.lookup("java:/comp/env/jdbc/healthbenefits");
+            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/healthbenefits");
         } catch (Exception e) {
             e.printStackTrace();
         }
