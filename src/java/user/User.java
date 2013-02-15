@@ -1,7 +1,6 @@
 package user;
 
 //Required class imports.
-import encrypt.BCrypt; //for hashing password.
 import regex.Regex; //for Regex testing.
 
 
@@ -16,7 +15,7 @@ import regex.Regex; //for Regex testing.
 public class User {
     //Final variable to hold user code.
 
-    private final String USER_CODE = "WebUser";
+    private static final String USER_CODE = "WebUser";
     //Instance variables
     private String firstName;
     private String username;
@@ -66,14 +65,14 @@ public class User {
         //removes numbers in a name, as a user should not have numbers in a first name.
         String newName = Regex.replaceNumbersInFirstName(firstName);
         //removes spaces in name, as user should have only entered first name.
-        newName = Regex.replaceSpacesWithNoSpaces(newName);
-        //firstName has to be 2 or more characters long.
-        if (newName.length() < 2) {
+        String newUsersName = Regex.replaceSpacesWithNoSpaces(newName);
+        //firstName has to be 2 or more characters long but less than 50
+        if (newUsersName.length() < 2) {
             this.firstName = "no name";
         } else {
             //test that first name has no numbers
-            if(Regex.isFirstNameRegexMatch(newName)) {
-                this.firstName = newName;
+            if(Regex.isFirstNameRegexMatch(newUsersName)) {
+                this.firstName = newUsersName;
             } else {
                 this.firstName = "no name";
             }
@@ -97,8 +96,8 @@ public class User {
     public final void setUsername(String username) {
         //removes spaces in name, as user should have only entered first name.
             String nospaceUserName = Regex.replaceSpacesWithNoSpaces(username);
-        //username has to be 6 or more characters long
-        if (nospaceUserName.length() < 6 || nospaceUserName.length() > 20) {
+        //username has to be 6 or more characters long but less than 20.
+        if (nospaceUserName.length() < 6) {
             this.username = "no name";
         } else {
             this.username = nospaceUserName;
@@ -112,14 +111,8 @@ public class User {
      * @param password
      */
     public final void setPassword(String password) {
-        //Convert parameter to a hashed password.
-        String pw_hash = BCrypt.hashpw(password, BCrypt.gensalt(11));
-        //if parameter equals pw_hash then put pw_hash as password stored in DB.
-        if (BCrypt.checkpw(password, pw_hash)) {
-            this.password = pw_hash;
-        } else {
-            this.password = "password";
-        }
+        //Password will be hashed before hitting database.
+        this.password = password;
     }
 
     /**
@@ -159,7 +152,7 @@ public class User {
      *
      * @return
      */
-    public String getUSER_CODE() {
+    public static String getUSER_CODE() {
         return USER_CODE;
     }
     
