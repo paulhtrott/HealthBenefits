@@ -142,7 +142,7 @@ public class User {
      */
     public final void setEmailAddress(String emailAddress) {
         //Only store email in object if email matches Regex expression.
-        if (Regex.isEmailRegexMatch(emailAddress)) {
+        if (Regex.isEmailValid(emailAddress)) {
             this.emailAddress = emailAddress;
         } else {
             this.emailAddress = "no email";
