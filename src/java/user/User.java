@@ -66,13 +66,15 @@ public class User {
         String newName = Regex.replaceNumbersInFirstName(firstName);
         //removes spaces in name, as user should have only entered first name.
         String newUsersName = Regex.replaceSpacesWithNoSpaces(newName);
+        //replace first character in naem to uppercase.
+        String upperCaseName = Regex.replaceLowerCaseFirstLetter(newUsersName);
         //firstName has to be 2 or more characters long but less than 50
-        if (newUsersName.length() < 2) {
+        if (upperCaseName.length() < 2) {
             this.firstName = "no name";
         } else {
             //test that first name has no numbers
-            if(Regex.isFirstNameRegexMatch(newUsersName)) {
-                this.firstName = newUsersName;
+            if(Regex.isFirstNameValid(upperCaseName)) {
+                this.firstName = upperCaseName;
             } else {
                 this.firstName = "no name";
             }
