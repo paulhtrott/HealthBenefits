@@ -37,11 +37,13 @@ public class Regex {
     /**
      * This Regex match tests a first name entered and determines if the
      * first name matches the pattern before it is passed into the object.
+     * Name can only include dashes and letters, no numbers.
      * @param firstName
      * @return 
      */
-    public static boolean isFirstNameRegexMatch(String firstName) {
-        //If emailToCheck matches Regex then return true.
+    public static boolean isFirstNameValid(String firstName) {
+        //If firstName matches Regex then return true.
+        //can only include letters and dashes, no numbers.
         if (firstName.matches("[a-zA-Z-]{2,}")){
             return true;
         } else {
