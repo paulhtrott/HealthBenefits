@@ -61,7 +61,7 @@ public class Regex {
      * @return true if email address matches pattern
      * @return false if email address does not match pattern 
      */
-    public static boolean isEmailRegexMatch(String emailAddress) {
+    public static boolean isEmailValid(String emailAddress) {
         //If emailToCheck matches Regex then return true.
         if (emailAddress.matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")){
             return true;
