@@ -53,6 +53,8 @@ public class Regex {
     /**
      * This Regex match tests an email address entered and determines if the
      * email matches the pattern before it is passed into the object.
+     * Doesn't match ALL valid emails, but matches emails willing to hold in this app.
+     * 
      * @param emailAddress
      * @return true if email address matches pattern
      * @return false if email address does not match pattern 
@@ -78,12 +80,30 @@ public class Regex {
         return firstNameReplaced;
     }
     
+    
     /**
      * This Regex match replaces spaces in an entry with no spaces.
+     * @param text
+     * @return words with no spaces.
      */
     public static String replaceSpacesWithNoSpaces(String text){
         String nospaces = text.replaceAll("[\\s]{1,}","");
         return nospaces;
+    }
+    
+    /**
+     * Regex match replaces the first letter in a name with an upper case letter
+     * if first name begins with a lower case letter.
+     * @param text - name to be replaced with an upper case name.
+     * @return upperLetterName - a name with an upper case first letter.
+     */
+    public static String replaceLowerCaseFirstLetter(String text){
+        //Get the first character in the string.
+        //Replace first letter with upper case letter if first letter is lower case.
+        char firstLetter = Character.toUpperCase(text.charAt(0));
+        //Put word back together.
+        String upperLetterName = firstLetter + text.substring(1);
+        return upperLetterName;
     }
     
     /*
