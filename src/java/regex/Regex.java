@@ -74,14 +74,16 @@ public class Regex {
      */
     public static String replaceNumbersInFirstName(String firstName){
         //If name includes numbers remove numbers.
-        return firstName.replaceAll("[0-9]{1,}", "");
+        String firstNameReplaced = firstName.replaceAll("[0-9]{1,}", "");
+        return firstNameReplaced;
     }
     
     /**
      * This Regex match replaces spaces in an entry with no spaces.
      */
     public static String replaceSpacesWithNoSpaces(String text){
-        return text.replaceAll("[\\s]{1,}","");
+        String nospaces = text.replaceAll("[\\s]{1,}","");
+        return nospaces;
     }
     
     /*
