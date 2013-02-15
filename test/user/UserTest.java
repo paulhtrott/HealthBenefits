@@ -1,12 +1,12 @@
 package user;
 
-import encrypt.BCrypt;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mindrot.BCrypt;
 
 /**
  * jUnit Test for user class.
