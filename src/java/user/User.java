@@ -98,7 +98,7 @@ public class User {
     public final void setUsername(String username) {
         //removes spaces in name, as user should have only entered first name.
             String nospaceUserName = Regex.replaceSpacesWithNoSpaces(username);
-        //username has to be 6 or more characters long but less than 20.
+        //username has to be 6 or more characters in length.
         if (nospaceUserName.length() < 6) {
             this.username = "no name";
         } else {
