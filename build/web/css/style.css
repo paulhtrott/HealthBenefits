@@ -275,7 +275,9 @@ body
 {
    padding: 0;
    margin:0;
-   min-width: 1000px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 1000px;
    color: #000000;
 }
 
@@ -945,7 +947,7 @@ ul.vmenu>li:first-child
 
 ul.vmenu>li>a:before
 {
-   content:url('images/vmenuitemicon.png');
+   /*content:url('images/vmenuitemicon.png');*/
    margin-right:5px;
    bottom: 2px;
    position:relative;
@@ -962,7 +964,7 @@ ul.vmenu>li>a:before
 
 ul.vmenu>li>a.active:before
 {
-   content:url('images/vmenuactiveitemicon.png');
+   /*content:url('images/vmenuactiveitemicon.png');*/
    margin-right:5px;
    bottom: 2px;
    position:relative;
@@ -979,7 +981,7 @@ ul.vmenu>li>a.active:before
 
 ul.vmenu>li>a:hover:before
 {
-   content:url('images/vmenuhovereditemicon.png');
+   /*content:url('images/vmenuhovereditemicon.png');*/
    margin-right:5px;
    bottom: 2px;
    position:relative;
@@ -1225,7 +1227,7 @@ div.block img
 }
 .block ul>li:before
 {
-   content:url('images/blockbullets.png');
+   /*content:url('images/blockbullets.png');*/
    margin-right:6px;
    bottom: 2px;
    position:relative;
@@ -1776,7 +1778,7 @@ pre
 
 .postcontent ul>li:before,  .post ul>li:before,  .textblock ul>li:before
 {
-   content:url('images/postbullets.png');
+   /*content:url('images/postbullets.png');*/
    margin-right:6px;
    bottom: 2px;
    position:relative;
@@ -2260,10 +2262,17 @@ img.lightbox-image.active
     border:none;
 }
 
-li {
-    list-style-image: none;
-    list-style-type: none;
+#centerForm{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.signinform {
+    width:400px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
 
 /* End Additional CSS Styles */
