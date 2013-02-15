@@ -37,7 +37,11 @@
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
                                                             <form class="signinform" action="SignUpServlet" method="post">
+                                                                <%-- Gets the message from the Signup Servlet Attribute --%>
+                                                                <% String message = (String) request.getAttribute("message"); %>
                                                                 <h1>Sign Up Today</h1>
+                                                                <!--Display error message in case of error -->
+                                                                <p class="error"><%= message %></p>
                                                                 <h4>What is your first name?</h4>
                                                                 My first name is:<input type="text" maxlength="49" size="50" name="firstname">
                                                                 <small>max length of 49 characters.</small>
