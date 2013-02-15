@@ -2,7 +2,7 @@
 <Context antiJARLocking="true" path="/HealthBenefits">
 
 <!-- maxActive: Maximum number of dB connections in pool. Make sure you
-         configure your mysqld max_connections large enough to handle
+         configure your max_connections large enough to handle
          all of your db connections. Set to 0 for no limit. 100 should be
          sufficienr for a small to medium size app.
          -->
@@ -27,20 +27,19 @@
         the container will prevent connection pool leaks by automatically removing 
         Connection, Statement, ResultSet, etc. objects that haven't been closed 
         -->
-
- 
-
+        
     <Resource name="jdbc/healthbenefits" auth="Container" 
         maxActive="100" maxIdle="30" maxWait="10000" 
         username="ptrott" password="Sup3rM4n" 
-        driverClassName="org.apache.derby.jdbc.ClientDriver" 
+        driverClassName="org.apache.derby.jdbc.ClientDriver"
         url="jdbc:derby://localhost:1527/HealthFoodsDB" 
         logAbandoned="true" removeAbandoned="true" 
         removeAbandonedTimeout="60" type="javax.sql.DataSource" />
     
+    <!--Realm for admin section support -->
     <Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
         dataSourceName="jdbc/healthbenefits" localDataSource="true"
         userTable="USERS" userNameCol="USERNAME" userCredCol="PASSWORD"
         userRoleTable="USERCODE" roleNameCol="USER_TYPE" />
-        
+    
 </Context>
