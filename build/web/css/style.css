@@ -2275,4 +2275,10 @@ img.lightbox-image.active
     
 }
 
+.error {
+    font-weight: bolder;
+    color: red;
+    font-size: medium;
+}
+
 /* End Additional CSS Styles */

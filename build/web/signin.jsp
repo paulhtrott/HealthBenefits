@@ -37,9 +37,18 @@
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
                                                             <form class="signinform" action="SignInServlet" method="get">
+                                                                <%-- 
+                                                                    Get Cookies to pre-fill username of sign-in form.
+                                                                    Make user fill in password.
+                                                                --%>
+                                                                <%
+                                                                    Cookie[] cookies = request.getCookies();
+                                                                    String username = util.CookieUtil.getCookieValue(cookies, "usernameCookie");
+                                                                %>
                                                                 <h2>Sign In</h2>
                                                                 <h4>What is your username?</h4>
-                                                                My username is:<input type="text" maxlength="20" size="25" name="username">
+                                                                My username is:<input type="text" maxlength="20" size="25" name="username"
+                                                                                      value ="<%= username %>" >
                                                                 <h4>What is your password?</h4>
                                                                 My password is:<input type="password" maxlength="20" size="50" name="password">
                                                                 <p></p>
@@ -61,7 +70,7 @@
                                                             <br>
                                                             <h4>Sign In Help</h4>
                                                             <p>Forgot your password? <a>Get password help.</a><br>
-                                                            Would you like to change your email address? <a>Update it here.</a></p>
+                                                                Would you like to change your email address? <a>Update it here.</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
