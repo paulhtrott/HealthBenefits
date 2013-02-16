@@ -51,9 +51,8 @@
                                             <%--show name if name exists --%>
                                             <%-- otherwise show generic message --%>
                                             <%
-                                                Cookie[] cookies = request.getCookies();
-                                                String firstName = CookieUtil.getCookieValue(cookies, "firstNameCookie");
-                                                if (firstName == null || firstName.equals("")) {
+                                                String firstName = (String) session.getAttribute("firstName");
+                                                if (firstName == null || firstName.equals("") || firstName == "no name") {
                                                     out.println("Hello, Guest!");
                                                     out.println("</h3>");
                                                     out.println("</div>");
