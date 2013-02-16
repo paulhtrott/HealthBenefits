@@ -4,15 +4,18 @@ import database.UserData;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.mindrot.BCrypt;
 import user.User;
 
 /**
  * SignInServlet that will check to be sure signing in user is an actual user
- * before allowing them into the members only sections of the web app
+ * before allowing them into the members only sections of the web app.
+ * 
  * @author Paul Trott (ptrott)
  */
 public class SignInServlet extends HttpServlet {
@@ -36,20 +39,38 @@ public class SignInServlet extends HttpServlet {
         
         //Variables to hold cookie age and path.
         int cookieAge = 60*60*24*365*2; //2 year cookie life
-        String path = "/"; //cookie path leads to all of application.
+        String cookiePath = "/"; //cookie path leads to all of application.
         //String variable to hold returning url
         String url = "";
         
         //Instantiate a user object from the entered information.
         User user = (User) UserData.getUserOutOfDB(username);
         
+        //Instantiate a session object to store user information in a session.
+        HttpSession session = request.getSession();
+        
         //Determine if user is in the database.
         //Determine if password matches database password.
         if((UserData.isUserAMember(username)) && (BCrypt.checkpw(password, user.getPassword()))){
+            //set session attribtues in synchronized threads
+            synchronized(session){
+                session.setAttribute("firstName", user.getFirstName());
+            }
             
+            //Set Cookies
+            Cookie usernameCookie = new Cookie("usernameCookie", user.getUsername());
+            
+            //Setup usernameCookie
+            usernameCookie.setMaxAge(cookieAge);
+            usernameCookie.setPath(cookiePath);
+            //usernameCookie.setSecure(true);
+            response.addCookie(usernameCookie);
+            
+            //Return to index jsp.
             url = "/index.jsp";
         } else {
-            url = "/signup.jsp";
+            //Return to sign up jsp
+            url = "/signin.jsp";
         }
         
         //Code for forwarding user to new url view
