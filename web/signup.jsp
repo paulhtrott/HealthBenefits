@@ -38,27 +38,33 @@
                                                         <div id="centerForm">
                                                             <form class="signinform" action="SignUpServlet" method="post">
                                                                 <%-- Gets the message from the Signup Servlet Attribute --%>
-                                                                <% String message = (String) request.getAttribute("message"); %>
+                                                                <%-- If message equals null enter nothing, other null will be displayed --%>
+                                                                <%
+                                                                    String message = (String) session.getAttribute("message");
+                                                                    if (message == null) {
+                                                                        message = "";
+                                                                    }
+                                                                %>
                                                                 <h1>Sign Up Today</h1>
                                                                 <!--Display error message in case of error -->
                                                                 <p class="error"><%= message %></p>
                                                                 <h4>What is your first name?</h4>
                                                                 My first name is:<input type="text" maxlength="49" size="50" name="firstname">
                                                                 <small>max length of 49 characters.</small>
-                                                                
+
                                                                 <h4>What is your email address?</h4>
-                                                                My email address is:<input type="text" maxlength="49" size="50" name="emailaddress">
+                                                                My email address is:<input type="text" maxlength="150" size="50" name="emailaddress">
                                                                 <small>Example format: johnDoe@gmail.com</small>
-                                                                    
+
                                                                 <h4>What username would you like?</h4>
-                                                                I'd like the username:<input type="text" maxlength="19" size="50" name="username">
-                                                                <small>minimum length of 7 and a max length of 19 characters.</small>
-                                                                
+                                                                I'd like the username:<input type="text" maxlength="100" size="50" name="username">
+                                                                <small>minimum length of 6 and a max length of 100 characters.</small>
+
                                                                 <h4>What excellent password would you like to use?</h4>
                                                                 I'd like my password to be:<input type="password" maxlength="30" size="50" name="password1">
                                                                 <small>minimum length of 8 and a max length of 30 characters.</small><br>
                                                                 Please confirm your password:<input type="password" maxlength="30" size="50" name="password2">
-                                                                
+
                                                                 <p></p>
                                                                 <input type="submit" value="Set up my account">
                                                             </form>
