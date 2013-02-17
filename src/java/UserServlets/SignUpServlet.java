@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.mindrot.BCrypt;
+import encryption.BCrypt;
 import user.User;
 
 /**
@@ -18,6 +18,8 @@ import user.User;
  * page and user will be stored in an object, stored in the database; the
  * username, email and first name and will be stored in session cookies and
  * session attributes to be used throughout the web application.
+ * All parameters will be passed through an HTML escape parser so that passed in Strings
+ * are turned into HTML code before being sent to the database or processed.
  *
  * @author Paul Trott (ptrott)
  */
@@ -37,11 +39,11 @@ public class SignUpServlet extends HttpServlet {
             throws ServletException, IOException {
 
         //Get parameters from the signup.jsp page and store in variables.
-        String firstName = request.getParameter("firstname");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password1");
-        String password2 = request.getParameter("password2");
-        String emailAddress = request.getParameter("emailaddress");
+        String firstName = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("firstname"));
+        String username = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("username"));
+        String password = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("password1"));
+        String password2 = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("password2"));
+        String emailAddress = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("emailaddress"));
 
         //Variable to hold messages to be returned to user in 
         //case of entered information is invalid.
@@ -58,7 +60,7 @@ public class SignUpServlet extends HttpServlet {
         //Has and salt password before it is entered in the database.
         String hashed_pw = BCrypt.hashpw(password, BCrypt.gensalt(14));
 
-        //Get a session object to store some user information in a session.
+        //Get a session object to store some user information in.
         HttpSession session = request.getSession();
 
         //Insert user into database if username and emailaddress doesn't already exist
@@ -133,10 +135,6 @@ public class SignUpServlet extends HttpServlet {
         } else {
             //Instantiate a User object of the signing up user.
             User user = new User(firstName, username, hashed_pw, emailAddress);
-            //set session attribute for first name in synchronized threads.
-            synchronized (session) {
-                session.setAttribute("firstName", user.getFirstName());
-            }
 
             //set cookie for username.
             Cookie usernameCookie = new Cookie("usernameCookie", user.getUsername());
@@ -147,10 +145,15 @@ public class SignUpServlet extends HttpServlet {
             //usernameCookie.setSecure(true); //set to true when using SSL/HTTPS Certificate on production.
             response.addCookie(usernameCookie);
 
-            //insert user into USERS table.
-            UserData.insertUser(user);
-            //insert same user into USERCODE table.
-            UserData.addToUserCodeTable(user);
+            //set session attribute for first name in synchronized threads.
+            synchronized (session) {
+                session.setAttribute("firstName", user.getFirstName());
+                //insert user into USERS table.
+                UserData.insertUser(user);
+                //insert same user into USERCODE table.
+                UserData.addToUserCodeTable(user);
+            }
+
             //return user to signupthankyou.jsp
             url = "/index.jsp";
 
