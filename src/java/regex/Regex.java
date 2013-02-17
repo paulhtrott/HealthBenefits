@@ -14,7 +14,7 @@ public class Regex {
 
     /**
      * This regex match tests a number entered and determines if the passed in
-     * double is a 1-5 digit number followed by a period followed by 1 - 3
+     * number is a 1-5 digit double type followed by a period followed by 1 - 2
      * digits.
      *
      * @param enteredNum
@@ -108,18 +108,6 @@ public class Regex {
         return upperLetterName;
     }
     
-    /*
-     * SAVED FOR FUTURE REFERENCE.....................
-     * //Serving Size...
-     //Format the entered number, before checking entered num with regex.
-     DecimalFormat df = new DecimalFormat("###0.00");
-     servingSize = (Double) Double.parseDouble(df.format(servingSize));
-        
-     //To set servingSize after a regex test.
-     if(Regex.isDoubleRegexMatch(servingSize)){
-     this.servingSize = servingSize;
-     }
-     //End of Serving Size.
-     */
+    
     
 }
