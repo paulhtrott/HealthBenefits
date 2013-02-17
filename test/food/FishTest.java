@@ -609,356 +609,7 @@ public class FishTest {
         }
     }
     
-    /**
-     * Test of isSaltwater method, of class Fish.
-     */
-    @Test
-    public void testIsSaltwater() {
-        System.out.println("isSaltwater");
-        //Test the isSaltwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setSaltwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-
-    /**
-     * Test of setSaltwater method, of class Fish.
-     * If fish is a saltwater species it is not in any other group.
-     */
-    @Test
-    public void testSetSaltwater() {
-        System.out.println("setSaltwater");
-        //Test the setSaltwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a Fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setSaltwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-        //Test that isSaltwater is opposite of isFreshwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setSaltwater(bool);
-                boolean expResult;
-                if(instance.isSaltwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isFreshwater();
-                assertEquals(expResult, result);
-            }
-    }
-        //Test that isSaltwater is opposite of isFreshAndSaltwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                //random number is always 1 or 2.
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setSaltwater(bool);
-                boolean expResult;
-                if(instance.isSaltwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isFreshAndSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
     
-    /**
-     * Test of isFreshwater method, of class Fish.
-     */
-    @Test
-    public void testIsFreshwater() {
-        System.out.println("isFreshwater");
-        //Test the isFreshwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setFreshwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isFreshwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-
-    /**
-     * Test of setFreshwater method, of class Fish.
-     * If fish is a freshwater species it is not in any other group.
-     */
-    @Test
-    public void testSetFreshwater() {
-        System.out.println("setFreshwater");
-        //Test the setFreshwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a Fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setFreshwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isFreshwater();
-                assertEquals(expResult, result);
-            }
-        }
-        //Test that isFreshwater is opposite of isSaltwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                //random number, either 2 or 1
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setFreshwater(bool);
-                boolean expResult;
-                if(instance.isFreshwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isSaltwater();
-                assertEquals(expResult, result);
-            }
-    }
-        //Test that isFreshwater is opposite of isFreshAndSaltwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                //random number is 1 or 2.
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setFreshwater(bool);
-                boolean expResult;
-                if(instance.isFreshwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isFreshAndSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-    
-    /**
-     * Test of isFreshAndSaltwater method, of class Fish.
-     */
-    @Test
-    public void testIsFreshAndSaltwater() {
-        System.out.println("isFreshAndSaltwater");
-        //Test the isFreshAndSaltwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                //random number is either 1 or 2.
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setFreshAndSaltwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isFreshAndSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-
-    /**
-     * Test of setFreshAndSaltwater method, of class Fish.
-     * If fish is a fresh and saltwater species it is not in any other group.
-     */
-    @Test
-    public void testSetFreshAndSaltwater() {
-        System.out.println("setFreshAndSaltwater");
-        //Test the setFreshAndSaltwater method 20 times to be sure method is returning a 
-        //consistantly correct value.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                Meat instance = new Fish();
-                //Cast instance to a Fish.
-                Fish instance2 = (Fish) instance;
-                instance2.setFreshAndSaltwater(bool);
-                boolean expResult = bool;
-                boolean result = instance2.isFreshAndSaltwater();
-                assertEquals(expResult, result);
-            }
-        }
-        //Test that isFreshAndSaltwater is opposite of isSaltwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                //random number, either 2 or 1
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setFreshAndSaltwater(bool);
-                boolean expResult;
-                if(instance.isFreshAndSaltwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isSaltwater();
-                assertEquals(expResult, result);
-            }
-    }
-        //Test that isFreshAndSaltwater is opposite of isFreshwater.
-        //Testing 5 times to be sure method is returning a 
-        //consistantly correct false value.
-        {
-            boolean bool;
-            for (int i = 0; i < 5; i++) {
-                //random number is 1 or 2.
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                
-                Fish instance = new Fish();
-                instance.setFreshAndSaltwater(bool);
-                boolean expResult;
-                if(instance.isFreshAndSaltwater()){
-                    expResult = false;
-                } else {
-                    //Doesn't have to be true (could be a different type),
-                    //should always be false in this case.
-                    expResult = false;
-                }
-
-                boolean result = instance.isFreshwater();
-                assertEquals(expResult, result);
-            }
-        }
-    }
 
     /**
      * Test of getFOOD_CODE method, of class Fish.
@@ -970,5 +621,32 @@ public class FishTest {
         String expResult = "0005";
         String result = instance.getFOOD_CODE();
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getSpecificType method, of class Fish.
+     */
+    @Test
+    public void testGetSpecificType() {
+        System.out.println("getSpecificType");
+        Fish instance = new Fish();
+        instance.setSpecificType("saltandfresh");
+        String expResult = "saltandfresh";
+        String result = instance.getSpecificType();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setSpecificType method, of class Fish.
+     */
+    @Test
+    public void testSetSpecificType() {
+        System.out.println("setSpecificType");
+        String specificType = "salt";
+        Fish instance = new Fish();
+        instance.setSpecificType(specificType);
+        String expResult = "salt";
+        String result = instance.getSpecificType();
+        assertEquals(expResult,result);
     }
 }
