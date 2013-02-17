@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mindrot.BCrypt;
 
 /**
  * jUnit Test for user class.
@@ -84,13 +83,6 @@ public class UserTest {
         {
             boolean expResult = true;
             boolean result;
-            //check encrypted password with entered password.
-            if (BCrypt.checkpw("bermuda1!?@", instance.getPassword())) {
-                result = true;
-            } else {
-                result = false;
-            }
-            assertEquals(expResult, result);
         }
         {
             String expResult = "paultrott@yahoo.com";
@@ -194,8 +186,8 @@ public class UserTest {
         User instance = new User();
         {
             instance.setPassword("p4ultr0tt!@~");
-            boolean expResult = true;
-            boolean result = BCrypt.checkpw("p4ultr0tt!@~", instance.getPassword());
+            String expResult = "p4ultr0tt!@~";
+            String result = instance.getPassword();
             assertEquals(expResult, result);
         }
     }
@@ -209,8 +201,8 @@ public class UserTest {
         User instance = new User();
         {
             instance.setPassword("h4ppy b1rthd4y");
-            boolean expResult = true;
-            boolean result = BCrypt.checkpw("h4ppy b1rthd4y", instance.getPassword());
+            String expResult = "h4ppy b1rthd4y";
+            String result = instance.getPassword();
             assertEquals(expResult, result);
         }
     }
