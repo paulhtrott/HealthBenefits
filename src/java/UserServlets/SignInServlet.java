@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.mindrot.BCrypt;
 import user.User;
 
 /**
  * SignInServlet that will check to be sure signing in user is an actual user
  * before allowing them into the members only sections of the web app.
- * 
+ * All parameters will be passed through an HTML escape parser so that passed in Strings
+ * are turned into HTML code before being sent to the database or processed.
+ *
  * @author Paul Trott (ptrott)
  */
 public class SignInServlet extends HttpServlet {
@@ -32,53 +33,61 @@ public class SignInServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //Get parameters from signin.jsp
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("username"));
+        String password = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("password"));
         
+        //Set message for error logining in.
+        String message;
+
         //Variables to hold cookie age and path.
-        int cookieAge = 60*60*24*365*2; //2 year cookie life
+        int cookieAge = 60 * 60 * 24 * 365 * 2; //2 year cookie life
         String cookiePath = "/"; //cookie path leads to all of application.
         //String variable to hold returning url
-        String url = "";
-        
+        String url;
+
         //Instantiate a user object from the entered information.
         User user = (User) UserData.getUserOutOfDB(username);
-        
+
         //Instantiate a session object to store user information in a session.
         HttpSession session = request.getSession();
+
+        //If password does not equal hashed password then return to login page.
+        if (!(encryption.BCrypt.checkpw(password, user.getPassword()))) {
+            //Return to sign up jsp
+            url = "/signin.jsp";
+        }
         
-        //Determine if user is in the database.
-        //Determine if password matches database password.
-        if((UserData.isUserAMember(username)) && (BCrypt.checkpw(password, user.getPassword()))){
+        if ((UserData.isUserAMember(username)) && (encryption.BCrypt.checkpw(password, user.getPassword()))) {
+            //Determine if user is in the database.
+            //Determine if password matches database password.
             //set session attribtues in synchronized threads
-            synchronized(session){
+            synchronized (session) {
                 session.setAttribute("firstName", user.getFirstName());
             }
-            
+
             //Set Cookies
             Cookie usernameCookie = new Cookie("usernameCookie", user.getUsername());
-            
+
             //Setup usernameCookie
             usernameCookie.setMaxAge(cookieAge);
             usernameCookie.setPath(cookiePath);
             //usernameCookie.setSecure(true);
             response.addCookie(usernameCookie);
-            
+
             //Return to index jsp.
             url = "/index.jsp";
         } else {
             //Return to sign up jsp
             url = "/signin.jsp";
         }
-        
+
         //Code for forwarding user to new url view
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
-        
+
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
