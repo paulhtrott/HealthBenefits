@@ -1,13 +1,12 @@
 package food;
 
 /**
- * A class definition for a Fat Object. This Fat Class is in the food
- * package. It contains reference variables for FOOD_CODE, three booleans 
- * (liquid, solid, nut) and instantiates a Food object to hold/process 
- * all common food data. The class includes a default no-arg constructor and 
- * an overloaded constructor.
- * Implemented methods are Overridden.
- * Implements the IFood interface class.
+ * A class definition for a Fat Object. This Fat Class is in the food package.
+ * It contains reference variables for FOOD_CODE, String to hold three possible
+ * values (liquid, solid, nut) and instantiates a Food object to hold/process
+ * all common food data. The class includes a default no-arg constructor and an
+ * overloaded constructor. Implemented methods are Overridden. Implements the
+ * IFood interface class.
  *
  * @author Paul Trott (ptrott) Date: January 28, 2013
  */
@@ -18,9 +17,7 @@ public class Fat implements IFood {
     //Instantiate a food object.
     private final Food food;
     //Instance variables
-    private boolean liquid;
-    private boolean solid;
-    private boolean nut;
+    private String specificType;
 
     /**
      * no-arg Default constructor.
@@ -29,9 +26,7 @@ public class Fat implements IFood {
         //Instantiate a Food object
         //Call Food default no-arg constructor
         food = new Food();
-        this.liquid = false;
-        this.solid = false;
-        this.nut = false;
+        this.specificType = "";
     }
 
     /**
@@ -45,20 +40,20 @@ public class Fat implements IFood {
      * @param protein
      * @param fat
      * @param carbs
+     * @param specificType
      */
     public Fat(String name, String description, int calories, int caloriesFromFat, double servingSize,
-            double protein, double fat, double carbs) {
+            double protein, double fat, double carbs, String specificType) {
         //Instantiate a Food object
         //call Food class overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
-        this.liquid = false;
-        this.solid = false;
-        this.nut = false;
+        this.specificType = specificType;
     }
 
     /**
      * Getter for FOOD_CODE
-     * @return 
+     *
+     * @return
      */
     @Override
     public String getFOOD_CODE() {
@@ -67,7 +62,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for calories
-     * @return 
+     *
+     * @return
      */
     @Override
     public int getCalories() {
@@ -76,7 +72,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for calories.
-     * @param calories 
+     *
+     * @param calories
      */
     @Override
     public void setCalories(int calories) {
@@ -85,7 +82,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for caloriesFromFat
-     * @return 
+     *
+     * @return
      */
     @Override
     public int getCaloriesFromFat() {
@@ -94,7 +92,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for caloriesFromFat
-     * @param caloriesFromFat 
+     *
+     * @param caloriesFromFat
      */
     @Override
     public void setCaloriesFromFat(int caloriesFromFat) {
@@ -103,7 +102,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for servingSize
-     * @return 
+     *
+     * @return
      */
     @Override
     public double getServingSize() {
@@ -112,7 +112,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for servingSize
-     * @param servingSize 
+     *
+     * @param servingSize
      */
     @Override
     public void setServingSize(double servingSize) {
@@ -121,7 +122,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for protein
-     * @return 
+     *
+     * @return
      */
     @Override
     public double getProtein() {
@@ -130,7 +132,8 @@ public class Fat implements IFood {
 
     /**
      * Setter protein
-     * @param protein 
+     *
+     * @param protein
      */
     @Override
     public void setProtein(double protein) {
@@ -139,7 +142,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for fat
-     * @return 
+     *
+     * @return
      */
     @Override
     public double getFat() {
@@ -148,7 +152,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for fat
-     * @param fat 
+     *
+     * @param fat
      */
     @Override
     public void setFat(double fat) {
@@ -157,7 +162,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for carbs
-     * @return 
+     *
+     * @return
      */
     @Override
     public double getCarbs() {
@@ -166,7 +172,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for carbs
-     * @param carbs 
+     *
+     * @param carbs
      */
     @Override
     public void setCarbs(double carbs) {
@@ -175,7 +182,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for name
-     * @return 
+     *
+     * @return
      */
     @Override
     public String getName() {
@@ -184,7 +192,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for name
-     * @param name 
+     *
+     * @param name
      */
     @Override
     public void setName(String name) {
@@ -193,7 +202,8 @@ public class Fat implements IFood {
 
     /**
      * Getter for description
-     * @return 
+     *
+     * @return
      */
     @Override
     public String getDescription() {
@@ -202,7 +212,8 @@ public class Fat implements IFood {
 
     /**
      * Setter for description
-     * @param description 
+     *
+     * @param description
      */
     @Override
     public void setDescription(String description) {
@@ -210,75 +221,21 @@ public class Fat implements IFood {
     }
 
     /**
-     * Getter for liquid
-     * @return
-     */
-    public boolean isLiquid() {
-        return liquid;
-    }
-
-    /**
-     * Setter for liquid. If Fat is a liquid, than it is not any other type of
-     * fat.
-     *
-     * @param liquid
-     */
-    public void setLiquid(boolean liquid) {
-        if (liquid) {
-            this.liquid = liquid;
-            this.solid = false;
-            this.nut = false;
-        } else {
-            this.liquid = false;
-        }
-
-    }
-
-    /**
-     * Getter for solid
+     * Getter for specificType
      *
      * @return
      */
-    public boolean isSolid() {
-        return solid;
+    public String getSpecificType() {
+        return specificType;
     }
 
     /**
-     * Setter for solid. If fat is solid, than it is not any other type.
+     * Setter for specificType
      *
-     * @param solid
+     * @param specificType
      */
-    public void setSolid(boolean solid) {
-        if (solid) {
-            this.solid = solid;
-            this.liquid = false;
-            this.nut = false;
-        } else {
-            this.solid = false;
-        }
-    }
+    public void setSpecificType(String specificType) {
+        this.specificType = specificType;
 
-    /**
-     * Getter for nut
-     *
-     * @return
-     */
-    public boolean isNut() {
-        return nut;
-    }
-
-    /**
-     * Setter for nut. If fat is nut, than it is not any other type
-     *
-     * @param nut
-     */
-    public void setNut(boolean nut) {
-        if (nut) {
-            this.nut = nut;
-            this.liquid = false;
-            this.solid = false;
-        } else {
-            this.nut = false;
-        }
     }
 }

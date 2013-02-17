@@ -2,8 +2,8 @@ package food;
 
 /**
  * A class definition for a Fruit Object. This Fruit Class is in the food
- * package. It contains reference variables for FOOD_CODE, two booleans 
- * (sweet, acidic) and instantiates a Food object to hold/process 
+ * package. It contains reference variables for FOOD_CODE, String to hold a specific type of 
+ * either of two values (sweet or acidic) and instantiates a Food object to hold/process 
  * all common food data. The class includes a default no-arg constructor and 
  * an overloaded constructor.
  * Implemented methods are Overridden.
@@ -18,8 +18,7 @@ public class Fruit implements IFood {
     private final String FOOD_CODE = "0001";
 
     //instance variables
-    private boolean sweet;
-    private boolean acidic;
+    private String specificType; //sweet or acidic
     //Instantiate a food object.
     private final Food food;
 
@@ -29,8 +28,7 @@ public class Fruit implements IFood {
     public Fruit() {
         //call super class no-arg constructor.
         food = new Food();
-        this.sweet = false;
-        this.acidic = false;
+        specificType = "";
     }
 
     /**
@@ -47,18 +45,10 @@ public class Fruit implements IFood {
      * @param sweet
      */
     public Fruit(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
-            double carbs, boolean sweet) {
+            double carbs, String specificType) {
         //call Food overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
-
-        if (sweet == true) {
-            this.sweet = sweet;
-            this.acidic = false;
-        } else {
-            this.acidic = true;
-            this.sweet = false;
-        }
-
+        this.specificType = specificType;
     }
 
     /**
@@ -229,72 +219,20 @@ public class Fruit implements IFood {
     }
 
     /**
-     * Getter for sweet
+     * Getter for specificType
      *
      * @return
      */
-    public boolean isSweet() {
-        return this.sweet;
+    public String getSpecificType() {
+        return this.specificType;
     }
 
     /**
-     * Setter for sweet
+     * Setter for specificType
      *
-     * @param bool
+     * @param String specificType
      */
-    public void setSweet(boolean bool) {
-        if (bool) {
-            this.sweet = true;
-            this.acidic = false;
-        } else {
-            this.sweet = false;
-            this.acidic = true;
-        }
+    public void setSweet(String specificType) {
+        this.specificType = specificType;
     }
-
-    /**
-     * Getter for acidic.
-     *
-     * @return acidic
-     */
-    public boolean isAcidic() {
-            return acidic;
-    }
-
-    /**
-     * Setter for acidic.
-     *
-     * @param acidic
-     */
-    public void setAcidic(boolean acidic) {
-        if (acidic) {
-            this.acidic = acidic;
-            this.sweet = false;
-        } else {
-            this.acidic = false;
-            this.sweet = true;
-        }
-    }
-    
-    
-    /*
-     public static void main(String[] args) {
-     //Test for fruit class.
-     IFood apple = new Fruit("Apple", "Happy Birthday to me! Apple works.", 235, 112, 1.5, 13.4, 12.54, 23.22, false);
-
-     Fruit apple2 = (Fruit) apple;
-     
-//     String happy = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4("\"Happy Birthday\" \"&\" \"Merry Christma's\"");
-//     System.out.println(happy);
-     
-     System.out.println("Name: " + apple2.getName() + "\nDescription: " + apple2.getDescription()
-             + "\nCalories: "
-     + apple2.getCalories() + "\nCalorie from Fat: " + apple2.getCaloriesFromFat()
-     + "\nServing Size: " + apple2.getServingSize()
-     + "\nProtein: " + apple2.getProtein()
-     + "\nFat: " + apple2.getFat()
-     + "\nCarbs: " + apple2.getCarbs() + "\nSweet: " + apple2.isSweet() + "\nAcidic: " + apple2.isAcidic() );
-
-
-     }*/
 }

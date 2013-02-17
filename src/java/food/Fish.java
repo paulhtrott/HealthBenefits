@@ -1,13 +1,12 @@
 package food;
 
 /**
- * A class definition for a Fish Object. This Fish Class is in the food
- * package. It contains reference variables for FOOD_CODE, three booleans 
- * (saltwater, freshwater, freshAndSaltwater) and instantiates a Food object to hold/process 
- * all common food data. The class includes a default no-arg constructor and 
- * an overloaded constructor.
- * Abstract methods are Overridden.
- * Extends from the Meat abstract class.
+ * A class definition for a Fish Object. This Fish Class is in the food package.
+ * It contains reference variables for FOOD_CODE, String to hold a specific type
+ * of either three possible values (saltwater, freshwater, freshAndSaltwater)
+ * and instantiates a Food object to hold/process all common food data. The
+ * class includes a default no-arg constructor and an overloaded constructor.
+ * Abstract methods are Overridden. Extends from the Meat abstract class.
  *
  * @author Paul Trott (ptrott) Date: January 26, 2013
  *
@@ -19,9 +18,7 @@ public class Fish extends Meat {
     //Instantiate a food object.
     private final Food food;
     //Instance variable
-    private boolean saltwater;
-    private boolean freshwater;
-    private boolean freshAndSaltwater;
+    private String specificType;
 
     /**
      * no-arg Default constructor.
@@ -29,9 +26,7 @@ public class Fish extends Meat {
     public Fish() {
         //Calls food default constructor.
         food = new Food();
-        saltwater = false;
-        freshwater = false;
-        freshAndSaltwater = false;
+        specificType = "";
     }
 
     /**
@@ -45,14 +40,13 @@ public class Fish extends Meat {
      * @param protein
      * @param fat
      * @param carbs
+     * @param specificType
      */
     public Fish(String name, String description, int calories, int caloriesFromFat, double servingSize, double protein, double fat,
-            double carbs) {
+            double carbs, String specificType) {
         //call food class overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
-        saltwater = false;
-        freshwater = false;
-        freshAndSaltwater = false;
+        this.specificType = specificType;
     }
 
     /**
@@ -226,74 +220,20 @@ public class Fish extends Meat {
     }
 
     /**
-     * Getter for saltwater
+     * Getter for specificType
      *
-     * @return saltwater
+     * @return specificType
      */
-    public boolean isSaltwater() {
-        return saltwater;
+    public String getSpecificType() {
+        return specificType;
     }
 
     /**
-     * Setter for saltwater
+     * Setter for specificType
      *
-     * @param saltwater
+     * @param specificType
      */
-    public void setSaltwater(boolean saltwater) {
-        if (saltwater) {
-            this.saltwater = saltwater;
-            this.freshwater = false;
-            this.freshAndSaltwater = false;
-        } else {
-            this.saltwater = false;
-        }
-    }
-
-    /**
-     * Getter for freshwater
-     *
-     * @return freshwater
-     */
-    public boolean isFreshwater() {
-        return freshwater;
-    }
-
-    /**
-     * Setter for freshwater
-     *
-     * @param freshwater
-     */
-    public void setFreshwater(boolean freshwater) {
-        if (freshwater) {
-            this.freshwater = freshwater;
-            this.saltwater = false;
-            this.freshAndSaltwater = false;
-        } else {
-            this.freshwater = false;
-        }
-    }
-
-    /**
-     * Getter for freshAndSaltwater
-     *
-     * @return freshAndSaltwater
-     */
-    public boolean isFreshAndSaltwater() {
-        return freshAndSaltwater;
-    }
-
-    /**
-     * Setter for freshAndSaltwater
-     *
-     * @param freshAndSaltwater
-     */
-    public void setFreshAndSaltwater(boolean freshAndSaltwater) {
-        if (freshAndSaltwater) {
-            this.freshAndSaltwater = freshAndSaltwater;
-            this.freshwater = false;
-            this.saltwater = false;
-        } else {
-            this.freshAndSaltwater = false;
-        }
+    public void setSpecificType(String specificType) {
+        this.specificType = specificType;
     }
 }

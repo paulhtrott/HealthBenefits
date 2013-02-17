@@ -2,9 +2,10 @@ package food;
 
 /**
  * A class definition for a Vegetable Object. This Vegetable Class is in the food
- * package. It contains reference variables for FOOD_CODE, five boolean (greens,
- * stalk, tuber, root, mushroom) and instantiates a  Food object to hold/process
- * all common food data. The class includes a default no-arg constructor and 
+ * package. It contains reference variables for FOOD_CODE, String to hold a specific type of
+ * either of five values (greens, stalk, tuber, root, mushroom) and instantiates 
+ * a  Food object to hold/process all common food data.
+ * The class includes a default no-arg constructor and 
  * an overloaded constructor.
  * Implemented methods are Overridden.
  * Implements from the IFood interface class.
@@ -17,11 +18,7 @@ public class Vegetable implements IFood {
     private final String FOOD_CODE = "0002";
     
     //Instance variables
-    private boolean greens;
-    private boolean stalk;
-    private boolean tuber;
-    private boolean root;
-    private boolean mushroom;
+    private String specificType;
     //Instantiate a food object.
     private final Food food;
 
@@ -31,11 +28,7 @@ public class Vegetable implements IFood {
     public Vegetable() {
         //Call food default constructor.
         food = new Food();
-        this.greens = false;
-        this.stalk = false;
-        this.tuber = false;
-        this.root = false;
-        this.mushroom = false;
+        this.specificType = "";
     }
 
     /**
@@ -49,18 +42,15 @@ public class Vegetable implements IFood {
      * @param protein
      * @param fat
      * @param carbs
+     * @param specificType 
      */
     public Vegetable(String name, String description, int calories, int caloriesFromFat, double servingSize,
-            double protein, double fat, double carbs) {
+            double protein, double fat, double carbs, String specificType) {
 
         //Call food default constructor.
         food = new Food(name, description, calories, caloriesFromFat,
                 servingSize, protein, fat, carbs);
-        this.greens = false;
-        this.stalk = false;
-        this.tuber = false;
-        this.root = false;
-        this.mushroom = false;
+        this.specificType = specificType;
 
     }
     
@@ -234,133 +224,21 @@ public class Vegetable implements IFood {
     }
 
     /**
-     * Getter for greens
+     * Getter for specificType
      *
-     * @return greens
+     * @return specificType
      */
-    public boolean isGreens() {
-        return greens;
+    public String getSpecificType() {
+        return this.specificType;
     }
 
     /**
-     * Setter for greens If vegetables is a green it is not any other type.
+     * Setter for specificType.
      *
-     * @param greens
+     * @param specificType
      */
-    public void setGreens(boolean greens) {
-        if (greens) {
-            this.greens = greens;
-            this.mushroom = false;
-            this.root = false;
-            this.stalk = false;
-            this.tuber = false;
-        } else {
-            this.greens = false;
-        }
+    public void setGreens(String specificType) {
+        this.specificType = specificType;
     }
 
-    /**
-     * Getter for stalk.
-     *
-     * @return stalk
-     */
-    public boolean isStalk() {
-        return stalk;
-    }
-
-    /**
-     * Setter for stalk. If vegetable is a stalk it is not any other type.
-     *
-     * @param stalk
-     */
-    public void setStalk(boolean stalk) {
-        if (stalk) {
-            this.stalk = stalk;
-            this.greens = false;
-            this.mushroom = false;
-            this.root = false;
-            this.tuber = false;
-        } else {
-            this.stalk = false;
-        }
-    }
-
-    /**
-     * Getter for tuber.
-     *
-     * @return tuber
-     */
-    public boolean isTuber() {
-        return tuber;
-    }
-
-    /**
-     * Setter for tuber. If vegetable is a tuber it is not any other type.
-     *
-     * @param tuber
-     */
-    public void setTuber(boolean tuber) {
-        if (tuber) {
-            this.tuber = tuber;
-            this.greens = false;
-            this.mushroom = false;
-            this.root = false;
-            this.stalk = false;
-        } else {
-            this.tuber = false;
-        }
-    }
-
-    /**
-     * Getter for root.
-     *
-     * @return root
-     */
-    public boolean isRoot() {
-        return root;
-    }
-
-    /**
-     * Setter for root If vegetable is a root it is not any other type.
-     *
-     * @param root
-     */
-    public void setRoot(boolean root) {
-        if (root) {
-            this.root = root;
-            this.greens = false;
-            this.mushroom = false;
-            this.stalk = false;
-            this.tuber = false;
-        } else {
-            this.root = false;
-        }
-    }
-
-    /**
-     * Getter for mushroom.
-     *
-     * @return mushroom
-     */
-    public boolean isMushroom() {
-        return mushroom;
-    }
-
-    /**
-     * Setter for mushroom. If vegetable is a mushroom it is not any other type.
-     *
-     * @param mushroom
-     */
-    public void setMushroom(boolean mushroom) {
-        if (mushroom) {
-            this.mushroom = mushroom;
-            this.greens = false;
-            this.root = false;
-            this.stalk = false;
-            this.tuber = false;
-        } else {
-            this.mushroom = false;
-        }
-
-    }
 }

@@ -2,15 +2,13 @@ package food;
 
 /**
  * A class definition for a Dairy Object. This Dairy Class is in the food
- * package. It contains reference variables for FOOD_CODE, three booleans 
- * (milk, cheese, curdledDairy) and instantiates a Food object to hold/process 
- * all common food data. The class includes a default no-arg constructor and 
- * an overloaded constructor.
- * Implemented methods are Overridden.
- * Implements the IFood interface class.
+ * package. It contains reference variables for FOOD_CODE, String to hold three
+ * possible values (milk, cheese, curdledDairy) and instantiates a Food object
+ * to hold/process all common food data. The class includes a default no-arg
+ * constructor and an overloaded constructor. Implemented methods are
+ * Overridden. Implements the IFood interface class.
  *
- * @author Paul Trott (ptrott)
- * Date: January 28, 2013
+ * @author Paul Trott (ptrott) Date: January 28, 2013
  */
 public class Dairy implements IFood {
     //Final variable to hold the Diary Food Code
@@ -19,9 +17,7 @@ public class Dairy implements IFood {
     //Instantiates a Food object
     private final Food food;
     //Instance variables
-    private boolean milk;
-    private boolean cheese;
-    private boolean curdledDairy;
+    private String specificType;
 
     /**
      * no-arg Default constructor.
@@ -29,9 +25,7 @@ public class Dairy implements IFood {
     public Dairy() {
         //Calls the food no-arg default constructor
         food = new Food();
-        this.milk = false;
-        this.cheese = false;
-        this.curdledDairy = false;
+        this.specificType = "";
     }
 
     /**
@@ -45,14 +39,13 @@ public class Dairy implements IFood {
      * @param protein
      * @param fat
      * @param carbs
+     * @param specificType
      */
     public Dairy(String name, String description, int calories, int caloriesFromFat, double servingSize,
-            double protein, double fat, double carbs) {
+            double protein, double fat, double carbs, String specificType) {
         //call Food class overloaded constructor.
         food = new Food(name, description, calories, caloriesFromFat, servingSize, protein, fat, carbs);
-        this.milk = false;
-        this.cheese = false;
-        this.curdledDairy = false;
+        this.specificType = specificType;
     }
 
     /**
@@ -226,74 +219,20 @@ public class Dairy implements IFood {
     }
 
     /**
-     * Getter for milk
+     * Getter for specificType
      *
-     * @return
+     * @return specificType
      */
-    public boolean isMilk() {
-        return milk;
+    public String getSpecificType() {
+        return specificType;
     }
 
     /**
-     * Setter for milk if Dairy product is milk then it is not any other type.
+     * Setter for specificType.
      *
-     * @param milk
+     * @param specificType
      */
-    public void setMilk(boolean milk) {
-        if (milk) {
-            this.milk = milk;
-            this.cheese = false;
-            this.curdledDairy = false;
-        } else {
-            this.milk = false;
-        }
-    }
-
-    /**
-     * Getter for cheese
-     *
-     * @return
-     */
-    public boolean isCheese() {
-        return cheese;
-    }
-
-    /**
-     * Setter for cheese If Dairy product is cheese it is not of any other type.
-     *
-     * @param cheese
-     */
-    public void setCheese(boolean cheese) {
-        if (cheese) {
-            this.cheese = cheese;
-            this.milk = false;
-            this.curdledDairy = false;
-        } else {
-            this.cheese = false;
-        }
-    }
-
-    /**
-     * Setter for curdledDairy
-     *
-     * @return
-     */
-    public boolean isCurdledDairy() {
-        return curdledDairy;
-    }
-
-    /**
-     * Setter for curdledDairy
-     * If Dairy product is curdledDairy it is not of any other type.
-     * @param curdledDairy
-     */
-    public void setCurdledDairy(boolean curdledDairy) {
-        if (curdledDairy) {
-            this.curdledDairy = curdledDairy;
-            this.milk = false;
-            this.cheese = false;
-        } else {
-            this.curdledDairy = false;
-        }
+    public void setSpecificType(String specificType) {
+        this.specificType = specificType;
     }
 }
