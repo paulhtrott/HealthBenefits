@@ -5,7 +5,6 @@
 --%>
 
 
-<%@page import="util.CookieUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -48,7 +47,7 @@
                                 <div class="block clearfix">
                                     <div class="blockheader">
                                         <h3 class="t">
-                                            <%--show name if name exists --%>
+                                            <%--Show user's name if name exists in the session--%>
                                             <%-- otherwise show generic message --%>
                                             <%
                                                 String firstName = (String) session.getAttribute("firstName");
@@ -95,11 +94,11 @@
                                                 <h3 class="t">Healthy Living</h3>
                                             </div>
                                             <ul class="vmenu">
-                                                <li><a href="tanks-pieces.html">Fitness Tips</a></li>
-                                                <li><a href="starter-kits.html">Breakfast Ideas</a></li>
-                                                <li><a href="batteries.html">Lunch Ideas</a></li>
-                                                <li><a href="omizers.html">Dinner Ideas</a></li>
-                                                <li><a href="tanks-pieces.html">Snack Ideas</a></li>
+                                                <li><a href="/index.jsp">Fitness Tips</a></li>
+                                                <li><a href="/index.jsp">Breakfast Ideas</a></li>
+                                                <li><a href="/index.jsp">Lunch Ideas</a></li>
+                                                <li><a href="/index.jsp">Dinner Ideas</a></li>
+                                                <li><a href="/index.jsp">Snack Ideas</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -117,10 +116,10 @@
                                                             <h2>PUT TOGETHER A CLEAN LIFE</h2>
                                                             <p>
                                                                 Learn about the health benefits of all kinds of raw fruits,
-                                                                vegetables, herbs and clean meats. Also, see how much calories,
-                                                                carbohydrates, protein and fats are in your favorite foods.
-                                                                You will also be able to put together meal plans and see the total
-                                                                amount of calories, carbs, proteins and fats that are in the meals.
+                                                                vegetables, herbs and clean meats. Also, see how many calories,
+                                                                carbohydrates (carbs), protein and fats are in your favorite whole foods.
+                                                                As a member, you will be able to put together meal plans and see the total
+                                                                amount of calories, carbs, proteins and fats that are your meals.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -141,8 +140,8 @@
                                                             <h3>Raw Foodism</h3>
                                                             <p>
                                                                 The fundamental principle behind raw foodism 
-                                                                is that plant foods in their most natural state &mdash; uncooked and 
-                                                                unprocessed &mdash; are the most wholesome for the body. The raw food 
+                                                                is that plant foods in their most natural state &mdash; not cooked and 
+                                                                not processed &mdash; are the most wholesome for the body. The raw food 
                                                                 diet is a <em>lifestyle choice</em>, not a weight loss plan.
                                                             </p>
                                                         </div>
@@ -157,9 +156,9 @@
                     </div>
                     <footer class="footer clearfix">
                         <p>
-                            <a href="https://twitter.com/healthbe" title="Health Benefits of Foods Twitter Page">
+                            <a href="https://twitter.com/NickiTrott" title="Health Benefits of Foods Twitter Page">
                                 <img src="images/twitter.gif" alt="Logo for Health Benefits of Foods Twitter Page" title="Logo for Health Benefits of Foods Twitter Page" />
-                                Follow us on Twitter 
+                                Follow on Twitter 
                             </a>
                             &nbsp;&nbsp;&nbsp;Copyright &copy; 2013 -- All Rights Reserved.
                         </p>
