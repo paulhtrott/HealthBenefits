@@ -1,5 +1,6 @@
 <%-- 
-    Document   : admin
+    Document   : admin home page, where an admin can administer content to the
+                 Health Benefits website.
     Created on : Feb 9, 2013, 12:22:21 AM
     Author     : Paul Trott (ptrott)
 --%>
@@ -31,7 +32,7 @@
                             <div class="layout-cell sidebar1 clearfix">
                                 <div class="block clearfix">
                                     <div class="blockheader">
-                                        <h3 class="t">Hi, (Admin name)!</h3>
+                                        <h3 class="t">Admin Home</h3>
                                     </div>
                                     <div class="blockcontent">
                                         <h4>Welcome...</h4>
