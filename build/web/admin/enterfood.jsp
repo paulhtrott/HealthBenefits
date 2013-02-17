@@ -53,11 +53,11 @@
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
-                                                            <form class="signinform" action="AddFoodToDBServlet" method="get">
+                                                            <form class="signinform" action="AddFoodServlet" method="get">
                                                                 <h1>Enter a new Food</h1>
-                                                                <h4>Food Type?</h4>
-                                                                <!--Code to Get a List of food from the DB-->
-                                                                <select name="foodtypelist">
+                                                                <h4>Choose Food:</h4>
+                                                                <!--Code to Get a List of food from the DB for the drop down menu-->
+                                                                <select name="foodType">
                                                                     <%
                                                                         if (FoodData.getFoodByType() != null) {
 
@@ -67,61 +67,78 @@
                                                                             //Fill in form with database data of book titles.
                                                                             while (it.hasNext()) {
                                                                                 String currentName = (String) it.next();
+                                                                                out.println("<option value=" + currentName + ">" + currentName + "</option>)");
+                                                                            }
+                                                                        }
                                                                     %>
-                                                                    <option name="<%= currentName%>"><%= currentName%></option>
-                                                                    <% }
-                                                                    } else {
-                                                                    %>
-                                                                    <p>Food Information is Currently Unavailable, Please Check Back Later</p>
-                                                                    <%}%>
                                                                 </select>
 
-                                                                <h4>Enter food name:</h4>
-                                                                <input type="text" maxlength="49" size="50" name="name">
-                                                                <small>Example format: johnDoe@gmail.com</small>
+                                                                <!-- Enter a food name -->
+                                                                <h4>Name:</h4>
+                                                                <input type="text" maxlength="50" size="51" name="foodName" required>
+                                                                <small>max length of 50 characters</small>
 
-                                                                <h4>Enter food description:</h4>
-                                                                <input type="" maxlength="19" size="50" name="description">
-                                                                <small>minimum length of 7 and a max length of 19 characters.</small>
-
-                                                                <h4>Enter food calories:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="calories">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food calories from fat:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="caloriesFromFat">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food serving size:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="servingSize">
-                                                                <select>
-                                                                    <option name="cups">cups</option>
-                                                                    <option name="ounces">ounces</option>
-                                                                    <option name="grams">grams</option>
+                                                                <!-- jQuery area for specific type of certain foods -->
+                                                                <h4 class="type">Specific Type:</h4>
+                                                                <select name="specificType" required>
+                                                                    <option value="Sweet"> Sweet </option>
+                                                                    <option value="Acidic"> Acidic </option>
+                                                                    <option value="Greens"> Greens </option>
+                                                                    <option value="Stalk"> Stalk </option>
+                                                                    <option value="Tuber"> Tuber </option>
+                                                                    <option value="Root"> Root </option>
+                                                                    <option value="Mushroom"> Mushroom </option>
+                                                                    <option value="Salt"> Salt </option>
+                                                                    <option value="Fresh"> Fresh </option>
+                                                                    <option value="SaltFresh"> Salt &amp; Fresh </option>
+                                                                    <option value="Liquid"> Liquid </option>
+                                                                    <option value="Solid"> Solid </option>
+                                                                    <option value="Nut"> Nut </option>
                                                                 </select>
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food carbs:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="carbs">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food protein:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="protein">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food fat:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="fat">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                <h4>Enter food carbs:</h4>
-                                                                <input type="text" maxlength="30" size="50" name="carbs">
-                                                                <small>minimum length of 8 and a max length of 30 characters.</small><br>
-                                                                
-                                                                
-                                                                
 
-                                                                <p></p>
-                                                                <input type="submit" value="Set up my account">
+                                                                <h4>Calories:</h4>
+                                                                <input type="text" maxlength="4" size="5" name="calories" required>
+                                                                <small>max length of 4 numbers.</small><br>
+
+                                                                <!--Enter calories from fat-->
+                                                                <h4>Calories from fat:</h4>
+                                                                <input type="text" maxlength="4" size="5" name="caloriesFromFat" required>
+                                                                <small>max length of 4 characters.</small><br>
+
+                                                                <!-- Enter for serving size-->
+                                                                <h4>Serving size:</h4>
+                                                                <input type="text" maxlength="6" size="7" name="servingSize" required>
+                                                                <small>max length of 6 characters.</small><br>
+                                                                <!--Select value for serving size: cups, ounces or grams -->
+                                                                <select name="size">
+                                                                    <option value="cups">cups</option>
+                                                                    <option value="ounces">ounces</option>
+                                                                    <option value="grams">grams</option>
+                                                                </select>
+
+                                                                <!-- Enter value for carbs-->
+                                                                <h4>Carbohydrates:</h4>
+                                                                <input type="text" maxlength="6" size="7" name="carbs" required>
+                                                                <small>max length of 6 characters.</small><br>
+
+                                                                <!-- Enter value for protein -->
+                                                                <h4>Protein:</h4>
+                                                                <input type="text" maxlength="6" size="7" name="protein" required>
+                                                                <small>max length of 6 characters.</small><br>
+
+                                                                <!-- Enter value for Fat-->
+                                                                <h4>Fat:</h4>
+                                                                <input type="text" maxlength="6" size="7" name="fat" required>
+                                                                <small>max length of 6 characters.</small><br>
+
+                                                                <!-- Enter description -->
+                                                                <h4>Description:</h4>
+                                                                <textarea rows="15" cols="50" maxlength="3000" name="description" required></textarea>
+                                                                <small>minimum of 20 characters and max length of 3000 characters.</small>
+                                                                <br>
+                                                                <br>
+                                                               <!-- Submit button -->
+                                                                <input type="submit" value="Add Food to System">
                                                             </form>
                                                         </div>
                                                     </div>

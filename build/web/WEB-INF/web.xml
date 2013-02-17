@@ -35,6 +35,19 @@
         <servlet-name>SignOutServlet</servlet-name>
         <servlet-class>UserServlets.SignOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <description>Add Food to the database from admin section.</description>
+        <servlet-name>AddFoodServlet</servlet-name>
+        <servlet-class>FoodServlets.AddFoodServlet</servlet-class>
+        <run-as>
+            <role-name>Admin</role-name>
+        </run-as>
+        <security-role-ref>
+            <description/>
+            <role-name>Admin</role-name>
+            <role-link>Admin</role-link>
+        </security-role-ref>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -46,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/SignOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFoodServlet</servlet-name>
+        <url-pattern>/admin/AddFoodServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
