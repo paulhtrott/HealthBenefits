@@ -3,7 +3,6 @@ package database;
 //import user class.
 
 import java.sql.*;
-import org.mindrot.BCrypt;
 import user.User;
 
 /**
@@ -16,8 +15,7 @@ public class UserData {
 
     /**
      * insertUser adds a user to the database. Takes in a User object as a
-     * parameter. Password is hashed and salted with BCrypt before being inserted
-     * into database.
+     * parameter.
      *
      * @param user
      * @return an integer value of the executedUpdate query.
@@ -232,10 +230,8 @@ public class UserData {
     }
 //    //Remove a user
 //    public static String removeUser();
-//    //Edit a user
-//    public static String editUser();
-//    //Show user's name
-//    public static String getName();
-//    //Get username
+//    //For a user to be able to change password.
+//    public static String changePassword();
+//    //Get username, for users who forget username.
 //    public static String getUsername();
 }
