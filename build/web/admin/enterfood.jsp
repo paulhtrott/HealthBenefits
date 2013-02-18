@@ -88,9 +88,9 @@
                                                                     <option value="Tuber"> Tuber </option>
                                                                     <option value="Root"> Root </option>
                                                                     <option value="Mushroom"> Mushroom </option>
-                                                                    <option value="Salt"> Salt </option>
-                                                                    <option value="Fresh"> Fresh </option>
-                                                                    <option value="SaltFresh"> Salt &amp; Fresh </option>
+                                                                    <option value="Saltwater"> Salt Water</option>
+                                                                    <option value="Freshwater"> Fresh Water</option>
+                                                                    <option value="SaltFreshwater"> Salt &amp; Fresh Water</option>
                                                                     <option value="Liquid"> Liquid </option>
                                                                     <option value="Solid"> Solid </option>
                                                                     <option value="Nut"> Nut </option>
