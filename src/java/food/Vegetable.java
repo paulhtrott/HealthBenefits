@@ -237,7 +237,7 @@ public class Vegetable implements IFood {
      *
      * @param specificType
      */
-    public void setGreens(String specificType) {
+    public void setSpecificType(String specificType) {
         this.specificType = specificType;
     }
 
