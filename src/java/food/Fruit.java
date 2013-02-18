@@ -232,7 +232,7 @@ public class Fruit implements IFood {
      *
      * @param String specificType
      */
-    public void setSweet(String specificType) {
+    public void setSpecificType(String specificType) {
         this.specificType = specificType;
     }
 }
