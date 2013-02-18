@@ -642,215 +642,29 @@ public class FruitTest {
     }
 
     /**
-     * Test of isSweet method, of class Fruit.
+     * Test of getSpecificType method, of class Fruit.
      */
     @Test
-    public void testIsSweet() {
-        System.out.println("isSweet");
-        //Test the isSweet method 20 times.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setSweet(bool);
-                boolean expResult = bool;
-                boolean result = instance.isSweet();
-                assertEquals(expResult, result);
-            }
-        }
-
-        //Test to be sure acidic is opposite of sweet (20 times).
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setSweet(bool);
-
-                boolean expResult;
-
-                if (instance.isSweet()) {
-                    expResult = false;
-                } else {
-                    expResult = true;
-                }
-
-                boolean result = instance.isAcidic();
-                assertEquals(expResult, result);
-            }
-        }
+    public void testGetSpecificType() {
+        System.out.println("getSpecificType");
+        Fruit instance = new Fruit();
+        instance.setSpecificType("Sweet");
+        String expResult = "Sweet";
+        String result = instance.getSpecificType();
+        assertEquals(expResult, result);
+        
     }
 
     /**
-     * Test of setSweet method, of class Fruit.
+     * Test of setSpecificType method, of class Fruit.
      */
     @Test
-    public void testSetSweet() {
-        //Test the isSweet method 20 times.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setSweet(bool);
-                boolean expResult = bool;
-                boolean result = instance.isSweet();
-                assertEquals(expResult, result);
-            }
-        }
-
-        //Test to be sure acidic is opposite of sweet (20 times).
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setSweet(bool);
-
-                boolean expResult;
-
-                if (instance.isSweet()) {
-                    expResult = false;
-                } else {
-                    expResult = true;
-                }
-
-                boolean result = instance.isAcidic();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-
-    /**
-     * Test of isAcidic method, of class Fruit.
-     */
-    @Test
-    public void testIsAcidic() {
-        System.out.println("isAcidic");
-        //Test the isAcidic method 20 times.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setAcidic(bool);
-                boolean expResult = bool;
-                boolean result = instance.isAcidic();
-                assertEquals(expResult, result);
-            }
-        }
-
-        //Test to be sure sweet is opposite of acidic (20 times).
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setAcidic(bool);
-
-                boolean expResult;
-
-                if (instance.isAcidic()) {
-                    expResult = false;
-                } else {
-                    expResult = true;
-                }
-
-                boolean result = instance.isSweet();
-                assertEquals(expResult, result);
-            }
-        }
-    }
-
-    /**
-     * Test of setAcidic method, of class Fruit.
-     */
-    @Test
-    public void testSetAcidic() {
-        System.out.println("setAcidic");
-        //Test the isAcidic method 20 times.
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-                //Instantiate a Fruit object
-                Fruit instance = new Fruit();
-                instance.setAcidic(bool);
-                boolean expResult = bool;
-                boolean result = instance.isAcidic();
-                assertEquals(expResult, result);
-            }
-        }
-
-        //Test to be sure sweet is opposite of acidic (20 times).
-        {
-            boolean bool;
-            for (int i = 0; i < 20; i++) {
-                int randNum = (int) ((Math.random() * (2)) + 1);
-                if (randNum == 1) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
-
-                //Instantiate a fruit object
-                Fruit instance = new Fruit();
-                instance.setAcidic(bool);
-
-                boolean expResult;
-
-                if (instance.isAcidic()) {
-                    expResult = false;
-                } else {
-                    expResult = true;
-                }
-
-                boolean result = instance.isSweet();
-                assertEquals(expResult, result);
-            }
-        }
+    public void testSetSpecificType() {
+        System.out.println("setSpecificType");
+        String result = "Acidic";
+        Fruit instance = new Fruit();
+        instance.setSpecificType(result);
+        String expResult = instance.getSpecificType();
+        assertEquals(expResult, result);
     }
 }
