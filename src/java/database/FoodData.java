@@ -141,12 +141,12 @@ public class FoodData {
     
 
     /**
-     * This request will get a list of all food types out of the Derby 
-     * JDBC.
+     * This request will get a list of all food types out of the Database.
+     * 
      * @return 
      */
     public static Iterator<String> getFoodByType() {
-        //to hold Food Type list.
+        //List object to hold Food Type list.
         List<String> foodTypesList = new ArrayList<String>();
         //To hold individual food items as they are read out of the database.
         String foodType;
@@ -168,16 +168,14 @@ public class FoodData {
             //Execute select query.
             queryResults = statement.executeQuery(query);
             
-            // Step 6 Process the results.
+            //Process the results.
             while (queryResults.next()) { // returns false when empty
                 //Get the data from the result set.
                 foodType = (String) queryResults.getString("TYPEOFFOOD");
-
-                // create a new Book Object here,
-                // add it to the HashMap.
+                // add it to the List.
                 foodTypesList.add(foodType);
             }
-        //display book title sorted
+        //display foodList in name sorted order.
         Collections.sort(foodTypesList);
         // get the iterator from the set.
         return foodTypesList.iterator();          
@@ -195,6 +193,59 @@ public class FoodData {
         }
     }
 
+    /**
+     * getFoodNames will get a list of food names that are entered in the database.
+     * 
+     * @return Iterator of a list of foods in the database.
+     */
+    public static Iterator<String> getFoodNames(){
+        //Get a connection to a connection pool to connect to a DB.
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        
+        //Instantiate Statement object and ResultSet object.
+        Statement statement = null;
+        ResultSet queryResults = null; 
+        
+        //Instantiate a List object to hold entered food names.
+        List<String> foodNamesList = new ArrayList<String>();
+        //String to hold individual food names as they are read out of the database.
+        String foodName;
+        
+        try{
+            //instantiate the statement.
+            statement = connection.createStatement();
+            //Query for getting names out of database.
+            String query = "Select FOODNAME from FOOD";
+            
+            //Execute query results.
+            queryResults = statement.executeQuery(query);
+            
+            //Process the results.
+            while(queryResults.next()){
+                
+                //get the data from the result set.
+                foodName = (String) queryResults.getString("FOODNAME");
+                //add to list.
+                foodNamesList.add(foodName);
+                
+            }
+            //return the iterator.
+            return foodNamesList.iterator();
+            
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            //Close statements, resultsets and free connection pool.
+            DBUtil.closeStatement(statement);
+            DBUtil.closeResultSet(queryResults);
+            pool.freeConnection(connection);
+        }
+        
+        
+        
+    }
     
     public static String removeFood() {
         throw new UnsupportedOperationException("Not supported yet.");
