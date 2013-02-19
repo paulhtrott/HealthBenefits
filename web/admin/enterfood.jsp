@@ -49,7 +49,10 @@
                                     </div>
                                     <div class="blockcontent scrollBox">
                                         <ul>
-                                            <%-- Get a list of entered items from database --%>
+                                            <%--
+                                                Get a list of already entered items from database,
+                                                and display the to the admin in a scrollable text box
+                                            --%>
                                             <%
                                                 if (FoodData.getFoodNames() != null) {
                                                     //Instantiate an iterator
@@ -77,7 +80,7 @@
                                                             <form class="signinform" action="AddFoodServlet" method="get">
                                                                 <h1>Enter a new Food</h1>
                                                                 <h4>Choose Food:</h4>
-                                                                <!--Code to Get a List of food from the DB for the drop down menu-->
+                                                                <%--Code to Get a List of food from the DB for the drop down menu--%>
                                                                 <select name="foodType">
                                                                     <%
                                                                         if (FoodData.getFoodByType() != null) {
