@@ -18,7 +18,6 @@
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link rel="stylesheet" href="../css/style.css" media="screen">
         <!--[if lte IE 7]><link rel="stylesheet" href="css/style.ie7.css" media="screen" /><![endif]-->
-        <link rel="stylesheet" href="../css/style.responsive.css" media="all">
     </head>
     <body>
         <div id="main">
@@ -44,6 +43,28 @@
                                         </p>
                                     </div>
                                 </div>
+                                <div class="block clearfix">
+                                    <div class="blockheader">
+                                        <h3 class="t">Foods Added To System</h3>
+                                    </div>
+                                    <div class="blockcontent scrollBox">
+                                        <ul>
+                                            <%-- Get a list of entered items from database --%>
+                                            <%
+                                                if (FoodData.getFoodNames() != null) {
+                                                    //Instantiate an iterator
+                                                    Iterator it = FoodData.getFoodNames();
+                                                    //Add list items to the HTML list.
+                                                    while (it.hasNext()) {
+                                                        String foodEntered = (String) it.next();
+                                                        out.print("<li>" + foodEntered + "</li>");
+                                                    }
+
+                                                }
+                                            %>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="layout-cell content clearfix">
                                 <article class="post article">
@@ -64,7 +85,7 @@
                                                                             // Create an iterator to get a list of food items	
                                                                             Iterator it = FoodData.getFoodByType();
 
-                                                                            //Fill in form with database data of book titles.
+                                                                            //Fill in form with database data of food types.
                                                                             while (it.hasNext()) {
                                                                                 String currentName = (String) it.next();
                                                                                 out.println("<option value=" + currentName + ">" + currentName + "</option>)");
@@ -111,9 +132,10 @@
                                                                 <small>max length of 6 characters.</small><br>
                                                                 <!--Select value for serving size: cups, ounces or grams -->
                                                                 <select name="size">
-                                                                    <option value="cups">cups</option>
-                                                                    <option value="ounces">ounces</option>
-                                                                    <option value="grams">grams</option>
+                                                                    <option value="cups">cup</option>
+                                                                    <option value="ounces">ounce</option>
+                                                                    <option value="grams">gram</option>
+                                                                    <option value="grams">tablespoon</option>
                                                                 </select>
 
                                                                 <!-- Enter value for carbs-->
@@ -137,7 +159,7 @@
                                                                 <small>minimum of 20 characters and max length of 3000 characters.</small>
                                                                 <br>
                                                                 <br>
-                                                               <!-- Submit button -->
+                                                                <!-- Submit button -->
                                                                 <input type="submit" value="Add Food to System">
                                                             </form>
                                                         </div>
@@ -161,6 +183,5 @@
         <!--JQuery/JavaScript Imports-->
         <script src="../js/jquery.js"></script>
         <script src="../js/script.js"></script>
-        <script src="../js/script.responsive.js"></script> 
     </body>
 </html>
