@@ -18,7 +18,6 @@
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link rel="stylesheet" href="../css/style.css" media="screen">
         <!--[if lte IE 7]><link rel="stylesheet" href="css/style.ie7.css" media="screen" /><![endif]-->
-        <link rel="stylesheet" href="../css/style.responsive.css" media="all">
     </head>
     <body>
         <div id="main">
@@ -184,6 +183,5 @@
         <!--JQuery/JavaScript Imports-->
         <script src="../js/jquery.js"></script>
         <script src="../js/script.js"></script>
-        <script src="../js/script.responsive.js"></script> 
     </body>
 </html>
