@@ -1,7 +1,6 @@
 package regex;
 
 //regex imports
-import java.util.regex.*;
 
 
 /**
