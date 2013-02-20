@@ -1,6 +1,5 @@
 package regex;
 
-//regex imports
 
 
 /**
@@ -116,6 +115,22 @@ public class Regex {
     public static boolean containsANumber(String text){
         //Determine if passed in parameter contains a number.
         if(text.matches(".*[0-9].*")){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * Regex to determine if a passed in String contains characters. As format
+     * should just include digits.
+     * @param text - String parameter (number)
+     * @return boolean value of true or false. True if parameter String contains
+     * characters. False if string only contains digits.
+     */
+    public static boolean containsText(String text){
+        //Determine if passed in parameter contains a characters
+        if(text.matches(".*[a-zA-Z].*")){
             return true;
         } else {
             return false;
