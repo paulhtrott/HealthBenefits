@@ -108,6 +108,21 @@ public class Regex {
         return upperLetterName;
     }
     
+    /**
+     * Regex to determine if a string contains a number.
+     * @param text - String parameter.
+     * @return boolean value of true or false. True if the string contains a number.
+     * false if string does not contain a number.
+     */
+    public static boolean containsANumber(String text){
+        //Determine if passed in parameter contains a number.
+        if(text.matches(".*[0-9].*")){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     
     
 }
