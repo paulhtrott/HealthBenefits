@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * A class definition for FoodData for making requests to the Database for food
+ * A class definition for DerbyFoodData for making requests to the Database for food
  * related requests.
  *
- * This FoodData Class is in the database package.
+ * This DerbyFoodData Class is in the database package.
  *
  * @author Paul Trott (ptrott) Date: Feb 9, 2012
  */
-public class FoodData {
+public class DerbyFoodData {
 
     public String updateFood() {
         throw new UnsupportedOperationException("Not supported yet.");

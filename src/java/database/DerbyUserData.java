@@ -6,12 +6,12 @@ import java.sql.*;
 import user.User;
 
 /**
- * A class definition for a UserData for making requests to the Database for
+ * A class definition for a DerbyUserData for making requests to the Database for
  * food related requests.
  *
  * @author Paul Trott (ptrott)
  */
-public class UserData {
+public class DerbyUserData {
 
     /**
      * insertUser adds a user to the database. Takes in a User object as a

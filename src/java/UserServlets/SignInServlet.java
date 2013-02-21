@@ -1,6 +1,6 @@
 package UserServlets;
 
-import database.UserData;
+import database.DerbyUserData;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,7 +48,7 @@ public class SignInServlet extends HttpServlet {
         String url;
 
         //Instantiate a user object from the entered information.
-        User user = (User) UserData.getUserOutOfDB(username);
+        User user = (User) DerbyUserData.getUserOutOfDB(username);
 
         //Instantiate a session object to store user information in a session.
         HttpSession session = request.getSession();
@@ -59,7 +59,7 @@ public class SignInServlet extends HttpServlet {
             url = "/signin.jsp";
         }
         
-        if ((UserData.isUserAMember(username)) && (encryption.BCrypt.checkpw(password, user.getPassword()))) {
+        if ((DerbyUserData.isUserAMember(username)) && (encryption.BCrypt.checkpw(password, user.getPassword()))) {
             //Determine if user is in the database.
             //Determine if password matches database password.
             //set session attribtues in synchronized threads

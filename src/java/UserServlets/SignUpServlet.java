@@ -1,6 +1,6 @@
 package UserServlets;
 
-import database.UserData;
+import database.DerbyUserData;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -65,7 +65,7 @@ public class SignUpServlet extends HttpServlet {
 
         //Insert user into database if username and emailaddress doesn't already exist
         //in database.
-        if (UserData.isUserExisting(emailAddress, username)) {
+        if (DerbyUserData.isUserExisting(emailAddress, username)) {
             //set message based on info inputed.
             message = "Email address and/or username already exists.";
             //synchronize message session attribute.
@@ -149,9 +149,9 @@ public class SignUpServlet extends HttpServlet {
             synchronized (session) {
                 session.setAttribute("firstName", user.getFirstName());
                 //insert user into USERS table.
-                UserData.insertUser(user);
+                DerbyUserData.insertUser(user);
                 //insert same user into USERCODE table.
-                UserData.addToUserCodeTable(user);
+                DerbyUserData.addToUserCodeTable(user);
             }
 
             //return user to signupthankyou.jsp

@@ -1,6 +1,6 @@
 package FoodServlets;
 
-import database.FoodData;
+import database.DerbyFoodData;
 import food.*;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -184,83 +184,83 @@ public class AddFoodServlet extends HttpServlet {
                 Fruit fruit = (Fruit) food;
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
-                FoodData.addFood(food, foodCode, size, fruit.getSpecificType());
+                DerbyFoodData.addFood(food, foodCode, size, fruit.getSpecificType());
             } else if (foodType.compareTo("Vegetable") == 0) { //Vegetable
                 food = new Vegetable(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Vegetable veg = (Vegetable) food;
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
-                FoodData.addFood(food, foodCode, size, veg.getSpecificType());
+                DerbyFoodData.addFood(food, foodCode, size, veg.getSpecificType());
 
             } else if (foodType.compareTo("FruitVeg") == 0) { //FruitVegetable
                 food = (FruitVeg) new FruitVeg(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Poultry") == 0) { //Poultry
                 food = (Poultry) new Poultry(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Fish") == 0) { //Fish
                 food = new Fish(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Fish fish = (Fish) food;
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food ti the database.
-                FoodData.addFood(food, foodCode, size, fish.getSpecificType());
+                DerbyFoodData.addFood(food, foodCode, size, fish.getSpecificType());
             } else if (foodType.compareTo("Wild Game") == 0) { //WildGame
                 food = (WildGame) new WildGame(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Red Meat") == 0) { //RedMeat
                 food = (RedMeat) new RedMeat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Bread") == 0) { //Bread
                 food = (Bread) new Bread(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Cereal") == 0) { //Cereal
                 food = (Cereal) new Cereal(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Rice") == 0) { //Rice
                 food = (Rice) new Rice(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Pasta") == 0) { //Pasta
                 food = (Pasta) new Pasta(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             } else if (foodType.compareTo("Dairy") == 0) { //Dairy
                 food = new Dairy(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Dairy dairy = (Dairy) food;
                 foodCode = food.getFOOD_CODE();
                 //Add food to database
-                FoodData.addFood(food, foodCode, size, dairy.getSpecificType());
+                DerbyFoodData.addFood(food, foodCode, size, dairy.getSpecificType());
             } else if (foodType.compareTo("Legumes") == 0) { //Legumes
                 food = new Legume(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //Add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
 
             } else if (foodType.compareTo("Fat") == 0) { //Fats
                 food = new Fat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Fat fatfood = (Fat) food;
                 foodCode = food.getFOOD_CODE();
                 //add food to database
-                FoodData.addFood(food, foodCode, size, fatfood.getSpecificType());
+                DerbyFoodData.addFood(food, foodCode, size, fatfood.getSpecificType());
             } else if (foodType.compareTo("Herbs") == 0) { //Herbs
                 food = (Herb) new Herb(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
-                FoodData.addFood(food, foodCode, size);
+                DerbyFoodData.addFood(food, foodCode, size);
             }
             
             //Successful message for added food.
