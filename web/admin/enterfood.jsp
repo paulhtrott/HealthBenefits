@@ -82,11 +82,13 @@
                                                                 <%-- If message equals null enter nothing, other null will be displayed --%>
                                                                 <%
                                                                     String message = (String) session.getAttribute("message");
-                                                                    if (message == null) {
+                                                                    String foodName = (String) session.getAttribute("foodName");
+                                                                    if (message == null && foodName == null) {
                                                                         message = "";
+                                                                        foodName = "";
                                                                     }
                                                                 %>
-                                                                <p class="error"><%= message%></p>
+                                                                <p class="error"><%= foodName %> <%= message%></p>
                                                                 <h1>Enter a new Food</h1>
                                                                 <h4>Choose Food:</h4>
                                                                 <%--Code to Get a List of food from the DB for the drop down menu--%>
