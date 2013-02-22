@@ -184,7 +184,7 @@ public class AddFoodServlet extends HttpServlet {
             //Fruit
             if (foodType.compareTo("Fruit") == 0) {
                 food = new Fruit(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
-                Fruit fruit = (Fruit) food;
+                Fruit fruit = (Fruit) food; //cast food as fruit.
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
                 DerbyFoodData.addFood(food, foodCode, size, fruit.getSpecificType());
@@ -193,7 +193,7 @@ public class AddFoodServlet extends HttpServlet {
                 
             } else if (foodType.compareTo("Vegetable") == 0) { //Vegetable
                 food = new Vegetable(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
-                Vegetable veg = (Vegetable) food;
+                Vegetable veg = (Vegetable) food; //cast food as vegetable.
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
                 DerbyFoodData.addFood(food, foodCode, size, veg.getSpecificType());
@@ -218,7 +218,7 @@ public class AddFoodServlet extends HttpServlet {
                 
             } else if (foodType.compareTo("Fish") == 0) { //Fish
                 food = new Fish(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
-                Fish fish = (Fish) food;
+                Fish fish = (Fish) food; //cast food as fish.
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food ti the database.
                 DerbyFoodData.addFood(food, foodCode, size, fish.getSpecificType());
@@ -276,7 +276,7 @@ public class AddFoodServlet extends HttpServlet {
             } else if (foodType.compareTo("Dairy") == 0) { //Dairy
                 food = new Dairy(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Dairy dairy = (Dairy) food;
-                foodCode = food.getFOOD_CODE();
+                foodCode = food.getFOOD_CODE(); //cast food as Dairy
                 //Add food to database
                 DerbyFoodData.addFood(food, foodCode, size, dairy.getSpecificType());
                 //Send the inputed food to the junction table with username and food name.
@@ -292,7 +292,7 @@ public class AddFoodServlet extends HttpServlet {
 
             } else if (foodType.compareTo("Fat") == 0) { //Fats
                 food = new Fat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
-                Fat fatfood = (Fat) food;
+                Fat fatfood = (Fat) food; //cast food as fat
                 foodCode = food.getFOOD_CODE();
                 //add food to database
                 DerbyFoodData.addFood(food, foodCode, size, fatfood.getSpecificType());
