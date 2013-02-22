@@ -1,8 +1,8 @@
 package database;
 
 import java.sql.*;
-import javax.sql.DataSource;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 
 /**
@@ -26,6 +26,8 @@ public class ConnectionPool {
      */
     private ConnectionPool() {
         try {
+            //Instantiate an InitialContext that will hold the information
+            //for the DataSource location.
             InitialContext ic = new InitialContext();
             dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/healthbenefits");
         } catch (Exception e) {
