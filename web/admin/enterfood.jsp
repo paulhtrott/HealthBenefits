@@ -5,7 +5,7 @@
 --%>
 <%-- import of packages needed for the enterfood page --%>
 
-<%@page import="database.FoodData, java.util.Iterator" 
+<%@page import="database.DerbyFoodData, java.util.Iterator" 
         contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -54,9 +54,9 @@
                                                 and display the to the admin in a scrollable text box
                                             --%>
                                             <%
-                                                if (FoodData.getFoodNames() != null) {
+                                                if (DerbyFoodData.getFoodNames() != null) {
                                                     //Instantiate an iterator
-                                                    Iterator it = FoodData.getFoodNames();
+                                                    Iterator it = DerbyFoodData.getFoodNames();
                                                     //Add list items to the HTML list.
                                                     while (it.hasNext()) {
                                                         String foodEntered = (String) it.next();
@@ -92,10 +92,10 @@
                                                                 <%--Code to Get a List of food from the DB for the drop down menu--%>
                                                                 <select name="foodType">
                                                                     <%
-                                                                        if (FoodData.getFoodByType() != null) {
+                                                                        if (DerbyFoodData.getFoodByType() != null) {
 
                                                                             // Create an iterator to get a list of food items	
-                                                                            Iterator it = FoodData.getFoodByType();
+                                                                            Iterator it = DerbyFoodData.getFoodByType();
 
                                                                             //Fill in form with database data of food types.
                                                                             while (it.hasNext()) {
