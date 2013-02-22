@@ -311,11 +311,12 @@ public class AddFoodServlet extends HttpServlet {
             
             
             //Successful message for added food.
-            message = "Food added to system.";
+            message = "added to system.";
             
             //Synchronized session for setting success message.
             synchronized(session){
                 session.setAttribute("message", message);
+                session.setAttribute("foodName", foodName);
             }
 
             url = "/admin/enterfood.jsp";
@@ -327,6 +328,7 @@ public class AddFoodServlet extends HttpServlet {
         
         //To remove message from session.
         session.removeAttribute("message");
+        session.removeAttribute("foodName");
         
     }
 
