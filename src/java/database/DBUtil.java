@@ -4,7 +4,7 @@ import java.sql.*;
 
 /**
  * A class definition for a DBUtil class allowing for an easier way to 
- * close database query statements.
+ * close database query statements and ResultSets.
  * 
  * This DBUtil Class is in the database package.
  * 
