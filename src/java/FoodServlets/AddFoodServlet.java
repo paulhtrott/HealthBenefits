@@ -1,11 +1,11 @@
 package FoodServlets;
 
 import database.DerbyFoodData;
+import database.DerbyJunctionTableData;
 import food.*;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,7 +48,10 @@ public class AddFoodServlet extends HttpServlet {
         String protein = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("protein")); //convert to double
         String fat = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("fat")); //convert to double
         String description = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("description"));
-
+        //Instance of the username of the admin/enterer of food items.
+        //This value will be stored in the junction table (EnterFood).
+        String username = request.getRemoteUser(); 
+        
         //Variable to hold returning url
         String url;
 
@@ -185,70 +188,107 @@ public class AddFoodServlet extends HttpServlet {
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
                 DerbyFoodData.addFood(food, foodCode, size, fruit.getSpecificType());
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Vegetable") == 0) { //Vegetable
                 food = new Vegetable(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Vegetable veg = (Vegetable) food;
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food to the database.
                 DerbyFoodData.addFood(food, foodCode, size, veg.getSpecificType());
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
 
             } else if (foodType.compareTo("FruitVeg") == 0) { //FruitVegetable
                 food = (FruitVeg) new FruitVeg(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Poultry") == 0) { //Poultry
                 food = (Poultry) new Poultry(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Fish") == 0) { //Fish
                 food = new Fish(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Fish fish = (Fish) food;
                 foodCode = food.getFOOD_CODE();
                 //Send the inputted food ti the database.
                 DerbyFoodData.addFood(food, foodCode, size, fish.getSpecificType());
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Wild Game") == 0) { //WildGame
                 food = (WildGame) new WildGame(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Red Meat") == 0) { //RedMeat
                 food = (RedMeat) new RedMeat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Bread") == 0) { //Bread
                 food = (Bread) new Bread(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Cereal") == 0) { //Cereal
                 food = (Cereal) new Cereal(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Rice") == 0) { //Rice
                 food = (Rice) new Rice(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Pasta") == 0) { //Pasta
                 food = (Pasta) new Pasta(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Dairy") == 0) { //Dairy
                 food = new Dairy(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
                 Dairy dairy = (Dairy) food;
                 foodCode = food.getFOOD_CODE();
                 //Add food to database
                 DerbyFoodData.addFood(food, foodCode, size, dairy.getSpecificType());
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Legumes") == 0) { //Legumes
                 food = new Legume(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //Add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
 
             } else if (foodType.compareTo("Fat") == 0) { //Fats
                 food = new Fat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs, specificType);
@@ -256,12 +296,19 @@ public class AddFoodServlet extends HttpServlet {
                 foodCode = food.getFOOD_CODE();
                 //add food to database
                 DerbyFoodData.addFood(food, foodCode, size, fatfood.getSpecificType());
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             } else if (foodType.compareTo("Herbs") == 0) { //Herbs
                 food = (Herb) new Herb(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
                 DerbyFoodData.addFood(food, foodCode, size);
+                //Send the inputed food to the junction table with username and food name.
+                DerbyJunctionTableData.addUserAndFood(username, foodName);
+                
             }
+            
             
             //Successful message for added food.
             message = "Food added to system.";
