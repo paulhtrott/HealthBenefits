@@ -1,6 +1,8 @@
 package database;
 
-import food.IFood;
+//Imports.
+import food.*;
+import food.information.FoodInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,12 +10,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
- * A class definition for DerbyFoodData for making requests to the Database for food
- * related requests.
+ * A class definition for DerbyFoodData for making requests to the Database for
+ * food related requests.
  *
  * This DerbyFoodData Class is in the database package.
  *
@@ -241,16 +245,93 @@ public class DerbyFoodData {
             DBUtil.closeResultSet(queryResults);
             pool.freeConnection(connection);
         }
+    }
+
+    public static List<FoodInfo> getListOfFoods(String foodType) {
+        //Instantiate a HashMap for food items
+        List<FoodInfo> foodList = new ArrayList<FoodInfo>();
+        //Instantiate an IFood
+        IFood food;
+        //Instantiate String objects to hold Food name and Description.
+        String foodName;
+        String foodDescription;
+
+        //Instantiate a ConnectionPool and Connection Object
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+
+        //Instantiate a PreparedStatement and ResultSet
+        PreparedStatement statement = null;
+        ResultSet queryResults = null;
+
+        //Query for getting food information out of the database.
+        String query = "Select FOOD.FOODNAME, FOOD.DESCRIPTION FROM FOOD, FOODCODE  "
+                + "WHERE FOODCODE.FOOD_CODE = ? AND FOOD.FOOD_CODE = ?";
+
+        try {
+
+            //instantiate the PreparedStatement
+            statement = connection.prepareStatement(query);
+
+            //If food has a specificType associated then have to use a different mapping
+            //that includes the specificType.
+            if (foodType.compareTo("fruits") == 0) {
+                //Instantite a new IFood as a fruit.
+                food = new Fruit();
+                //Set parameters in the query.
+                statement.setString(1, food.getFOOD_CODE());
+                statement.setString(2, food.getFOOD_CODE());
 
 
+            } else if (foodType.compareTo("vegetables") == 0){
+                //Instantiate a new IFood object as a vegetable
+                food = new Vegetable();
+                //Set parameters in the query.
+                statement.setString(1,food.getFOOD_CODE());
+                statement.setString(2, food.getFOOD_CODE());
+                
+                
+            } else if (foodType.compareTo("fish") == 0){
+                //Instantiate a new IFood object as a vegetable
+                food = new Fish();
+                //Set parameters in the query.
+                statement.setString(1,food.getFOOD_CODE());
+                statement.setString(2, food.getFOOD_CODE());
+                
+            } else if(foodType.compareTo("dairy") == 0
+                    || foodType.compareTo("Fats") == 0) {
+            } else { //for foods that do not contain a specificType.
+            }
 
+            //Execute the query store results in a result set
+            queryResults = statement.executeQuery();
+
+            //Process Results
+            while (queryResults.next()) {
+                
+                //Store food name
+                foodName = (String) queryResults.getString("FOODNAME");
+                //Store food description
+                foodDescription = (String) queryResults.getString("DESCRIPTION");
+                //Add food name and description to HashMap object.
+                foodList.add(new FoodInfo(foodName,foodDescription));
+                
+            }
+            //Return the food list based on type.
+            return foodList;
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return null;
+        } finally {
+            //Close statments, results and free the connection pool.
+            DBUtil.closePreparedStatement(statement);
+            DBUtil.closeResultSet(queryResults);
+            pool.freeConnection(connection);
+        }
     }
 
     public static String removeFood() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public static String getAllFood() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
