@@ -127,7 +127,7 @@
                                                         <div class="layout-cell layout-item-3 " style="width: 100%" >
                                                             <h1>Yummy Vegetables</h1>
                                                             <ul>
-                                                                <%--Code to get foodInfo to display all fruits on page--%>
+                                                                <%--Code to get foodInfo to display foods on page--%>
                                                                 <%
                                                                     List<FoodInfo> foodInfo = (List) session.getAttribute("foodInfo");
                                                                     //Instantiate an iterator
