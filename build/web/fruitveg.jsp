@@ -1,9 +1,8 @@
 <%-- 
-    Document   : fruits page to display all fruit information.
-    Created on : Feb 22, 2013, 10:56:49 PM
+    Document   : fruit-veggies page to display fruit veggie information
+    Created on : Feb 23, 2013, 1:55:20 PM
     Author     : Paul Trott (ptrott)
 --%>
-
 
 <%@page import="java.util.*"%>
 <%@page import="food.information.FoodInfo"%>
@@ -12,7 +11,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Fruits - Health Benefits of Foods</title>
+        <title>Fruit-Veggies - Health Benefits of Foods</title>
         <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
 
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -25,9 +24,9 @@
             <nav class="nav clearfix">
                 <ul class="hmenu">
                     <li><a href="index.jsp" >Home</a></li>
-                    <li><a href="foods?foodType=fruits" class="active">Fruits</a></li>
+                    <li><a href="foods?foodType=fruits">Fruits</a></li>
                     <li><a href="foods?foodType=vegetables">Vegetables</a></li>
-                    <li><a href="foods?foodType=fruitveg">Fruit-Veggies</a></li>
+                    <li><a href="foods?foodType=fruitveg"  class="active">Fruit-Veggies</a></li>
                     <li><a href="#">Meats</a>
                         <ul>
                             <li><a href="foods?foodType=poultry">Poultry</a></li>
@@ -48,7 +47,7 @@
                     <li><a href="foods?foodType=legumes">Legumes</a></li>
                     <li><a href="foods?foodType=fats">Fats</a></li>
                     <li><a href="foods?foodType=herbs">Herbs</a></li>
-                </ul>
+                </ul> 
             </nav>
             <div class="sheet clearfix">
                 <header class="header clearfix">
@@ -126,9 +125,9 @@
                                                 <div class="content-layout layout-item-1">
                                                     <div class="content-layout-row">
                                                         <div class="layout-cell layout-item-3 " style="width: 100%" >
-                                                            <h1>Life Giving Fruits</h1>
+                                                            <h1>Delicious Fruit&mdash;Vegetables</h1>
                                                             <ul>
-                                                                <%--Code to get foodInfo to display all fruits on page--%>
+                                                                <%--Code to get foodInfo to display foods on page--%>
                                                                 <%
                                                                     List<FoodInfo> foodInfo = (List) session.getAttribute("foodInfo");
                                                                     //Instantiate an iterator
@@ -191,4 +190,6 @@
             <script src="js/script.responsive.js"></script> 
     </body>
 </html>
+
+
 
