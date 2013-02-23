@@ -25,29 +25,29 @@
             <nav class="nav clearfix">
                 <ul class="hmenu">
                     <li><a href="index.jsp" >Home</a></li>
-                    <li><a href="GetFoodByType?foodType=fruits" class="active">Fruits</a></li>
-                    <li><a href="GetFoodByType?foodType=vegetables">Vegetables</a></li>
-                    <li><a href="GetFoodByType?foodType=fruitveg">Fruit-Veggies</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=fruits" class="active">Fruits</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=vegetables">Vegetables</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=fruitveg">Fruit-Veggies</a></li>
                     <li><a href="#">Meats</a>
                         <ul>
-                            <li><a href="GetFoodByType?foodType=poultry">Poultry</a></li>
-                            <li><a href="GetFoodByType?foodType=fish">Fish</a></li>
-                            <li><a href="GetFoodByType?foodType=wildgame">Wild Game</a></li>
-                            <li><a href="GetFoodByType?foodType=wildgame">Red Meat</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=poultry">Poultry</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=fish">Fish</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=wildgame">Wild Game</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=wildgame">Red Meat</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Grains</a>
                         <ul>
-                            <li><a href="GetFoodByType?foodType=bread">Bread</a></li>
-                            <li><a href="GetFoodByType?foodType=bread">Cereal</a></li>
-                            <li><a href="GetFoodByType?foodType=bread">Rice</a></li>
-                            <li><a href="GetFoodByType?foodType=bread">Pasta</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=bread">Bread</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=bread">Cereal</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=bread">Rice</a></li>
+                            <li><a href="GetFoodByTypeServlet?foodType=bread">Pasta</a></li>
                         </ul>
                     </li>
-                    <li><a href="GetFoodByType?foodType=dairy">Dairy</a></li>
-                    <li><a href="GetFoodByType?foodType=legumes">Legumes</a></li>
-                    <li><a href="GetFoodByType?foodType=fats">Fats</a></li>
-                    <li><a href="GetFoodByType?foodType=herbs">Herbs</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=dairy">Dairy</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=legumes">Legumes</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=fats">Fats</a></li>
+                    <li><a href="GetFoodByTypeServlet?foodType=herbs">Herbs</a></li>
                 </ul>
             </nav>
             <div class="sheet clearfix">
