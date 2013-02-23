@@ -125,7 +125,7 @@
                                                 <div class="content-layout layout-item-1">
                                                     <div class="content-layout-row">
                                                         <div class="layout-cell layout-item-3 " style="width: 100%" >
-                                                            <h1>Delectable Dairy Products</h1>
+                                                            <h1>Delectable Dairy Foods</h1>
                                                             <ul>
                                                                 <%--Code to get foodInfo to display foods on page--%>
                                                                 <%
