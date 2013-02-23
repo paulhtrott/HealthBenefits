@@ -49,7 +49,7 @@
         </security-role-ref>
     </servlet>
     <servlet>
-        <servlet-name>GetFoodByType</servlet-name>
+        <servlet-name>GetFoodByTypeServlet</servlet-name>
         <servlet-class>FoodServlets.GetFoodByTypeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
@@ -69,8 +69,8 @@
         <url-pattern>/admin/AddFoodServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GetFoodByType</servlet-name>
-        <url-pattern>/GetFoodByType</url-pattern>
+        <servlet-name>GetFoodByTypeServlet</servlet-name>
+        <url-pattern>/foods</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
