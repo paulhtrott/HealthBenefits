@@ -23,15 +23,29 @@
             <nav class="nav clearfix">
                 <ul class="hmenu">
                     <li><a href="index.jsp" class="active">Home</a></li>
-                    <li><a href="starter-kits.html">Fruits</a></li>
-                    <li><a href="batteries.html">Vegetables</a></li>
-                    <li><a href="omizers.html">Fruit-veggies</a></li>
-                    <li><a href="tanks-pieces.html">Meats</a></li>
-                    <li><a href="drip-tips.html">Grains</a></li>
-                    <li><a href="accessories.html">Dairy</a></li>
-                    <li><a href="e-liquid.html">Legumes</a></li>
-                    <li><a href="clearance.html">Fats</a></li>
-                    <li><a href="clearance.html">Herbs</a></li>
+                    <li><a href="GetFoodByType?foodType=fruits">Fruits</a></li>
+                    <li><a href="GetFoodByType?foodType=vegetables">Vegetables</a></li>
+                    <li><a href="GetFoodByType?foodType=fruitveg">Fruit-Veggies</a></li>
+                    <li><a href="#">Meats</a>
+                        <ul>
+                            <li><a href="GetFoodByType?foodType=poultry">Poultry</a></li>
+                            <li><a href="GetFoodByType?foodType=fish">Fish</a></li>
+                            <li><a href="GetFoodByType?foodType=wildgame">Wild Game</a></li>
+                            <li><a href="GetFoodByType?foodType=wildgame">Red Meat</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Grains</a>
+                        <ul>
+                            <li><a href="GetFoodByType?foodType=bread">Bread</a></li>
+                            <li><a href="GetFoodByType?foodType=bread">Cereal</a></li>
+                            <li><a href="GetFoodByType?foodType=bread">Rice</a></li>
+                            <li><a href="GetFoodByType?foodType=bread">Pasta</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="GetFoodByType?foodType=dairy">Dairy</a></li>
+                    <li><a href="GetFoodByType?foodType=legumes">Legumes</a></li>
+                    <li><a href="GetFoodByType?foodType=fats">Fats</a></li>
+                    <li><a href="GetFoodByType?foodType=herbs">Herbs</a></li>
                 </ul> 
             </nav>
             <div class="sheet clearfix">
