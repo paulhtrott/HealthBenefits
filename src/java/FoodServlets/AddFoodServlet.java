@@ -225,7 +225,7 @@ public class AddFoodServlet extends HttpServlet {
                 //Send the inputed food to the junction table with username and food name.
                 DerbyJunctionTableData.addUserAndFood(username, foodName);
                 
-            } else if (foodType.compareTo("Wild Game") == 0) { //WildGame
+            } else if (foodType.compareTo("Wild") == 0) { //WildGame
                 food = (WildGame) new WildGame(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
@@ -233,7 +233,7 @@ public class AddFoodServlet extends HttpServlet {
                 //Send the inputed food to the junction table with username and food name.
                 DerbyJunctionTableData.addUserAndFood(username, foodName);
                 
-            } else if (foodType.compareTo("Red Meat") == 0) { //RedMeat
+            } else if (foodType.compareTo("Red") == 0) { //RedMeat
                 food = (RedMeat) new RedMeat(foodName, description, iCalories, iCaloriesFromFat, dServingSize, dProtein, dFat, dCarbs);
                 foodCode = food.getFOOD_CODE();
                 //add food to database.
