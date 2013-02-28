@@ -36,7 +36,7 @@
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
-                                                            <form class="signinform" action="SignUpServlet" method="post">
+                                                            <form class="signinform" action="signup" method="post">
                                                                 <%-- Gets the message from the Signup Servlet Attribute --%>
                                                                 <%-- If message equals null enter nothing, other null will be displayed --%>
                                                                 <%
