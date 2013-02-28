@@ -5,6 +5,7 @@
 --%>
 
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.*"%>
 <%@page import="food.information.FoodInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -61,133 +62,126 @@
                         <div class="content-layout-row">
                             <div class="layout-cell sidebar1 clearfix">
                                 <div class="block clearfix">
-                                    <div class="blockheader">
-                                        <h3 class="t">
-                                            <%--Show user's name if name exists in the session--%>
-                                            <%-- otherwise show generic message --%>
-                                            <%
-                                                String firstName = (String) session.getAttribute("firstName");
-                                                if (firstName == null || firstName.equals("") || firstName == "no name") {
-                                                    out.println("Hello, Guest!");
-                                                    out.println("</h3>");
-                                                    out.println("</div>");
-                                                    out.println("<div class=\"blockcontent\">");
-                                                    out.println("<p style=\"margin-top: 5px\">");
-                                                    out.println("<a href=\"signin.jsp\" class=\"button\">Sign in</a><br>");
-                                                    out.println("<a href=\"signup.jsp\">New user? Start here.</a>");
-                                                    out.println("</p>");
-                                                    out.println("</div>");
-                                                } else {
-                                                    out.println("Hello, " + firstName);
-                                                    out.println("</h3>");
-                                                    out.println("</div>");
-                                                    out.println("<div class=\"blockcontent\">");
-                                                    out.println("<p>");
-                                                    out.println("<a href=\"SignOutServlet\" class=\"button\">Sign Out</a><br>");
-                                                    out.println("</p>");
-                                                    out.println("</div>");
+                                    <%--Show user's name if name exists in the session--%>
+                                    <%-- otherwise show generic message --%>
+                                    <c:choose>
+                                        <c:when test="${firstName == null || firstName.equals('') || firstName == 'no name'}">
 
-                                                }
-                                            %>
-
-                                    </div>
-                                    <div class="block clearfix">
-                                        <div class="blockheader">
-                                            <h3 class="t">Search For Food</h3>
-                                        </div>
-                                        <div class="blockcontent">
-                                            <!--Search Website for Food-->
-                                            <form action="searchresults" method="get">
-                                                <input type="text" name="search" required>
-                                                <input type="submit" class="button" value="Find">
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="vmenublock clearfix">
-                                        <div class="vmenublockcontent">
                                             <div class="blockheader">
-                                                <h3 class="t">Healthy Living</h3>
+                                                <h3 class="t">Hello, Guest!</h3>
                                             </div>
-                                            <ul class="vmenu">
-                                                <li><a href="/index.jsp">Fitness Tips</a></li>
-                                                <li><a href="/index.jsp">Breakfast Ideas</a></li>
-                                                <li><a href="/index.jsp">Lunch Ideas</a></li>
-                                                <li><a href="/index.jsp">Dinner Ideas</a></li>
-                                                <li><a href="/index.jsp">Snack Ideas</a></li>
-                                            </ul>
-                                        </div>
+                                            <div class="blockcontent">
+                                                <p style="margin-top: 5px">
+                                                    <a href="signin.jsp" class="button">Sign in</a><br>
+                                                    <a href="signup.jsp">New user? Start here.</a>
+                                                </p>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="blockheader">
+                                                <h3 class="t">Hello, ${firstName}</h3>
+                                            </div>
+                                            <div class="blockcontent">
+                                                <p>
+                                                    <a href="signout" class="button">Sign Out</a><br>
+                                                </p>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                </div>
+                                <div class="block clearfix">
+                                    <div class="blockheader">
+                                        <h3 class="t">Search For Food</h3>
+                                    </div>
+                                    <div class="blockcontent">
+                                        <!--Search Website for Food-->
+                                        <form action="searchresults" method="get">
+                                            <input type="text" name="search" required>
+                                            <input type="submit" class="button" value="Find">
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="layout-cell content clearfix">
-                                    <article class="post article">
-                                        <div class="postcontent postcontent-0 clearfix">
-                                            <div class="content-layout-wrapper layout-item-0">
-                                                <div class="content-layout layout-item-1">
-                                                    <div class="content-layout-row">
-                                                        <div class="layout-cell layout-item-3 " style="width: 100%" >
-                                                            <h1>Life Giving Fruits</h1>
-                                                            <ul>
-                                                                <%--Code to get foodInfo to display all fruits on page--%>
-                                                                <%
-                                                                    List<FoodInfo> foodInfo = (List) session.getAttribute("foodInfo");
-                                                                    //Instantiate an iterator
-                                                                    Iterator it = foodInfo.iterator();
-                                                                    while (it.hasNext()) {
-                                                                        FoodInfo food = (FoodInfo) it.next();
-                                                                        out.print("<li><h4><a param=" + food.getFoodName() + ">" + food.getFoodName() + "</a></h4></li>");
-                                                                        out.print("<li>" + food.getFoodDescription() + "</li><br>");
-                                                                    }
-                                                                %>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="content-layout-wrapper layout-item-0">
-                                                <div class="content-layout layout-item-1">
-                                                    <div class="content-layout-row">
-                                                        <div class="layout-cell layout-item-2" style="width: 50%" >
-                                                            <h3>Watermelon</h3>
-                                                            <p>
-                                                                This wonderful summer time treat is a fabulous aid for weight loss, 
-                                                                lowering cholesterol, avoiding strokes and controlling your blood 
-                                                                pressure. <em>So eat up</em>!
-                                                            </p>
-                                                        </div>
-                                                        <div class="layout-cell layout-item-2" style="width: 50%" >
-                                                            <h3>Raw Foodism</h3>
-                                                            <p>
-                                                                The fundamental principle behind raw foodism 
-                                                                is that plant foods in their most natural state &mdash; not cooked and 
-                                                                not processed &mdash; are the most wholesome for the body. The raw food 
-                                                                diet is a <em>lifestyle choice</em>, not a weight loss plan.
-                                                            </p>
-                                                        </div>
+                                <div class="vmenublock clearfix">
+                                    <div class="vmenublockcontent">
+                                        <div class="blockheader">
+                                            <h3 class="t">Healthy Living</h3>
+                                        </div>
+                                        <ul class="vmenu">
+                                            <li><a href="/index.jsp">Fitness Tips</a></li>
+                                            <li><a href="/index.jsp">Breakfast Ideas</a></li>
+                                            <li><a href="/index.jsp">Lunch Ideas</a></li>
+                                            <li><a href="/index.jsp">Dinner Ideas</a></li>
+                                            <li><a href="/index.jsp">Snack Ideas</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-cell content clearfix">
+                                <article class="post article">
+                                    <div class="postcontent postcontent-0 clearfix">
+                                        <div class="content-layout-wrapper layout-item-0">
+                                            <div class="content-layout layout-item-1">
+                                                <div class="content-layout-row">
+                                                    <div class="layout-cell layout-item-3 " style="width: 100%" >
+                                                        <h1>Life Giving Fruits</h1>
+                                                        <ul>
+                                                            <%--Code to get foodInfo to display all fruits on page--%>
+                                                            <c:forEach items="${foodInfo}" var="food">
+                                                                <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
+                                                                <li>${food.foodDescription}</li>
+                                                                <br>
+                                                            </c:forEach>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </article>
-                                </div>
+                                        <div class="content-layout-wrapper layout-item-0">
+                                            <div class="content-layout layout-item-1">
+                                                <div class="content-layout-row">
+                                                    <div class="layout-cell layout-item-2" style="width: 50%" >
+                                                        <h3>Watermelon</h3>
+                                                        <p>
+                                                            This wonderful summer time treat is a fabulous aid for weight loss, 
+                                                            lowering cholesterol, avoiding strokes and controlling your blood 
+                                                            pressure. <em>So eat up</em>!
+                                                        </p>
+                                                    </div>
+                                                    <div class="layout-cell layout-item-2" style="width: 50%" >
+                                                        <h3>Raw Foodism</h3>
+                                                        <p>
+                                                            The fundamental principle behind raw foodism 
+                                                            is that plant foods in their most natural state &mdash; not cooked and 
+                                                            not processed &mdash; are the most wholesome for the body. The raw food 
+                                                            diet is a <em>lifestyle choice</em>, not a weight loss plan.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
-                    <footer class="footer clearfix">
-                        <p>
-                            <a href="https://twitter.com/NickiTrott" title="Health Benefits of Foods Twitter Page">
-                                <img src="images/twitter.gif" alt="Logo for Health Benefits of Foods Twitter Page" title="Logo for Health Benefits of Foods Twitter Page" />
-                                Follow on Twitter 
-                            </a>
-                            &nbsp;&nbsp;&nbsp;Copyright &copy; 2013 -- All Rights Reserved.
-                        </p>
-                        <p><a href="admin/adminhome.jsp">Admin Login</a></p>
-                    </footer>
                 </div>
+                <footer class="footer clearfix">
+                    <p>
+                        <a href="https://twitter.com/NickiTrott" title="Health Benefits of Foods Twitter Page">
+                            <img src="images/twitter.gif" alt="Logo for Health Benefits of Foods Twitter Page" title="Logo for Health Benefits of Foods Twitter Page" />
+                            Follow on Twitter 
+                        </a>
+                        &nbsp;&nbsp;&nbsp;Copyright &copy; 2013 -- All Rights Reserved.
+                    </p>
+                    <p><a href="admin/adminhome.jsp">Admin Login</a></p>
+                </footer>
             </div>
-            <!--JQuery/JavaScript Imports-->
-            <script src="js/jquery.js"></script>
-            <script src="js/script.js"></script>
-            <script src="js/script.responsive.js"></script> 
+        </div>
+        <!--JQuery/JavaScript Imports-->
+        <script src="js/jquery.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/script.responsive.js"></script> 
     </body>
 </html>
 
