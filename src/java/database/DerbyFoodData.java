@@ -365,6 +365,66 @@ public class DerbyFoodData {
             pool.freeConnection(connection);
         }
     }
+    
+    
+    public static List<FoodInfo> searchFoods(String search) {
+        //Instantiate a List Object to hole food Information
+        List<FoodInfo> foodList = new ArrayList<FoodInfo>();
+        
+        //Instantiate a FoodInfo object to hold food name and description.
+        FoodInfo foodInfo;
+        //Instantiate String objects to hold food name and description.
+        String foodName;
+        String foodDescription;
+        
+        //Setup a Connection and a ConnectionPool
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        
+        //Instantiate an object for a Statement and query ResultSet
+        Statement statement = null;
+        ResultSet queryResults = null;
+        
+        //String to hold query to database to find foods based on search string.
+        String query = "SELECT FOODNAME, DESCRIPTION FROM FOOD"
+                + " WHERE FOODNAME LIKE '%" + search + "%' OR DESCRIPTION LIKE '%" + search + "%'";
+        
+        try{
+            //instantiate the prepared statement, pass in the query
+            statement = connection.createStatement();
+            
+            //Execute the query
+            queryResults = statement.executeQuery(query);
+            
+            //Iterate throught the results. Add the results in a list,
+            //with name and description.
+            while(queryResults.next()){
+                //Store the food name
+                foodName = (String) queryResults.getString("FOODNAME");
+                //Store the food description
+                foodDescription = (String) queryResults.getString("DESCRIPTION");
+                //Insert name and description into FoodInfo object
+                foodInfo = new FoodInfo(foodName, foodDescription);
+                //Store FoodInfo object in the list.
+                foodList.add(foodInfo);
+            }
+            //Return the foodList
+            return foodList;
+            
+        }catch(SQLException sqle){
+            //Handle Exception
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            //Close all database connections and result sets.
+            DBUtil.closePreparedStatement(statement);
+            DBUtil.closeResultSet(queryResults);
+            //Close connection pool (free connection)
+            pool.freeConnection(connection);
+        }
+        
+        
+    }
 
     public static String removeFood() {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -374,7 +434,5 @@ public class DerbyFoodData {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public static String searchFoods() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    
 }
