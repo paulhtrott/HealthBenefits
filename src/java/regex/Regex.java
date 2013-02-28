@@ -106,6 +106,21 @@ public class Regex {
         return upperLetterName;
     }
     
+     /**
+     * Regex match replaces the first letter in a name with an lower case letter
+     * if first name begins with a lower case letter.
+     * @param text - name to be replaced with an lower case name.
+     * @return lowerLetterName - a name with an lower case first letter.
+     */
+    public static String replaceUpperCaseFirstLetter(String text){
+        //Get the first character in the string.
+        //Replace first letter with upper case letter if first letter is lower case.
+        char firstLetter = Character.toLowerCase(text.charAt(0));
+        //Put word back together.
+        String lowerLetterName = firstLetter + text.substring(1);
+        return lowerLetterName;
+    }
+    
     /**
      * Regex to determine if a string contains a number.
      * @param text - String parameter.
