@@ -3,7 +3,7 @@
     Created on : Feb 23, 2013, 2:11:28 PM
     Author     : Paul Trott (ptrott)
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -17,19 +17,19 @@
         <!--[if lte IE 7]><link rel="stylesheet" href="css/style.ie7.css" media="screen" /><![endif]-->
 
     </head>
-    <body>
+     <body>
         <div id="main">
             <nav class="nav clearfix">
                 <ul class="hmenu">
                     <li><a href="index.jsp" >Home</a></li>
                     <li><a href="foods?foodType=fruits">Fruits</a></li>
-                    <li><a href="foods?foodType=vegetables">Vegetables</a></li>
+                    <li><a href="foods?foodType=vegetables" class="active">Vegetables</a></li>
                     <li><a href="foods?foodType=fruitveg">Fruit-Veggies</a></li>
                     <li><a href="#">Meats</a>
                         <ul>
                             <li><a href="foods?foodType=poultry">Poultry</a></li>
                             <li><a href="foods?foodType=fish">Fish</a></li>
-                            <li><a href="foods?foodType=wildgame"  class="active">Wild Game</a></li>
+                            <li><a href="foods?foodType=wildgame">Wild Game</a></li>
                             <li><a href="foods?foodType=redmeat">Red Meat</a></li>
                         </ul>
                     </li>
@@ -84,6 +84,7 @@
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
+
                                 </div>
                                 <div class="block clearfix">
                                     <div class="blockheader">
@@ -119,12 +120,12 @@
                                             <div class="content-layout layout-item-1">
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 " style="width: 100%" >
-                                                        <h1>Wild Favorites</h1>
+                                                        <h1>Yummy Vegetables</h1>
                                                         <ul>
                                                             <%--Code to get foodInfo to display foods on page--%>
                                                             <c:forEach items="${foodInfo}" var="food">
                                                                 <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
-                                                                <li>${food.getFoodDescription}</li>
+                                                                <li>${food.foodDescription}</li>
                                                                 <br>
                                                             </c:forEach>
                                                         </ul>

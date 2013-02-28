@@ -1,15 +1,16 @@
 <%-- 
-    Document   : vegetables page to display vegetable info.
-    Created on : Feb 23, 2013, 12:45:25 AM
+    Document   : vegetables jsp page to display vegetable types.
+    Created on : Feb 23, 2013, 2:11:28 PM
     Author     : Paul Trott (ptrott)
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Fruits - Health Benefits of Foods</title>
+        <title>Vegetables - Health Benefits of Foods</title>
         <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
 
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -84,6 +85,7 @@
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
+
                                 </div>
                                 <div class="block clearfix">
                                     <div class="blockheader">
@@ -124,7 +126,7 @@
                                                             <%--Code to get foodInfo to display foods on page--%>
                                                             <c:forEach items="${foodInfo}" var="food">
                                                                 <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
-                                                                <li>${food.getFoodDescription}</li>
+                                                                <li>${food.foodDescription}</li>
                                                                 <br>
                                                             </c:forEach>
                                                         </ul>
@@ -179,5 +181,3 @@
         <script src="js/script.responsive.js"></script> 
     </body>
 </html>
-
-

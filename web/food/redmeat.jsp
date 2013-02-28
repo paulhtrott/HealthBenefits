@@ -3,7 +3,7 @@
     Created on : Feb 23, 2013, 2:14:42 PM
     Author     : Paul Trott (ptrott)
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -124,7 +124,7 @@
                                                             <%--Code to get foodInfo to display foods on page--%>
                                                             <c:forEach items="${foodInfo}" var="food">
                                                                 <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
-                                                                <li>${food.getFoodDescription}</li>
+                                                                <li>${food.foodDescription}</li>
                                                                 <br>
                                                             </c:forEach>
                                                         </ul>
