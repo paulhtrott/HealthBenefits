@@ -52,17 +52,21 @@
         <servlet-name>GetFoodByTypeServlet</servlet-name>
         <servlet-class>FoodServlets.GetFoodByTypeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FindFoodServlet</servlet-name>
+        <servlet-class>FoodServlets.FindFoodServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
-        <url-pattern>/SignInServlet</url-pattern>
+        <url-pattern>/signin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
-        <url-pattern>/SignUpServlet</url-pattern>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignOutServlet</servlet-name>
-        <url-pattern>/SignOutServlet</url-pattern>
+        <url-pattern>/signout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddFoodServlet</servlet-name>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>GetFoodByTypeServlet</servlet-name>
         <url-pattern>/foods</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindFoodServlet</servlet-name>
+        <url-pattern>/searchresults</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
