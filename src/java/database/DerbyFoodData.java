@@ -386,8 +386,23 @@ public class DerbyFoodData {
         ResultSet queryResults = null;
         
         //String to hold query to database to find foods based on search string.
+        //Search term will be passed through as typed, plus with regex tests and
+        //upper, lower and trim case senarios, to return a better search result.
         String query = "SELECT FOODNAME, DESCRIPTION FROM FOOD"
-                + " WHERE FOODNAME LIKE '%" + search + "%' OR DESCRIPTION LIKE '%" + search + "%'";
+                + " WHERE FOODNAME LIKE '%" + search + "%' "
+                + "OR FOODNAME LIKE '%" + regex.Regex.replaceLowerCaseFirstLetter(search) + "%' "
+                + "OR FOODNAME LIKE '%" + regex.Regex.replaceUpperCaseFirstLetter(search) + "%' "
+                + "OR FOODNAME LIKE '%" + search.toLowerCase() + "%' "
+                + "OR FOODNAME LIKE '%" + search.toLowerCase() + "%' "
+                + "OR FOODNAME LIKE '%" + search.trim() + "%' "
+                + "OR FOODNAME LIKE '%" + regex.Regex.replaceSpacesWithNoSpaces(search) + "%' "
+                + "OR DESCRIPTION LIKE '%" + search + "%' "
+                + "OR DESCRIPTION LIKE '%" + regex.Regex.replaceLowerCaseFirstLetter(search) + "%' "
+                + "OR DESCRIPTION LIKE '%" + regex.Regex.replaceUpperCaseFirstLetter(search) + "%' "
+                + "OR DESCRIPTION LIKE '%" + search.toLowerCase() + "%' "
+                + "OR DESCRIPTION LIKE '%" + search.toLowerCase() + "%' "
+                + "OR DESCRIPTION LIKE '%" + search.trim() + "%' "
+                + "OR DESCRIPTION LIKE '%" + regex.Regex.replaceSpacesWithNoSpaces(search) + "%' ";
         
         try{
             //instantiate the prepared statement, pass in the query
