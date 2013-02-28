@@ -93,15 +93,14 @@
                                     </div>
                                     <div class="block clearfix">
                                         <div class="blockheader">
-                                            <h3 class="t">Search</h3>
+                                            <h3 class="t">Search For Food</h3>
                                         </div>
                                         <div class="blockcontent">
-                                            <p>
-                                                <input type="text" name="search">
-                                            </p>
-                                            <p style="margin-top: 5px">
-                                                <a href="#" class="button">Find</a>
-                                            </p>
+                                            <!--Search Website for Food-->
+                                            <form action="searchresults" method="get">
+                                                <input type="text" name="search" required>
+                                                <input type="submit" class="button" value="Find">
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="vmenublock clearfix">

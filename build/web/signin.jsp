@@ -36,7 +36,7 @@
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
-                                                            <form class="signinform" action="SignInServlet" method="get">
+                                                            <form class="signinform" action="signin" method="get">
                                                                 <%-- 
                                                                     Get Cookies to pre-fill username of sign-in form.
                                                                     Make user fill in password.
