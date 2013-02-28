@@ -35,7 +35,7 @@ public class GetFoodByTypeServlet extends HttpServlet {
         String foodType = request.getParameter("foodType");
         
         //Returning url location.
-        String url = "/" + foodType + ".jsp";
+        String url = "/food/" + foodType + ".jsp";
         
         //Instantiate an HTTPSession object
         HttpSession session = request.getSession();
