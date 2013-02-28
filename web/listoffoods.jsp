@@ -124,6 +124,9 @@
                                                     <div class="content-layout-row">
                                                         <div class="layout-cell layout-item-3 " style="width: 100%" >
                                                             <h2>Search Results</h2>
+                                                            <c:if test="${message != '' || message != null}">
+                                                                <p class="error">${message}</p>
+                                                            </c:if>
                                                             <ul>
                                                                 <%--Code to get foodInfo to display foods on page--%>
                                                                 <c:forEach items="${foods}" var="food">
