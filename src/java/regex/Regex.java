@@ -92,10 +92,10 @@ public class Regex {
     }
     
     /**
-     * Regex match replaces the first letter in a name with an upper case letter
-     * if first name begins with a lower case letter.
-     * @param text - name to be replaced with an upper case name.
-     * @return upperLetterName - a name with an upper case first letter.
+     * Regex match replaces the first letter in a text with an upper case letter
+     * if text parameter begins with a lower case letter.
+     * @param text - text to be replaced with an upper case name.
+     * @return upperLetterName - a text with an upper case first letter.
      */
     public static String replaceLowerCaseFirstLetter(String text){
         //Get the first character in the string.
@@ -108,9 +108,9 @@ public class Regex {
     
      /**
      * Regex match replaces the first letter in a name with an lower case letter
-     * if first name begins with a lower case letter.
-     * @param text - name to be replaced with an lower case name.
-     * @return lowerLetterName - a name with an lower case first letter.
+     * if text parameter begins with a upper case letter.
+     * @param text - text to be replaced with an lower case name.
+     * @return lowerLetterName - a text with an lower case first letter.
      */
     public static String replaceUpperCaseFirstLetter(String text){
         //Get the first character in the string.
