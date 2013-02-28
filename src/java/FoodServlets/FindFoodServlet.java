@@ -47,13 +47,24 @@ public class FindFoodServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         //List to hold database search the database.
-        List<FoodInfo> foodInfo = DerbyFoodData.searchFoods(foodSearch);
+        List<FoodInfo> foodInfo = null;
+
+        synchronized (session) {
+            foodInfo = DerbyFoodData.searchFoods(foodSearch);
+        }
 
         //if foodSearch is empty or foodInfo is empty return to a items not found page.
-        if (foodInfo == null) {
-            message = "Sorry, no foods found.";
-            session.setAttribute("message", message);
-            url = "/noproductsfound.jsp";
+        if (foodInfo.isEmpty()) {
+
+            //Set message to a session attribute.
+            synchronized (session) {
+                //Set error message
+                message = "Sorry, " + foodSearch + " was not found. Please try another search.";
+                session.setAttribute("message", message);
+            }
+
+            url = "/listoffoods.jsp";
+
         } else {
             //otherwise return to a list of foods page showing search results.
             synchronized (session) {
@@ -67,6 +78,7 @@ public class FindFoodServlet extends HttpServlet {
         dispatcher.forward(request, response);
 
         session.removeAttribute("message");
+        session.removeAttribute("foods");
 
     }
 
