@@ -2,6 +2,7 @@ package database;
 
 //Imports.
 import food.*;
+import food.information.FoodFullDetails;
 import food.information.FoodInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -365,26 +366,25 @@ public class DerbyFoodData {
             pool.freeConnection(connection);
         }
     }
-    
-    
+
     public static List<FoodInfo> searchFoods(String search) {
         //Instantiate a List Object to hole food Information
         List<FoodInfo> foodList = new ArrayList<FoodInfo>();
-        
+
         //Instantiate a FoodInfo object to hold food name and description.
         FoodInfo foodInfo;
         //Instantiate String objects to hold food name and description.
         String foodName;
         String foodDescription;
-        
+
         //Setup a Connection and a ConnectionPool
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
-        
+
         //Instantiate an object for a Statement and query ResultSet
         Statement statement = null;
         ResultSet queryResults = null;
-        
+
         //String to hold query to database to find foods based on search string.
         //Search term will be passed through as typed, plus with regex tests and
         //upper, lower and trim case senarios, to return a better search result.
@@ -403,17 +403,17 @@ public class DerbyFoodData {
                 + "OR DESCRIPTION LIKE '%" + search.toLowerCase() + "%' "
                 + "OR DESCRIPTION LIKE '%" + search.trim() + "%' "
                 + "OR DESCRIPTION LIKE '%" + regex.Regex.replaceSpacesWithNoSpaces(search) + "%' ";
-        
-        try{
+
+        try {
             //instantiate the prepared statement, pass in the query
             statement = connection.createStatement();
-            
+
             //Execute the query
             queryResults = statement.executeQuery(query);
-            
+
             //Iterate throught the results. Add the results in a list,
             //with name and description.
-            while(queryResults.next()){
+            while (queryResults.next()) {
                 //Store the food name
                 foodName = (String) queryResults.getString("FOODNAME");
                 //Store the food description
@@ -425,29 +425,78 @@ public class DerbyFoodData {
             }
             //Return the foodList
             return foodList;
-            
-        }catch(SQLException sqle){
+
+        } catch (SQLException sqle) {
             //Handle Exception
             sqle.printStackTrace();
             return null;
-        }finally {
+        } finally {
             //Close all database connections and result sets.
             DBUtil.closePreparedStatement(statement);
             DBUtil.closeResultSet(queryResults);
             //Close connection pool (free connection)
             pool.freeConnection(connection);
         }
-        
-        
+
+
+    }
+
+    public static FoodFullDetails getSelectedFood(String foodName) {
+        //Instantiate a ConnectionPool and Connection object
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+
+        //Instantiate a Statement and ResultSet object.
+        Statement statement = null;
+        ResultSet queryResult = null;
+
+        //Instantiate a FoodFullDetails object to hold food information
+        FoodFullDetails detailedFood = null;
+
+        //String to hold database query
+        String query = "SELECT FOODNAME, DESCRIPTION, CALORIES, CALORIESFROMFAT,"
+                + "SERVINGSIZE, PROTEIN, FAT, CARBS, SPECIFICFOODTYPE, MEASUREMENT"
+                + " FROM FOOD WHERE FOODNAME = " + foodName;
+
+        try {
+            //Instantiate Statement object and pass in statement and query to
+            //the ResultSet object
+            statement = connection.createStatement();
+            queryResult = statement.executeQuery(query);
+
+            //Store the results in the FoodFullDetails object.
+            detailedFood = new FoodFullDetails(
+                    (String) queryResult.getString("FOODNAME"), 
+                    (String) queryResult.getString("DESCRIPTION"), 
+                    (int) queryResult.getInt("CALORIES"),
+                    (int) queryResult.getInt("CALORIESFROMFAT"), 
+                    (double) queryResult.getDouble("SERVINGSIZE"),
+                    (double) queryResult.getDouble("PROTEIN"),
+                    (double) queryResult.getDouble("FAT"),
+                    (double) queryResult.getDouble("CARBS"),
+                    (String) queryResult.getString("SPECIFICFOODTYPE"), 
+                    (String) queryResult.getString("MEASUREMENT")
+                        );
+           
+            
+            //Return FoodFullDetails object
+            return detailedFood;
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return null;
+        } finally {
+            //Close and free connection, statement and ResultSet
+            pool.freeConnection(connection);
+            DBUtil.closeStatement(statement);
+            DBUtil.closeResultSet(queryResult);
+        }
+
+
+
     }
 
     public static String removeFood() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public static String showSelectedFood() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    
 }

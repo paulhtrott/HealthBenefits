@@ -124,7 +124,7 @@
                                                         <ul>
                                                             <%--Display all breads--%>
                                                             <c:forEach items="${foodInfo}" var="food">
-                                                                <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
+                                                                <li><h4><a href="fulldetails?food=${food.foodName}">${food.foodName}</a></h4></li>
                                                                 <li>${food.foodDescription}</li>
                                                                 <br>
                                                             </c:forEach>

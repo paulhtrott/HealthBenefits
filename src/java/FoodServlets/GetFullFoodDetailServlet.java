@@ -1,22 +1,20 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package FoodServlets;
 
+import food.information.FoodFullDetails;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * GetFullFoodDetailServlet returns a food items full details 
- * based on a clicked food item. Will return all details about a food
- * including Name, Description, Calories, Calories From Fat, Carbohydrates,
- * Protein, Fat, Serving Size, and Specific food information.
- * 
+ * GetFullFoodDetailServlet returns a food items full details based on a clicked
+ * food item. Will return all details about a food including Name, Description,
+ * Calories, Calories From Fat, Carbohydrates, Protein, Fat, Serving Size, and
+ * Specific food information. All information stored in Food Table.
+ *
  * @author Paul Trott (ptrott)
  */
 public class GetFullFoodDetailServlet extends HttpServlet {
@@ -33,21 +31,40 @@ public class GetFullFoodDetailServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GetFullFoodDetailServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GetFullFoodDetailServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
+
+        //Store the food name in a String object.
+        String foodName = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("food"));
+
+        //Instantiate FoodFullDetails object bean to hold all FoodFullDetail information.
+        FoodFullDetails food = null;
+        
+        //String to hold returning url
+        String url;
+
+        //Instantiate a session object
+        HttpSession session = request.getSession();
+
+        synchronized (session) {
+            //Get food item out of database based on food name.
+            //Store returned food information in FoodFullDetails object.
+            food = (FoodFullDetails) database.DerbyFoodData.getSelectedFood(foodName);
         }
+
+        //Be sure food has a value stored before running 
+        if (food == null) {
+            //return to an error page.
+            url = "/index.jsp";
+        } else {
+            //Set FoodFullDetails object in a session
+            synchronized(session){
+                session.setAttribute("food", food);
+            }
+            //return to details.jsp page
+            url = "/details.jsp";
+        }
+
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
