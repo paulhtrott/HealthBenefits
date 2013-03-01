@@ -56,6 +56,10 @@
         <servlet-name>FindFoodServlet</servlet-name>
         <servlet-class>FoodServlets.FindFoodServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetFullFoodDetailServlet</servlet-name>
+        <servlet-class>FoodServlets.GetFullFoodDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>FindFoodServlet</servlet-name>
         <url-pattern>/searchresults</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetFullFoodDetailServlet</servlet-name>
+        <url-pattern>/fulldetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
