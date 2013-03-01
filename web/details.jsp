@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Food Details - Health Benefits of Foods</title>
         <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
@@ -119,50 +119,47 @@
                                         <div class="content-layout-wrapper layout-item-0">
                                             <div class="content-layout layout-item-1">
                                                 <div class="content-layout-row">
-                                                     <div class="layout-cell layout-item-3" style="width: 70%" >
+                                                    <div class="layout-cell layout-item-3" style="width: 70%" >
                                                         <h1>${food.foodName}</h1>
                                                         <p>${food.description}</p>
                                                     </div>
                                                     <div class="layout-cell layout-item-2" style="width: 30%" >
                                                         <h2>Nutritional Facts</h2>
                                                         <%--Choice based on the value of specificFoodType--%>
-                                                            <c:choose>
-                                                                <c:when test="${food.specificFoodType != null}">
-                                                                    <h6>${food.foodName}&nbsp;&#124;&nbsp;${food.specificFoodType}</h6>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <h6>${food.foodName}</h6>
-                                                                </c:otherwise>
-                                                            </c:choose>
+                                                        <c:choose>
+                                                            <c:when test="${food.specificFoodType != 'null'}">
+                                                                <h6>${food.foodName}&nbsp;&#124;&nbsp;${food.specificFoodType}</h6>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <h6>${food.foodName}</h6>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                         <table>
                                                             <tr>
                                                                 <td><h5>Serving Size</h5></td>
                                                                 <td><h5>${food.servingSize}&nbsp;${food.measurement}</h5></td>
                                                             </tr>
+                                                            <tr class="alt">
+                                                                <td><h5>Calories</h5></td>
+                                                                <td><h5>${food.calories}</h5></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><h5>Calories from fat</h5></td>
+                                                                <td><h5>${food.caloriesFromFat}</h5></td>
+                                                            </tr>
+                                                            <tr class="alt">
+                                                                <td><h5>Total fat</h5></td>
+                                                                <td><h5>${food.fat}&nbsp;g</h5></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><h5>Total carbs</h5></td>
+                                                                <td><h5>${food.carbs}&nbsp;g</h5></td>
+                                                            </tr>
+                                                            <tr class="alt">
+                                                                <td><h5>Protein</h5></td>
+                                                                <td><h5>${food.protein}&nbsp;g</h5></td>
+                                                            </tr>
                                                         </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content-layout-wrapper layout-item-0">
-                                            <div class="content-layout layout-item-1">
-                                                <div class="content-layout-row">
-                                                    <div class="layout-cell layout-item-2" style="width: 50%" >
-                                                        <h3>Watermelon</h3>
-                                                        <p>
-                                                            This wonderful summer time treat is a fabulous aid for weight loss, 
-                                                            lowering cholesterol, avoiding strokes and controlling your blood 
-                                                            pressure. <em>So eat up</em>!
-                                                        </p>
-                                                    </div>
-                                                    <div class="layout-cell layout-item-2" style="width: 50%" >
-                                                        <h3>Raw Foodism</h3>
-                                                        <p>
-                                                            The fundamental principle behind raw foodism 
-                                                            is that plant foods in their most natural state &mdash; not cooked and 
-                                                            not processed &mdash; are the most wholesome for the body. The raw food 
-                                                            diet is a <em>lifestyle choice</em>, not a weight loss plan.
-                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
