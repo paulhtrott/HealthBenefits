@@ -1,8 +1,10 @@
 package FoodServlets;
 
+import database.DerbyFoodData;
 import food.information.FoodFullDetails;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +38,7 @@ public class GetFullFoodDetailServlet extends HttpServlet {
         String foodName = org.apache.commons.lang3.StringEscapeUtils.escapeHtml4(request.getParameter("food"));
 
         //Instantiate FoodFullDetails object bean to hold all FoodFullDetail information.
-        FoodFullDetails food = null;
+        FoodFullDetails food;
         
         //String to hold returning url
         String url;
@@ -44,10 +46,11 @@ public class GetFullFoodDetailServlet extends HttpServlet {
         //Instantiate a session object
         HttpSession session = request.getSession();
 
+        //Synchronize request.
         synchronized (session) {
             //Get food item out of database based on food name.
             //Store returned food information in FoodFullDetails object.
-            food = (FoodFullDetails) database.DerbyFoodData.getSelectedFood(foodName);
+            food = (FoodFullDetails) DerbyFoodData.getSelectedFood(foodName);
         }
 
         //Be sure food has a value stored before running 
@@ -63,6 +66,8 @@ public class GetFullFoodDetailServlet extends HttpServlet {
             url = "/details.jsp";
         }
 
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 
 
     }
