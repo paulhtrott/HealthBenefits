@@ -58,7 +58,9 @@ public class SignUpServlet extends HttpServlet {
         String cookiePath = "/";
 
         //Has and salt password before it is entered in the database.
-        String hashed_pw = BCrypt.hashpw(password, BCrypt.gensalt(14));
+        //Random number for Salt.
+        int randSaltNum = (int) (Math.random() * (31 - 4)) + 4;
+        String hashed_pw = BCrypt.hashpw(password, BCrypt.gensalt(randSaltNum));
 
         //Get a session object to store some user information in.
         HttpSession session = request.getSession();
