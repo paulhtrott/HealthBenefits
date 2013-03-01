@@ -2243,6 +2243,7 @@ img.lightbox-image.active
     border-right-color:#D4D4D4;
     border-bottom-color:#D4D4D4;
     border-left-color:#D4D4D4;
+    padding-bottom: 15px;
     padding-right: 10px;
     padding-left: 10px;
     border-radius: 5px;
@@ -2285,6 +2286,15 @@ img.lightbox-image.active
     width:180px;
     height:91px;
     overflow:auto;
+}
+
+table {
+    width:100%;
+    border: none;
+}
+
+table tr.alt td{
+    background-color: #a3e6bd;
 }
 
 /* End Additional CSS Styles */
