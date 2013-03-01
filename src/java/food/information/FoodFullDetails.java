@@ -187,7 +187,7 @@ public class FoodFullDetails {
      * Sets carbs to a double value formatted to two decimal places.
      * @param carbs 
      */
-    public void setCarbs(double carbs) {
+    public final void setCarbs(double carbs) {
         //Set carbs to a formatted double with two decimal places.
         DecimalFormat df = new DecimalFormat("#.00");
         this.carbs = Double.parseDouble(df.format(carbs));
@@ -227,13 +227,13 @@ public class FoodFullDetails {
     public final void setMeasurement(String measurement) {
         //Set measurement based on serving size, for better wording.
         //Remove 's' when necessary.
-        if(servingSize <= 1 && measurement.compareTo("cups") == 0){
+        if(servingSize == 1 && measurement.compareTo("cups") == 0){
             this.measurement = "cup";
-        } else if(servingSize <= 1 && measurement.compareTo("ounces") == 0){
+        } else if(servingSize == 1 && measurement.compareTo("ounces") == 0){
             this.measurement = "ounce";
         }else if(servingSize == 1 && measurement.compareTo("grams") == 0){
             this.measurement = "gram";
-        } else if(servingSize <= 1 && measurement.compareTo("tablespoons") == 0){
+        } else if(servingSize == 1 && measurement.compareTo("tablespoons") == 0){
             this.measurement = "tablespoon";
         }
         else {
