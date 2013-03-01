@@ -3,7 +3,7 @@
     Created on : Feb 28, 2013, 12:40:58 PM
     Author     : Paul Trott (ptrott)
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -119,18 +119,27 @@
                                         <div class="content-layout-wrapper layout-item-0">
                                             <div class="content-layout layout-item-1">
                                                 <div class="content-layout-row">
-                                                    <div class="layout-cell layout-item-3 " style="width: 100%" >
-                                                        <h2>Search Results</h2>
-                                                        <c:if test="${message != '' || message != null}">
-                                                            <p class="error">${message}</p>
-                                                        </c:if>
-                                                        <ul>
-                                                            <%--Code to get foodInfo to display foods on page--%>
-                                                            <c:forEach items="${foods}" var="food">
-                                                                <li><h4><a param="${food.foodName}">${food.foodName}</a></h4></li>
-                                                                <li>${food.foodDescription}</li><br>
-                                                            </c:forEach>
-                                                        </ul>
+                                                     <div class="layout-cell layout-item-3" style="width: 70%" >
+                                                        <h1>${food.foodName}</h1>
+                                                        <p>${food.description}</p>
+                                                    </div>
+                                                    <div class="layout-cell layout-item-2" style="width: 30%" >
+                                                        <h2>Nutritional Facts</h2>
+                                                        <%--Choice based on the value of specificFoodType--%>
+                                                            <c:choose>
+                                                                <c:when test="${food.specificFoodType != null}">
+                                                                    <h6>${food.foodName}&nbsp;&#124;&nbsp;${food.specificFoodType}</h6>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <h6>${food.foodName}</h6>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        <table>
+                                                            <tr>
+                                                                <td><h5>Serving Size</h5></td>
+                                                                <td><h5>${food.servingSize}&nbsp;${food.measurement}</h5></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
