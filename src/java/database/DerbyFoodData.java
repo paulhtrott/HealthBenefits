@@ -450,37 +450,38 @@ public class DerbyFoodData {
         Statement statement = null;
         ResultSet queryResult = null;
 
-        //Instantiate a FoodFullDetails object to hold food information
-        FoodFullDetails detailedFood = null;
-
         //String to hold database query
         String query = "SELECT FOODNAME, DESCRIPTION, CALORIES, CALORIESFROMFAT,"
                 + "SERVINGSIZE, PROTEIN, FAT, CARBS, SPECIFICFOODTYPE, MEASUREMENT"
-                + " FROM FOOD WHERE FOODNAME = " + foodName;
+                + " FROM FOOD WHERE FOODNAME = '" + foodName + "'";
 
         try {
+            //Instantiate a FoodFullDetails object to hold food information
+            FoodFullDetails detailedFood = null;
             //Instantiate Statement object and pass in statement and query to
             //the ResultSet object
             statement = connection.createStatement();
             queryResult = statement.executeQuery(query);
 
-            //Store the results in the FoodFullDetails object.
-            detailedFood = new FoodFullDetails(
-                    (String) queryResult.getString("FOODNAME"), 
-                    (String) queryResult.getString("DESCRIPTION"), 
-                    (int) queryResult.getInt("CALORIES"),
-                    (int) queryResult.getInt("CALORIESFROMFAT"), 
-                    (double) queryResult.getDouble("SERVINGSIZE"),
-                    (double) queryResult.getDouble("PROTEIN"),
-                    (double) queryResult.getDouble("FAT"),
-                    (double) queryResult.getDouble("CARBS"),
-                    (String) queryResult.getString("SPECIFICFOODTYPE"), 
-                    (String) queryResult.getString("MEASUREMENT")
-                        );
-           
-            
+            while (queryResult.next()) {
+                //Store the results in the FoodFullDetails object.
+                detailedFood = new FoodFullDetails(
+                        (String) queryResult.getString("FOODNAME"),
+                        (String) queryResult.getString("DESCRIPTION"),
+                        (int) queryResult.getInt("CALORIES"),
+                        (int) queryResult.getInt("CALORIESFROMFAT"),
+                        (double) queryResult.getDouble("SERVINGSIZE"),
+                        (double) queryResult.getDouble("PROTEIN"),
+                        (double) queryResult.getDouble("FAT"),
+                        (double) queryResult.getDouble("CARBS"),
+                        (String) queryResult.getString("SPECIFICFOODTYPE"),
+                        (String) queryResult.getString("MEASUREMENT"));
+
+
+            }
             //Return FoodFullDetails object
             return detailedFood;
+
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
