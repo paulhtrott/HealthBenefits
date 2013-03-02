@@ -39,6 +39,8 @@
         <description>Add Food to the database from admin section.</description>
         <servlet-name>AddFoodServlet</servlet-name>
         <servlet-class>FoodServlets.AddFoodServlet</servlet-class>
+        <servlet-name>InformationForAddingFoodServlet</servlet-name>
+        <servlet-class>FoodServlets.InformationForAddingFoodServlet</servlet-class>
         <run-as>
             <role-name>Admin</role-name>
         </run-as>
@@ -74,7 +76,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddFoodServlet</servlet-name>
-        <url-pattern>/admin/AddFoodServlet</url-pattern>
+        <url-pattern>/admin/addFood</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetFoodByTypeServlet</servlet-name>
@@ -87,6 +89,10 @@
     <servlet-mapping>
         <servlet-name>GetFullFoodDetailServlet</servlet-name>
         <url-pattern>/fulldetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationForAddingFoodServlet</servlet-name>
+        <url-pattern>/admin/enterfood</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
