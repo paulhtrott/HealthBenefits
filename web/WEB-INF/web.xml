@@ -39,6 +39,17 @@
         <description>Add Food to the database from admin section.</description>
         <servlet-name>AddFoodServlet</servlet-name>
         <servlet-class>FoodServlets.AddFoodServlet</servlet-class>
+        
+        <run-as>
+            <role-name>Admin</role-name>
+        </run-as>
+        <security-role-ref>
+            <description/>
+            <role-name>Admin</role-name>
+            <role-link>Admin</role-link>
+        </security-role-ref>
+    </servlet>
+    <servlet>
         <servlet-name>InformationForAddingFoodServlet</servlet-name>
         <servlet-class>FoodServlets.InformationForAddingFoodServlet</servlet-class>
         <run-as>
@@ -50,10 +61,13 @@
             <role-link>Admin</role-link>
         </security-role-ref>
     </servlet>
+    
+    <!--Regular area servlets-->
     <servlet>
         <servlet-name>GetFoodByTypeServlet</servlet-name>
         <servlet-class>FoodServlets.GetFoodByTypeServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>FindFoodServlet</servlet-name>
         <servlet-class>FoodServlets.FindFoodServlet</servlet-class>
