@@ -146,7 +146,7 @@ public class DerbyFoodData {
      *
      * @return
      */
-    public static Iterator<String> getFoodByType() {
+    public static List<String> getFoodByType() {
         //List object to hold Food Type list.
         List<String> foodTypesList = new ArrayList<String>();
         //To hold individual food items as they are read out of the database.
@@ -179,7 +179,7 @@ public class DerbyFoodData {
             //display foodList in name sorted order.
             Collections.sort(foodTypesList);
             // get the iterator from the set.
-            return foodTypesList.iterator();
+            return foodTypesList;
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -198,9 +198,9 @@ public class DerbyFoodData {
      * getFoodNames will get a list of food names that are entered in the
      * database.
      *
-     * @return Iterator of a list of foods in the database.
+     * @return List of foods in the database.
      */
-    public static Iterator<String> getFoodNames() {
+    public static List<String> getFoodNames() {
         //Get a connection to a connection pool to connect to a DB.
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -233,7 +233,7 @@ public class DerbyFoodData {
 
             }
             //return the iterator.
-            return foodNamesList.iterator();
+            return foodNamesList;
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
