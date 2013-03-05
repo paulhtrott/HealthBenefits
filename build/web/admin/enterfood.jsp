@@ -3,10 +3,11 @@
     Created on : Feb 9, 2013, 12:22:21 AM
     Author     : Paul Trott (ptrott)
 --%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- import of packages needed for the enterfood page --%>
 
-<%@page import="database.DerbyFoodData, java.util.Iterator" 
-        contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -51,22 +52,14 @@
                                         <ul>
                                             <%--
                                                 Get a list of already entered items from database,
-                                                and display the to the admin in a scrollable text box
+                                                and display them to the admin in a scrollable text box
                                             --%>
-                                            <%
-                                                if (DerbyFoodData.getFoodNames() != null) {
-                                                    //Instantiate an iterator
-                                                    Iterator it = DerbyFoodData.getFoodNames();
-                                                    //Add list items to the HTML list.
-                                                    while (it.hasNext()) {
-                                                        String foodEntered = (String) it.next();
-                                                        out.print("<li>" + foodEntered + "</li>");
-                                                    }
-
-                                                }
-                                            %>
+                                            <c:forEach items="${addedFoods}" var="addedFoods">
+                                                <li>${addedFoods}</li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
+                                            <p><a href="enterfood">refresh list</a></p>
                                 </div>
                             </div>
                             <div class="layout-cell content clearfix">
@@ -77,35 +70,20 @@
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
-                                                            <form class="signinform" action="AddFoodServlet" method="get">
+                                                            <form class="signinform" action="addFood" method="post">
                                                                 <%-- Gets the message from the Signup Servlet Attribute --%>
                                                                 <%-- If message equals null enter nothing, other null will be displayed --%>
-                                                                <%
-                                                                    String message = (String) session.getAttribute("message");
-                                                                    String foodName = (String) session.getAttribute("foodName");
-                                                                    if (message == null && foodName == null) {
-                                                                        message = "";
-                                                                        foodName = "";
-                                                                    }
-                                                                %>
-                                                                <p class="error"><%= foodName %> <%= message%></p>
+                                                                <c:if test="${message != null && foodName != null}">
+                                                                    <p class="error">${foodName}&nbsp;${message}</p>
+                                                                </c:if>
+
                                                                 <h1>Enter a new Food</h1>
                                                                 <h4>Choose Food:</h4>
                                                                 <%--Code to Get a List of food from the DB for the drop down menu--%>
                                                                 <select name="foodType">
-                                                                    <%
-                                                                        if (DerbyFoodData.getFoodByType() != null) {
-
-                                                                            // Create an iterator to get a list of food items	
-                                                                            Iterator it = DerbyFoodData.getFoodByType();
-
-                                                                            //Fill in form with database data of food types.
-                                                                            while (it.hasNext()) {
-                                                                                String currentName = (String) it.next();
-                                                                                out.println("<option value=" + currentName + ">" + currentName + "</option>)");
-                                                                            }
-                                                                        }
-                                                                    %>
+                                                                    <c:forEach items="${foodTypes}" var="foodTypes">
+                                                                        <option value="${foodTypes}"> ${foodTypes}</option>)
+                                                                    </c:forEach>
                                                                 </select>
 
                                                                 <!-- Enter a food name -->
@@ -149,7 +127,7 @@
                                                                     <option value="cups">cup</option>
                                                                     <option value="ounces">ounce</option>
                                                                     <option value="grams">gram</option>
-                                                                    <option value="grams">tablespoon</option>
+                                                                    <option value="tablespoon">tablespoon</option>
                                                                 </select>
 
                                                                 <!-- Enter value for carbs-->

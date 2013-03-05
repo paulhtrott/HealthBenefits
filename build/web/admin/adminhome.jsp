@@ -60,24 +60,24 @@
                                                 <div class="content-layout-row">
                                                     <div class="layout-cell layout-item-3 ">
                                                         <div id="centerForm">
-                                                            <a href="enterfood.jsp" class="button">
+                                                            <a href="enterfood" class="button">
                                                                 Enter a new food
                                                             </a>
                                                             &nbsp;
-                                                            <a href="editfood.jsp" class="button">
+                                                            <a href="#" class="button">
                                                                 Edit a food
                                                             </a>
                                                             &nbsp;
-                                                            <a href="allfood.jsp" class="button">
+                                                            <a href="#" class="button">
                                                                 See all food
                                                             </a>
                                                             &nbsp;
                                                             <br><br>
-                                                            <a href="users.jsp" class="button">
+                                                            <a href="#" class="button">
                                                                 See all users
                                                             </a>
                                                             &nbsp;
-                                                            <a href="addSubAdmin.jsp" class="button">
+                                                            <a href="#" class="button">
                                                                 Add SubAdmin user
                                                             </a>
                                                             

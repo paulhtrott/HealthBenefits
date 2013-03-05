@@ -39,6 +39,7 @@
         <description>Add Food to the database from admin section.</description>
         <servlet-name>AddFoodServlet</servlet-name>
         <servlet-class>FoodServlets.AddFoodServlet</servlet-class>
+        
         <run-as>
             <role-name>Admin</role-name>
         </run-as>
@@ -49,9 +50,24 @@
         </security-role-ref>
     </servlet>
     <servlet>
+        <servlet-name>InformationForAddingFoodServlet</servlet-name>
+        <servlet-class>FoodServlets.InformationForAddingFoodServlet</servlet-class>
+        <run-as>
+            <role-name>Admin</role-name>
+        </run-as>
+        <security-role-ref>
+            <description/>
+            <role-name>Admin</role-name>
+            <role-link>Admin</role-link>
+        </security-role-ref>
+    </servlet>
+    
+    <!--Regular area servlets-->
+    <servlet>
         <servlet-name>GetFoodByTypeServlet</servlet-name>
         <servlet-class>FoodServlets.GetFoodByTypeServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>FindFoodServlet</servlet-name>
         <servlet-class>FoodServlets.FindFoodServlet</servlet-class>
@@ -74,7 +90,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddFoodServlet</servlet-name>
-        <url-pattern>/admin/AddFoodServlet</url-pattern>
+        <url-pattern>/admin/addFood</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetFoodByTypeServlet</servlet-name>
@@ -87,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>GetFullFoodDetailServlet</servlet-name>
         <url-pattern>/fulldetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationForAddingFoodServlet</servlet-name>
+        <url-pattern>/admin/enterfood</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
